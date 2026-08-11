@@ -10,7 +10,6 @@ import { observer } from 'mobx-react';
 import Link from 'next/link';
 
 import {
-  CHARLES_BLUE,
   MEDIA_SMALL,
   OPTIMISTIC_BLUE_DARK,
   ProgressBar,
@@ -34,6 +33,10 @@ import CertifiedMail from '../../models/CertifiedMail';
 import CardType, { CARDTYPE } from '../../models/CardType';
 
 import CertMailTracking from '../../common/CertMailTracking';
+import {
+  DEATH_APP_TITLE_STYLING,
+  DEATH_PAGE_TITLE_STYLING,
+} from '../deathFlowTitles';
 
 export type PageDependenciesProps = Pick<
   PageDependencies,
@@ -50,6 +53,7 @@ type State = {
   certMail: CertifiedMail | null;
   cardType: CardType | null;
   ready: boolean;
+  serviceFeeError: string | null;
 };
 
 interface Props extends PageDependenciesProps {
@@ -63,6 +67,7 @@ class CartPage extends React.Component<Props, State> {
     certMail: this.props.certifiedMailForTest || null,
     cardType: this.props.cardTypeForTest || null,
     ready: false,
+    serviceFeeError: null,
   };
 
   // When we leave the cart page, remove everything that's 0-size.
@@ -82,6 +87,10 @@ class CartPage extends React.Component<Props, State> {
     const certMail = await certMailProvider.get();
     const cardType = await cardTypeProvider.get();
 
+    // Order details always starts with an unset service fee so the user must
+    // explicitly choose credit or debit before checkout.
+    cardType.updateCardType({ cardType: '-1' });
+
     await new Promise((resolve: any) => {
       this.setState({ certMail, cardType, ready: true }, resolve);
     });
@@ -91,10 +100,34 @@ class CartPage extends React.Component<Props, State> {
     Router.back();
   };
 
+  private handleContinueToCheckout = () => {
+    const { cardType } = this.state;
+    const selected =
+      cardType && cardType.cardTypeInfo
+        ? cardType.cardTypeInfo.cardType
+        : '-1';
+
+    if (selected === '-1') {
+      this.setState({ serviceFeeError: 'Please select a service fee option.' }, () => {
+        window.requestAnimationFrame(() => {
+          const el = document.getElementById('ServiceFeeTypeSelect');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.focus();
+          }
+        });
+      });
+      return;
+    }
+
+    this.setState({ serviceFeeError: null });
+    Router.push('/death/checkout');
+  };
+
   render() {
     const { deathCertificateCart, siteAnalytics } = this.props;
     const loading = !!deathCertificateCart.entries.find(({ cert }) => !cert);
-    const { certMail, cardType, ready } = this.state;
+    const { certMail, cardType, ready, serviceFeeError } = this.state;
 
     const certMailHandler = () => {
       const { certMail } = this.state;
@@ -114,12 +147,17 @@ class CartPage extends React.Component<Props, State> {
           cardType: type,
         });
       }
+
+      if (type !== '-1') {
+        this.setState({ serviceFeeError: null });
+      }
     };
 
-    let card_type =
-      cardType && cardType.cardTypeInfo && cardType.cardTypeInfo.cardType
-        ? cardType && cardType.cardTypeInfo.cardType
-        : '-1';
+    let card_type: CARDTYPE =
+      (cardType &&
+        cardType.cardTypeInfo &&
+        cardType.cardTypeInfo.cardType) ||
+      '-1';
 
     return (
       <PageLayout
@@ -133,7 +171,7 @@ class CartPage extends React.Component<Props, State> {
           </Head>
 
           <div css={PAGE_STYLING} className="b-ff b-c b-c--nbp">
-            <h1 css={PAGE_TITLE_STYLING}>Request a death certificate</h1>
+            <h1 css={DEATH_APP_TITLE_STYLING}>Request a death certificate</h1>
 
             <div css={PROGRESS_WRAP_STYLING}>
               <ProgressBar
@@ -143,7 +181,7 @@ class CartPage extends React.Component<Props, State> {
               />
             </div>
 
-            <h2 css={SECTION_TITLE_STYLING}>Order details</h2>
+            <h2 css={DEATH_PAGE_TITLE_STYLING}>Order details</h2>
 
             <div css={ITEMS_LIST_STYLING}>
               {deathCertificateCart.entries.map((entry, i) => (
@@ -193,6 +231,7 @@ class CartPage extends React.Component<Props, State> {
                   certificateQuantity={deathCertificateCart.size}
                   newServiceFeeType={card_type}
                   setCardType={cardTypeChangeHandler}
+                  serviceFeeError={serviceFeeError}
                   tracking={certifiedMailTrackingInUI(
                     !!(
                       this.state.certMail &&
@@ -205,7 +244,7 @@ class CartPage extends React.Component<Props, State> {
 
             <div css={ADD_ANOTHER_WRAP_STYLING}>
               <Link href="/death">
-                <a css={ADD_ANOTHER_STYLING}>
+                <a href="/death" css={ADD_ANOTHER_STYLING}>
                   <img
                     src="/assets/images/death-plus-circle.svg"
                     alt=""
@@ -226,14 +265,14 @@ class CartPage extends React.Component<Props, State> {
                 >
                   Back
                 </button>
-                <Link
-                  href="/death/checkout"
-                  prefetch={process.env.NODE_ENV !== 'test'}
+                <button
+                  type="button"
+                  className="btn"
+                  css={PRIMARY_BUTTON_STYLING}
+                  onClick={this.handleContinueToCheckout}
                 >
-                  <a className="btn" css={PRIMARY_BUTTON_STYLING}>
-                    Continue to check out
-                  </a>
-                </Link>
+                  Continue to check out
+                </button>
               </div>
             )}
           </div>
@@ -251,28 +290,8 @@ const PAGE_STYLING = css({
   maxWidth: '45rem',
 });
 
-const PAGE_TITLE_STYLING = css({
-  fontFamily: SANS,
-  fontWeight: 700,
-  fontSize: '2rem',
-  lineHeight: 1.2,
-  textTransform: 'uppercase',
-  color: CHARLES_BLUE,
-  margin: '0 0 1.5rem',
-});
-
 const PROGRESS_WRAP_STYLING = css({
   marginBottom: '2rem',
-});
-
-const SECTION_TITLE_STYLING = css({
-  fontFamily: SANS,
-  fontWeight: 700,
-  fontSize: '1.875rem',
-  lineHeight: 1.2,
-  textTransform: 'uppercase',
-  color: CHARLES_BLUE,
-  margin: '0 0 1.5rem',
 });
 
 const ITEMS_LIST_STYLING = css({
@@ -318,6 +337,15 @@ const ADD_ANOTHER_STYLING = css({
   '&:hover, &:focus': {
     backgroundColor: '#f3f3f3',
   },
+
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
+  },
 });
 
 const BUTTON_ROW_STYLING = css({
@@ -351,6 +379,15 @@ const SECONDARY_BUTTON_STYLING = css({
   '&:hover, &:focus': {
     background: '#f3f3f3',
   },
+
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
+  },
 });
 
 const PRIMARY_BUTTON_STYLING = css({
@@ -363,4 +400,14 @@ const PRIMARY_BUTTON_STYLING = css({
   fontWeight: 700,
   textAlign: 'center',
   textDecoration: 'none',
+  cursor: 'pointer',
+
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
+  },
 });

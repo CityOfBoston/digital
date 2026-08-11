@@ -7,9 +7,7 @@ import { ReactElement, ReactNode } from 'react';
 import Head from 'next/head';
 
 import {
-  CHARLES_BLUE,
   ProgressBar,
-  SANS,
 } from '@cityofboston/react-fleet';
 
 import { capitalize } from '../../../lib/helpers';
@@ -22,6 +20,10 @@ import PageWrapper from '../../PageWrapper';
 import { ProgressProps } from '../../../lib/interfaces';
 
 import { SECTION_HEADING_STYLING } from '../question-components/styling';
+import {
+  DEATH_APP_TITLE_STYLING,
+  DEATH_PAGE_TITLE_STYLING as DEATH_STEP_TITLE_STYLING,
+} from '../../death/deathFlowTitles';
 
 type Props = {
   certificateType: CertificateType;
@@ -83,7 +85,7 @@ export default function CheckoutPageLayout({
         >
           {useDeathFlowChrome ? (
             <>
-              <h1 css={DEATH_PAGE_TITLE_STYLING}>
+              <h1 css={DEATH_APP_TITLE_STYLING}>
                 {pageTitle || 'Request a death certificate'}
               </h1>
 
@@ -98,7 +100,7 @@ export default function CheckoutPageLayout({
               )}
 
               {(sectionTitle || title) && (
-                <h2 css={DEATH_SECTION_TITLE_STYLING}>
+                <h2 css={DEATH_STEP_TITLE_STYLING}>
                   {sectionTitle || title}
                 </h2>
               )}
@@ -136,26 +138,6 @@ const DEATH_PAGE_STYLING = css({
   maxWidth: '45rem',
 });
 
-const DEATH_PAGE_TITLE_STYLING = css({
-  fontFamily: SANS,
-  fontWeight: 700,
-  fontSize: '2rem',
-  lineHeight: 1.2,
-  textTransform: 'uppercase',
-  color: CHARLES_BLUE,
-  margin: '0 0 1.5rem',
-});
-
 const DEATH_PROGRESS_WRAP_STYLING = css({
   marginBottom: '2rem',
-});
-
-const DEATH_SECTION_TITLE_STYLING = css({
-  fontFamily: SANS,
-  fontWeight: 700,
-  fontSize: '1.875rem',
-  lineHeight: 1.2,
-  textTransform: 'uppercase',
-  color: CHARLES_BLUE,
-  margin: '0 0 1.5rem',
 });

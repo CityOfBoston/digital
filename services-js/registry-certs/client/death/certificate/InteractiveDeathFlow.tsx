@@ -422,7 +422,7 @@ export default class InteractiveDeathFlow extends Component<
       certMailForDeath: !!props.certifiedMail,
     });
     this.cardType = new CardType({
-      cardType: props.cardType || '1',
+      cardType: props.cardType || '-1',
     });
     this.certMailProvider = {
       get: () => Promise.resolve(this.certMail),

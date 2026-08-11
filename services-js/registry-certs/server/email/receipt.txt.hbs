@@ -23,12 +23,13 @@ Your order:
   Total  {{formatCents total}}
 
 {{#each belowOrderText}}
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
-
 {{#wrap}}{{plainText .}}{{/wrap}}
 
 {{/each}}
+{{#if certifiedMail}}
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
+
+{{/if}}
 {{#wrap}}* You are charged an extra service fee of not more than {{formatCents fixedFee}} plus {{formatPercentage percentageFee}}. This fee goes directly to a third party to pay for the cost of card processing. Learn more about card service fees at the City of Boston. [{{serviceFeeUri}}]
 
 Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at 617-635-4175, or email {{registryEmail}}.{{/wrap}}

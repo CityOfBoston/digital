@@ -39471,6 +39471,76 @@ Array [
   color: #d22d23;
 }
 
+.emotion-12 {
+  max-width: 45rem;
+}
+
+.emotion-2 {
+  font-family: Montserrat,Arial,sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #091f2f;
+  margin: 0 0 1.5rem;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-2 {
+    font-size: 20px;
+  }
+}
+
+.emotion-4 {
+  margin-bottom: 2rem;
+}
+
+.emotion-3 progress {
+  margin: 1rem 0 0.25rem;
+  width: 100%;
+  height: 1rem;
+  border: 2px solid #091f2f;
+  background-color: #fff;
+}
+
+.emotion-3 progress::-webkit-progress-bar {
+  background-color: #fff;
+}
+
+.emotion-3 progress::-webkit-progress-value {
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+  background-color: #288be4;
+}
+
+.emotion-3 progress::-moz-progress-bar {
+  background-color: #288be4;
+}
+
+.emotion-3 progress::-ms-fill {
+  background-color: #288be4;
+}
+
+.emotion-3 span {
+  font-style: italic;
+}
+
+.emotion-5 {
+  font-family: Montserrat,Arial,sans-serif;
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #091f2f;
+  margin: 0 0 1.5rem;
+}
+
+@media screen and (max-width:480px) {
+  .emotion-5 {
+    font-size: 24px;
+  }
+}
+
 .emotion-6 {
   width: 100%;
   background: #e0e0e0;
@@ -39612,6 +39682,7 @@ Array [
   font-size: 24px;
   font-family: Montserrat,Arial,sans-serif;
   font-weight: 700;
+  line-height: 29px;
   margin-bottom: 1.75rem;
 }
 
@@ -39622,62 +39693,96 @@ Array [
   font-weight: 700;
 }
 
-.emotion-3 progress {
-  margin: 1rem 0 0.25rem;
-  width: 100%;
-  height: 1rem;
-  border: 2px solid #091f2f;
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-bar {
-  background-color: #fff;
-}
-
-.emotion-3 progress::-webkit-progress-value {
-  -webkit-transition: width 0.5s;
-  transition: width 0.5s;
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-moz-progress-bar {
-  background-color: #288be4;
-}
-
-.emotion-3 progress::-ms-fill {
-  background-color: #288be4;
-}
-
-.emotion-3 span {
-  font-style: italic;
-}
-
-.emotion-9 {
-  max-width: 45rem;
-}
-
-.emotion-2 {
-  font-family: Montserrat,Arial,sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: #091f2f;
-  margin: 0 0 1.5rem;
-}
-
-.emotion-4 {
+.emotion-11 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.emotion-5 {
-  font-family: Montserrat,Arial,sans-serif;
-  font-weight: 700;
-  font-size: 1.875rem;
-  line-height: 1.2;
-  text-transform: uppercase;
-  color: #091f2f;
-  margin: 0 0 1.5rem;
+@media screen and (min-width:480px) {
+  .emotion-11 {
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+}
+
+.emotion-9 {
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-9 {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+.emotion-9 a {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 44px;
+  font-style: italic;
+}
+
+.emotion-10 {
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  width: 100%;
+}
+
+.emotion-10 .btn,
+.emotion-10 button.btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media screen and (min-width:480px) {
+  .emotion-10 {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    width: auto;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+  }
+
+  .emotion-10 .btn,
+  .emotion-10 button.btn {
+    width: auto;
+  }
 }
 
 <div
@@ -39854,7 +39959,7 @@ Array [
         className="b-ff"
       >
         <div
-          className="b-c   emotion-9"
+          className="b-c   emotion-12"
         >
           <h1
             className="emotion-2"
@@ -39917,6 +40022,7 @@ Array [
           </div>
           <form
             method="post"
+            onKeyDown={[Function]}
             onSubmit={[Function]}
           >
             <fieldset
@@ -40566,10 +40672,21 @@ Array [
               </label>
             </div>
             <div
-              className="g g--r g--vc"
+              className="emotion-11"
             >
               <div
-                className="g--5 ta-r m-b500"
+                className="emotion-9"
+              >
+                <a
+                  href="/death/cart"
+                  onClick={[Function]}
+                  onMouseEnter={[Function]}
+                >
+                  ← Back to cart
+                </a>
+              </div>
+              <div
+                className="emotion-10"
               >
                 <button
                   className="btn"
@@ -40578,22 +40695,6 @@ Array [
                 >
                   Next: Payment
                 </button>
-              </div>
-              <div
-                className="g--7 m-b500"
-              >
-                <a
-                  href="/death/cart"
-                  onClick={[Function]}
-                  onMouseEnter={[Function]}
-                  style={
-                    Object {
-                      "fontStyle": "italic",
-                    }
-                  }
-                >
-                  ← Back to cart
-                </a>
               </div>
             </div>
           </form>
@@ -65816,7 +65917,7 @@ Array [
             <p
               className="emotion-35"
             >
-              Note: If this is not the right person go back to search
+              Note: If this is not the right person, select Back below to return to the search results and refine your search.
             </p>
             <div
               className="emotion-44"
@@ -66856,7 +66957,7 @@ Array [
             <p
               className="emotion-30"
             >
-              Note: If this is not the right person go back to search
+              Note: If this is not the right person, select Back below to return to the search results and refine your search.
             </p>
             <div
               className="emotion-39"
@@ -68024,7 +68125,7 @@ exports[`Storyshots Death/ReceiptPage default 1`] = `
         <div
           className="t--cb m-v300"
         >
-          Your order will be shipped within 1–2 business days via the U.S. Postal Service.
+          We’ll either ship your order or follow up with you by email within 1–3 business days.
         </div>
         <div
           className="t--subinfo m-t300"
@@ -70062,7 +70163,7 @@ Array [
               <p
                 className="emotion-14"
               >
-                Select the correct person from the results below. If multiple people have similar names, check the date of birth and date of death carefully before continuing, this can’t be changed once your order is submitted.
+                Select the correct person from the results below. If multiple people have similar names, check the date of birth and date of death carefully. Your selection can't be changed once your order to submitted.
               </p>
               <div
                 className="emotion-15"
@@ -70996,8 +71097,7 @@ Array [
               <p
                 className="emotion-14"
               >
-                Select the correct person from the results below. If multiple people have similar names, check the date of birth and date of death carefully before continuing, this can’t be changed once your order is submitted.
-              </p>
+                Select the correct person from the results below. If multiple people have similar names, check the date of birth and date of death carefully. Your selection can't be changed once your order to submitted.
               <div
                 className="emotion-15"
               >
@@ -73646,18 +73746,14 @@ Your order:
   Card processing fee*  $0.00
   Total  $19.56
 
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
-
 We have received your order. You will be charged when the 
 certificate ships.
-
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
 business days, we will cancel the order without charge.
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -74460,18 +74556,14 @@ Your order:
   Card processing fee*  $0.00
   Total  $19.56
 
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
-
 We have received your order. You will be charged when the 
 certificate ships.
-
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
 business days, we will cancel the order without charge.
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -74990,10 +75082,6 @@ exports[`Storyshots Email/Death/Receipt HTML 1`] = `
                 </tr>
     
     
-                <tr>
-                  <td style=\\"padding: 0 25px\\"><i>USPS Tracking® fee*</i></td>
-                  <td style=\\"padding: 0 25px; white-space: nowrap;\\" align=\\"right\\"><b>$5.00</b></td>
-                </tr>
     
                 <tr>
                   <td style=\\"padding: 0 25px\\"><i>Card service fee*</i></td>
@@ -75003,7 +75091,7 @@ exports[`Storyshots Email/Death/Receipt HTML 1`] = `
                 <tr>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase;\\">Total</td>
                   <td style=\\"background-color: #d2d2d2; padding: 5px 25px; font: 700 20px Montserrat, sans-serif; text-transform: uppercase; white-space: nowrap;\\" align=\\"right\\">
-                    <b>$146.32</b>
+                    <b>$141.32</b>
                   </td>
                 </tr>
       </table>
@@ -75019,7 +75107,7 @@ exports[`Storyshots Email/Death/Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        As of July 1st, 2026, a new Massachusetts state law went into effect regarding public records. To protect estates and families against identity theft, all standard certified death certificates are now issued with masked (redacted) Social Security numbers.
+        <strong>About Social Security numbers on death certificates</strong>
       </div>
     
               </td>
@@ -75033,7 +75121,7 @@ exports[`Storyshots Email/Death/Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        If you do require the SSN to be shown, please reply to your order's confirmation email with the required documentation that can be found <a href=\\"https://www.boston.gov/departments/registry/how-get-death-certificate#social-security-numbers\\">here</a>.
+        Under Massachusetts law, standard death certificates are issued with the decedent’s Social Security number masked. If you requested a certificate with the SSN shown, the Registry will review the identity and relationship documents you submitted with your order.
       </div>
     
               </td>
@@ -75047,7 +75135,7 @@ exports[`Storyshots Email/Death/Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        Your order will be shipped within 1-2 business days via the U.S. Postal Service.
+        If you need to update your request or provide additional information, reply to this email.
       </div>
     
               </td>
@@ -75061,7 +75149,7 @@ exports[`Storyshots Email/Death/Receipt HTML 1`] = `
       <div
          style=\\"font-family:Lora, serif;font-size:16px;line-height:1.5;text-align:left;color:#000000;\\"
       >
-        If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
+        We’ll either ship your order or follow up with you by email within 1–3 business days.
       </div>
     
               </td>
@@ -75297,30 +75385,21 @@ Your order:
   6 x Death certificate for Bruce Banner $84.00
   Subtotal  $140.00
   Card processing fee*  $1.32
-  Total  $146.32
+  Total  $141.32
 
+About Social Security numbers on death certificates
 
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
+Under Massachusetts law, standard death certificates are 
+issued with the decedent’s Social Security number masked. If 
+you requested a certificate with the SSN shown, the Registry 
+will review the identity and relationship documents you 
+submitted with your order.
 
-As of July 1st, 2026, a new Massachusetts state law went 
-into effect regarding public records. To protect estates and 
-families against identity theft, all standard certified 
-death certificates are now issued with masked (redacted) 
-Social Security numbers.
+If you need to update your request or provide additional 
+information, reply to this email.
 
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
-
-If you do require the SSN to be shown, please reply to your 
-order&#x27;s confirmation email with the required 
-documentation that can be found here 
-[https://www.boston.gov/departments/registry/how-get-death-certificate#social-security-numbers].
-
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
-
-Your order will be shipped within 1-2 business days via the 
-U.S. Postal Service.
+We’ll either ship your order or follow up with you by email 
+within 1–3 business days.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -76794,18 +76873,14 @@ Your order:
   Card processing fee*  $0.00
   Total  $19.56
 
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
-
 We have received your order. You will be charged when the 
 certificate ships.
-
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
 business days, we will cancel the order without charge.
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 
@@ -77608,18 +77683,14 @@ Your order:
   Card processing fee*  $0.00
   Total  $19.56
 
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
-
 We have received your order. You will be charged when the 
 certificate ships.
-
-
-If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 We will contact you if we need more information to fulfill 
 the order. If we contact you but do not hear back within 3 
 business days, we will cancel the order without charge.
+
+If you paid for USPS Tracking® services, a Registry Clerk will follow up via email with your shipment's tracking number.
 
 * You are charged an extra service fee of not more than 
 $0.25 plus 2.15%. This fee goes directly to a third party to 

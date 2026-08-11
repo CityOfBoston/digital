@@ -8,8 +8,8 @@ import moment from 'moment-timezone';
 
 import { capitalize } from '../../lib/helpers';
 import {
-  DEATH_SSN_NOTICE_PARAGRAPH_1,
-  DEATH_SSN_NOTICE_PARAGRAPH_2_EMAIL_HTML,
+  DEATH_SSN_NOTICE_INTRO_EMAIL_HTML,
+  DEATH_SSN_NOTICE_PARAGRAPH_2,
 } from '../../lib/deathSsnNotice';
 
 import { PACKAGE_SRC_ROOT } from '../util';
@@ -136,16 +136,14 @@ export class EmailTemplates {
           description: `Death certificate for ${name}`,
         })),
 
-        certifiedMail: receipt.certifiedMail ? receipt.certifiedMail : false,
-        total:
-          receipt.certifiedMail && receipt.certifiedMail === true
-            ? receipt.total + 500
-            : receipt.total,
+        // Death no longer offers USPS Tracking®; never show fee or tracking copy.
+        certifiedMail: false,
+        total: receipt.total,
 
         belowOrderText: [
-          DEATH_SSN_NOTICE_PARAGRAPH_1,
-          DEATH_SSN_NOTICE_PARAGRAPH_2_EMAIL_HTML,
-          'Your order will be shipped within 1-2 business days via the U.S. Postal Service.',
+          DEATH_SSN_NOTICE_INTRO_EMAIL_HTML,
+          DEATH_SSN_NOTICE_PARAGRAPH_2,
+          'We’ll either ship your order or follow up with you by email within 1–3 business days.',
         ],
       },
       `City of Boston Death Certificates Order #${receipt.orderId}`

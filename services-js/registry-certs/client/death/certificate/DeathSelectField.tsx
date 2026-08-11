@@ -6,6 +6,7 @@ import { ChangeEvent } from 'react';
 
 import {
   CHARLES_BLUE,
+  ERROR_BORDER_COLOR,
   OPTIMISTIC_BLUE_DARK,
   SANS,
   SERIF,
@@ -23,8 +24,11 @@ interface Props {
   value: string;
   options: Option[];
   required?: boolean;
+  /** Hide the visible label; `label` is still used as the accessible name. */
+  hideLabel?: boolean;
   hideBlankOption?: boolean;
   blankLabel?: string;
+  error?: string | null;
   onChange: (ev: ChangeEvent<HTMLSelectElement>) => void;
 }
 
@@ -39,24 +43,33 @@ export default function DeathSelectField(props: Props): JSX.Element {
     value,
     options,
     required,
+    hideLabel,
     hideBlankOption,
     blankLabel = 'Select one',
+    error,
     onChange,
   } = props;
 
+  const errorId = `${name}-error`;
+
   return (
     <div css={FIELD_STYLING}>
-      <label htmlFor={name} css={LABEL_STYLING}>
-        {label} {required && <span className="t--req">Required</span>}
-      </label>
+      {!hideLabel && (
+        <label htmlFor={name} css={LABEL_STYLING}>
+          {label} {required && <span className="t--req">Required</span>}
+        </label>
+      )}
       <div css={SELECT_WRAP_STYLING}>
         <select
           id={name}
           name={name}
           value={value}
           onChange={onChange}
+          aria-label={hideLabel ? label : undefined}
           aria-required={required}
-          css={SELECT_STYLING}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? errorId : undefined}
+          css={[SELECT_STYLING, error && SELECT_ERROR_STYLING]}
         >
           {!hideBlankOption && <option value="">{blankLabel}</option>}
           {options.map(opt => (
@@ -77,6 +90,11 @@ export default function DeathSelectField(props: Props): JSX.Element {
           </svg>
         </span>
       </div>
+      {error && (
+        <div className="t--info t--err m-t200" id={errorId} role="alert">
+          {error}
+        </div>
+      )}
     </div>
   );
 }
@@ -127,6 +145,15 @@ const SELECT_STYLING = css({
   // Hide IE/old edge native arrow
   '&::-ms-expand': {
     display: 'none',
+  },
+});
+
+const SELECT_ERROR_STYLING = css({
+  borderColor: ERROR_BORDER_COLOR,
+
+  '&:focus': {
+    outline: `2px solid ${ERROR_BORDER_COLOR}`,
+    outlineOffset: '1px',
   },
 });
 

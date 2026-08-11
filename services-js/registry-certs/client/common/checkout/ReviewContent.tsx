@@ -28,6 +28,7 @@ import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 
 import Order from '../../models/Order';
 
+import { preventImplicitFormSubmitOnEnter } from './preventImplicitFormSubmitOnEnter';
 import CostSummary from '../CostSummary';
 import { OrderErrorCause } from '../../queries/graphql-types';
 import { SubmissionError } from '../../dao/CheckoutDao';
@@ -207,10 +208,10 @@ export default class ReviewContent extends React.Component<Props, State> {
     }
 
     const needsAccepting =
-      !acceptNonRefundable ||
-      (this.props.certificateType === 'death' &&
-        this.props.deathCertificateCart.containsPending &&
-        !acceptPendingCertificates);
+      certificateType === 'death'
+        ? this.props.deathCertificateCart.containsPending &&
+          !acceptPendingCertificates
+        : !acceptNonRefundable;
 
     const checkoutPath = `/${certificateType}/checkout`;
 
@@ -318,6 +319,7 @@ export default class ReviewContent extends React.Component<Props, State> {
             acceptCharset="UTF-8"
             method="post"
             onSubmit={this.handleSubmit}
+            onKeyDown={preventImplicitFormSubmitOnEnter}
           >
             <div className={'row info-row'}>
               <div className={'col'}>
@@ -329,7 +331,11 @@ export default class ReviewContent extends React.Component<Props, State> {
 
               <div className={'col'}>
                 <Link href={`${checkoutPath}?page=shipping`}>
-                  <a className={'btn'} aria-label="Edit contact information">
+                  <a
+                    href={`${checkoutPath}?page=shipping`}
+                    className={'btn'}
+                    aria-label="Edit contact information"
+                  >
                     edit
                   </a>
                 </Link>
@@ -360,7 +366,11 @@ export default class ReviewContent extends React.Component<Props, State> {
 
               <div className={'col'}>
                 <Link href={`${checkoutPath}?page=shipping`}>
-                  <a className={'btn'} aria-label="Edit contact information">
+                  <a
+                    href={`${checkoutPath}?page=shipping`}
+                    className={'btn'}
+                    aria-label="Edit shipping address"
+                  >
                     edit
                   </a>
                 </Link>
@@ -389,7 +399,11 @@ export default class ReviewContent extends React.Component<Props, State> {
 
               <div className={'col'}>
                 <Link href={`${checkoutPath}?page=payment`}>
-                  <a className={'btn'} aria-label="Edit contact information">
+                  <a
+                    href={`${checkoutPath}?page=payment`}
+                    className={'btn'}
+                    aria-label="Edit payment information"
+                  >
                     edit
                   </a>
                 </Link>
@@ -415,7 +429,15 @@ export default class ReviewContent extends React.Component<Props, State> {
                       : `/${certificateType}/review`
                   }`}
                 >
-                  <a className={'btn'} aria-label="Edit contact information">
+                  <a
+                    href={`${
+                      certificateType === 'death'
+                        ? '/death/cart'
+                        : `/${certificateType}/review`
+                    }`}
+                    className={'btn'}
+                    aria-label="Edit order details"
+                  >
                     edit
                   </a>
                 </Link>
@@ -438,10 +460,10 @@ export default class ReviewContent extends React.Component<Props, State> {
             {this.renderAcceptCheckboxes()}
             {this.props.certificateType === 'death' && (
               <div className="t--info m-v300 death-charge-note" id="charge-message">
-                <strong>Note:</strong> Selecting <strong>Submit Order</strong>{' '}
-                will place a temporary authorization hold on your payment card.
-                Your order will be reviewed by the Registry, and your card will
-                be charged only if your order is approved.
+                <strong>Payment notice:</strong> When you submit your order,
+                we’ll place a temporary authorization hold on your card. You’ll
+                only be charged if the Registry approves your order. Once
+                charged, certificate fees are non-refundable.
               </div>
             )}
             {this.props.certificateType === 'birth' && (
@@ -484,7 +506,12 @@ export default class ReviewContent extends React.Component<Props, State> {
 
                 <div className="m-v500 ta-c">
                   <Link href={`${checkoutPath}?page=payment`}>
-                    <a className="btn">Re-try</a>
+                    <a
+                      href={`${checkoutPath}?page=payment`}
+                      className="btn"
+                    >
+                      Re-try
+                    </a>
                   </Link>
                 </div>
               </StatusModal>
@@ -493,8 +520,8 @@ export default class ReviewContent extends React.Component<Props, State> {
               <button
                 className="btn"
                 style={{ display: 'block', width: '100%' }}
-                type="submit"
-                disabled={
+                type="button"
+                aria-disabled={
                   !paymentIsComplete ||
                   !shippingIsComplete ||
                   quantity === 0 ||
@@ -503,6 +530,20 @@ export default class ReviewContent extends React.Component<Props, State> {
                   !!submissionError
                 }
                 aria-describedby="charge-message"
+                onClick={ev => {
+                  if (
+                    !paymentIsComplete ||
+                    !shippingIsComplete ||
+                    quantity === 0 ||
+                    needsAccepting ||
+                    processing ||
+                    !!submissionError
+                  ) {
+                    ev.preventDefault();
+                    return;
+                  }
+                  this.handleSubmit(ev as any);
+                }}
               >
                 Submit Order
               </button>
@@ -510,7 +551,7 @@ export default class ReviewContent extends React.Component<Props, State> {
             {this.props.certificateType === 'death' && (
               <div className="ta-c t--info m-v700">
                 <Link href="/death">
-                  <a>I’m not done yet, go back to search</a>
+                  <a href="/death">I’m not done yet, go back to search</a>
                 </Link>
               </div>
             )}
@@ -530,44 +571,40 @@ export default class ReviewContent extends React.Component<Props, State> {
 
     const headingId = 'review-accept-heading';
 
-    const heading = containsPending
-      ? 'You have to read and accept these checkboxes before you place your order:'
-      : isDeath
-        ? 'Please read and accept before placing your order.'
-        : 'You have to read and accept this checkbox before you place your order:';
+    // Death: only the pending-certificate checkbox remains (non-refundable
+    // copy moved into the payment notice). Skip the section when not needed.
+    if (isDeath && !containsPending) {
+      return null;
+    }
+
+    const heading =
+      'You have to read and accept this checkbox before you place your order:';
 
     const checkboxes = (
       <>
-        <div className={isDeath ? 'death-accept-box m-v300' : 'm-v300'}>
-          <label
-            className={isDeath ? 'cb death-accept-label' : 'cb'}
-            htmlFor="acceptNonRefundableInput"
-          >
-            <input
-              id="acceptNonRefundableInput"
-              name="acceptNonRefundable"
-              type="checkbox"
-              value="true"
-              checked={acceptNonRefundable}
-              className={isDeath ? 'cb-f death-accept-checkbox' : 'cb-f'}
-              aria-required="true"
-              onChange={this.handleAcceptNonRefundable}
-            />
-            <span className={isDeath ? 'cb-l death-accept-text' : 'cb-l'}>
-              {isDeath ? (
-                'I understand that certificate fees are non-refundable once my order is submitted.'
-              ) : (
-                <>
-                  I understand that{' '}
-                  <strong>
-                    {this.props.certificateType} certificates are non-refundable
-                  </strong>
-                  .
-                </>
-              )}
-            </span>
-          </label>
-        </div>
+        {!isDeath && (
+          <div className="m-v300">
+            <label className="cb" htmlFor="acceptNonRefundableInput">
+              <input
+                id="acceptNonRefundableInput"
+                name="acceptNonRefundable"
+                type="checkbox"
+                value="true"
+                checked={acceptNonRefundable}
+                className="cb-f"
+                aria-required="true"
+                onChange={this.handleAcceptNonRefundable}
+              />
+              <span className="cb-l">
+                I understand that{' '}
+                <strong>
+                  {this.props.certificateType} certificates are non-refundable
+                </strong>
+                .
+              </span>
+            </label>
+          </div>
+        )}
 
         {containsPending && (
           <div className={isDeath ? 'death-accept-box m-v300' : 'm-v300'}>
@@ -672,7 +709,7 @@ const REVIEW_CSS = css`
       font-size: 24px;
       font-style: normal;
       font-weight: 700;
-      line-height: normal;
+      line-height: 29px;
       text-transform: uppercase;
     }
 
@@ -698,6 +735,10 @@ const REVIEW_CSS = css`
         color: ${WHITE};
       }
     }
+  }
+  .m-v300 .btn[aria-disabled='true'] {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 `;
 
@@ -729,7 +770,7 @@ const DEATH_REVIEW_CSS = css`
     margin: 0;
     /* Keep section titles distinct from body copy below */
     font-size: 24px;
-    line-height: normal;
+    line-height: 29px;
   }
 
   .death-order-items {

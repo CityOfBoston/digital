@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import {
   CHARLES_BLUE,
+  MEDIA_SMALL,
   OPTIMISTIC_BLUE_DARK,
   SANS,
   SERIF,
@@ -118,7 +119,9 @@ export const $CartItem = (props: Props) => {
         <div css={ACTIONS_STYLING}>
           {editHref && (
             <Link href={editHref}>
-              <a css={EDIT_LINK_STYLING}>Edit</a>
+              <a href={editHref} css={EDIT_LINK_STYLING}>
+                Edit
+              </a>
             </Link>
           )}
           {handleRemove && (
@@ -204,9 +207,14 @@ const UPLOADED_STYLING = css({
   fontWeight: 600,
 
   img: {
-    display: 'block',
+    // Hide the check on mobile to free horizontal space; keep it from ≥480px.
+    display: 'none',
     width: 24,
     height: 24,
+
+    [MEDIA_SMALL]: {
+      display: 'block',
+    },
   },
 });
 
@@ -235,6 +243,15 @@ const EDIT_LINK_STYLING = css({
   '&:hover, &:focus': {
     textDecoration: 'underline',
   },
+
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
+  },
 });
 
 const REMOVE_BUTTON_STYLING = css({
@@ -257,5 +274,14 @@ const REMOVE_BUTTON_STYLING = css({
 
   '&:hover, &:focus': {
     textDecoration: 'underline',
+  },
+
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
   },
 });

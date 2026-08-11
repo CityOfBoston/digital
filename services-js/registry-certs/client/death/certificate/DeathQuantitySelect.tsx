@@ -59,12 +59,13 @@ export default function DeathQuantitySelect(props: Props): JSX.Element {
     }
 
     const next = parseInt(raw, 10);
-    if (!Number.isFinite(next)) {
+    if (!Number.isFinite(next) || next > 99) {
       return;
     }
 
     setQuantity(next);
-    setSelectValue(next > 10 ? 'other' : String(next));
+    // Stay on "other" while typing. Syncing the select to 1–10 would unmount
+    // this input as soon as the first digit is entered (e.g. "1" of "12").
     commitQuantity(next);
   };
 
@@ -73,6 +74,12 @@ export default function DeathQuantitySelect(props: Props): JSX.Element {
       setQuantity(1);
       setSelectValue('1');
       commitQuantity(1);
+      return;
+    }
+
+    // Collapse back to the dropdown when the value is in the 1–10 range.
+    if (quantity <= 10) {
+      setSelectValue(String(quantity));
     }
   };
 
@@ -86,10 +93,18 @@ export default function DeathQuantitySelect(props: Props): JSX.Element {
   }, []);
 
   const showOtherInput = selectValue === 'other';
+  const displayValue = showOtherInput ? 'Other…' : selectValue;
 
   return (
     <div css={WRAP_STYLING}>
       <div css={SELECT_WRAP_STYLING}>
+        {/*
+          Invisible sizer drives the control width from the full label + value
+          so “Other…” isn’t clipped to “O” in a fixed-width field.
+        */}
+        <span css={SIZER_STYLING} aria-hidden="true">
+          Quantity:&nbsp;{displayValue}
+        </span>
         <span css={PREFIX_STYLING} aria-hidden="true">
           Quantity:
         </span>
@@ -148,14 +163,28 @@ const WRAP_STYLING = css({
 
 const SELECT_WRAP_STYLING = css({
   position: 'relative',
-  display: 'flex',
+  display: 'inline-flex',
   alignItems: 'center',
-  width: '136px',
+  minWidth: '136px',
   height: '44px',
   flexShrink: 0,
   boxSizing: 'border-box',
   backgroundColor: WHITE,
   border: `1px solid ${CHARLES_BLUE}`,
+});
+
+const SIZER_STYLING = css({
+  visibility: 'hidden',
+  whiteSpace: 'nowrap',
+  fontFamily: SERIF,
+  fontSize: '18px',
+  lineHeight: '23px',
+  fontWeight: 400,
+  // Match select horizontal padding so caret + label clearance size the box.
+  padding: '10px 34px 10px 8px',
+  boxSizing: 'border-box',
+  height: '44px',
+  pointerEvents: 'none',
 });
 
 const PREFIX_STYLING = css({
@@ -173,6 +202,9 @@ const PREFIX_STYLING = css({
 });
 
 const SELECT_STYLING = css({
+  position: 'absolute',
+  left: 0,
+  top: 0,
   display: 'block',
   width: '100%',
   height: '100%',

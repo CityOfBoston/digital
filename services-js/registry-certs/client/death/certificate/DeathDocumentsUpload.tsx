@@ -6,8 +6,8 @@ import { createRef, Component, DragEvent } from 'react';
 import { observer } from 'mobx-react';
 
 import {
-  CloseButton,
   CHARLES_BLUE,
+  ERROR_BORDER_COLOR,
   ERROR_TEXT_COLOR,
   FOCUS_INDICATOR_COLOR,
   OPTIMISTIC_BLUE_LIGHT,
@@ -17,6 +17,7 @@ import {
 
 import { CertificateType } from '../../types';
 import AnswerIcon from '../../common/icons/AnswerIcon';
+import TrashIcon from '../../common/icons/TrashIcon';
 import UploadableFile from '../../models/UploadableFile';
 import { handleBytes } from '../../common/SupportingDocumentsInput';
 
@@ -34,6 +35,7 @@ interface Props {
   inputId: string;
   buttonText?: string;
   helpText?: string;
+  error?: string | null;
 }
 
 interface State {
@@ -156,8 +158,10 @@ export default class DeathDocumentsUpload extends Component<Props, State> {
       buttonText = 'Upload file',
       helpText = 'Supports: JPEG, JPG, PDF (25 MB Max)',
       selectedFiles,
+      error,
     } = this.props;
     const { isFocused, isDragOver } = this.state;
+    const errorId = `${inputId}-error`;
 
     return (
       <div className="m-b300">
@@ -171,13 +175,17 @@ export default class DeathDocumentsUpload extends Component<Props, State> {
           onChange={this.handleFileChange}
           onBlur={() => this.setState({ isFocused: false })}
           onFocus={() => this.setState({ isFocused: true })}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={error ? errorId : undefined}
         />
 
         <div
+          id={`${inputId}-dropzone`}
           css={[
             DROPZONE_STYLING,
             isDragOver && DROPZONE_ACTIVE_STYLING,
             isFocused && DROPZONE_FOCUSED_STYLING,
+            error && DROPZONE_ERROR_STYLING,
           ]}
           onDragOver={this.handleDragOver}
           onDragLeave={this.handleDragLeave}
@@ -204,10 +212,16 @@ export default class DeathDocumentsUpload extends Component<Props, State> {
           </label>
         </div>
 
+        {error && (
+          <div className="t--info t--err m-t200" id={errorId} role="alert">
+            {error}
+          </div>
+        )}
+
         <ul className="t--s400" css={FILE_LIST_STYLING}>
           {selectedFiles.map(uploadedFile => (
             <li key={uploadedFile.name}>
-              <span className="name">
+              <span className="name" title={uploadedFile.name}>
                 <span>
                   {uploadedFile.name}
                   {uploadedFile.file
@@ -244,15 +258,30 @@ interface FileButtonProps {
   deleteFile: (file: UploadableFile, didCancel?: boolean) => void;
 }
 
+function DeleteFileButton(props: {
+  title: string;
+  onClick: () => void;
+}): JSX.Element {
+  return (
+    <button
+      type="button"
+      css={DELETE_BUTTON_STYLING}
+      onClick={props.onClick}
+      title={props.title}
+      aria-label={props.title}
+    >
+      <TrashIcon />
+    </button>
+  );
+}
+
 function FileButton(props: FileButtonProps): JSX.Element {
   const { name, status, errorMessage } = props.uploadableFile;
 
   if (status === 'success') {
     return (
-      <CloseButton
-        handleClick={() => props.deleteFile(props.uploadableFile)}
-        css={DELETE_BUTTON_STYLING}
-        size="1.7em"
+      <DeleteFileButton
+        onClick={() => props.deleteFile(props.uploadableFile)}
         title={`Remove file: ${name}`}
       />
     );
@@ -268,10 +297,8 @@ function FileButton(props: FileButtonProps): JSX.Element {
           css={UPLOADING_PROGRESS_STYLING}
           title={`${props.uploadableFile.progress.toFixed(0)}% uploaded`}
         />
-        <CloseButton
-          handleClick={() => props.deleteFile(props.uploadableFile, true)}
-          css={DELETE_BUTTON_STYLING}
-          size="1.7em"
+        <DeleteFileButton
+          onClick={() => props.deleteFile(props.uploadableFile, true)}
           title={`Cancel upload: ${name}`}
         />
       </div>
@@ -300,10 +327,8 @@ function FileButton(props: FileButtonProps): JSX.Element {
               : 'Failed to delete. Retry?'}
           </span>
         </button>
-        <CloseButton
-          handleClick={() => props.deleteFile(props.uploadableFile)}
-          css={DELETE_BUTTON_STYLING}
-          size="1.7em"
+        <DeleteFileButton
+          onClick={() => props.deleteFile(props.uploadableFile)}
           title={`Remove file: ${name}`}
         />
       </div>
@@ -349,6 +374,12 @@ const DROPZONE_FOCUSED_STYLING = css({
   outlineOffset: '1px',
 });
 
+const DROPZONE_ERROR_STYLING = css({
+  borderColor: ERROR_BORDER_COLOR,
+  outline: `2px solid ${ERROR_BORDER_COLOR}`,
+  outlineOffset: '1px',
+});
+
 const UPLOAD_ICON_STYLING = css({
   display: 'block',
   marginBottom: '0.75rem',
@@ -384,20 +415,32 @@ const FILE_LIST_STYLING = css({
   listStyle: 'none',
   li: {
     display: 'flex',
-    flexWrap: 'wrap' as 'wrap',
+    flexWrap: 'nowrap',
     alignItems: 'center',
     justifyContent: 'space-between',
+    gap: '0.5rem',
     marginBottom: '0.75rem',
     padding: '0.5rem 0',
     borderBottom: '1px solid #e0e0e0',
     '.name': {
+      flex: 1,
+      minWidth: 0,
       fontFamily: SERIF,
       fontSize: '1rem',
+
+      // Keep long names on one line so the remove control stays on the right.
+      '> span': {
+        display: 'block',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+      },
     },
   },
 });
 
 const STATUS_TEXT_STYLING = css({
+  flexShrink: 0,
   textTransform: 'capitalize' as 'capitalize',
   fontStyle: 'italic',
   color: ERROR_TEXT_COLOR,
@@ -406,11 +449,13 @@ const STATUS_TEXT_STYLING = css({
 const UPLOADING_CONTAINER_STYLING = css({
   display: 'flex',
   alignItems: 'center',
+  flexShrink: 0,
 });
 
 const UPLOADING_PROGRESS_STYLING = css({
   marginRight: '0.5rem',
   height: '0.5rem',
+  maxWidth: '4rem',
   border: `1px solid ${CHARLES_BLUE}`,
   backgroundColor: WHITE,
   '::-webkit-progress-bar': {
@@ -429,7 +474,8 @@ const ERROR_ACTIONS_STYLING = css({
   display: 'flex',
   alignItems: 'center',
   gap: '0.75rem',
-  flexWrap: 'wrap' as 'wrap',
+  flexShrink: 0,
+  maxWidth: '55%',
 });
 
 const ERROR_CONTAINER_STYLING = css({
@@ -440,20 +486,53 @@ const ERROR_CONTAINER_STYLING = css({
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
+  minWidth: 0,
   fontFamily: SERIF,
   fontStyle: 'italic',
   color: ERROR_TEXT_COLOR,
+  span: {
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
   svg: {
     height: '1.2em',
     width: '1.2em',
     marginRight: '0.5rem',
+    flexShrink: 0,
   },
 });
 
 const DELETE_BUTTON_STYLING = css({
-  opacity: 0.6,
+  flexShrink: 0,
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: 44,
+  height: 44,
+  minWidth: 44,
+  minHeight: 44,
+  padding: 0,
+  boxSizing: 'border-box',
+  border: 'none',
+  background: 'transparent',
+  cursor: 'pointer',
+  color: '#424242',
+  opacity: 0.75,
   transition: 'opacity 0.15s',
-  '&:hover': {
+  '&:hover, &:focus': {
     opacity: 1,
+  },
+  '&:focus': {
+    outline: 'none',
+  },
+  '&:focus-visible': {
+    outline: `3px solid ${FOCUS_INDICATOR_COLOR}`,
+    outlineOffset: '2px',
+  },
+  svg: {
+    display: 'block',
+    width: 19,
+    height: 21,
+    flexShrink: 0,
   },
 });

@@ -3,6 +3,7 @@ import { jsx, css } from '@emotion/core';
 
 import React from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { Formik, FormikProps } from 'formik';
 import { observer } from 'mobx-react';
 import InputMask from 'react-input-mask';
@@ -24,6 +25,13 @@ import { BackButtonContent } from '../question-components/BackButton';
 import RenderOrderDetails from './OrderDetails';
 import { SANS } from '@cityofboston/react-fleet';
 import { CARDTYPE } from '../../models/CardType';
+import {
+  CHECKOUT_BACK_BUTTON_STYLING,
+  CHECKOUT_NAV_BACK_STYLING,
+  CHECKOUT_NAV_NEXT_STYLING,
+  CHECKOUT_NAV_STYLING,
+} from './checkoutNavStyling';
+import { preventImplicitFormSubmitOnEnter } from './preventImplicitFormSubmitOnEnter';
 
 export type Props = {
   submit: (values: Partial<OrderInfo>) => unknown;
@@ -213,7 +221,11 @@ export default class ShippingContent extends React.Component<Props> {
     };
 
     return (
-      <form method="post" onSubmit={handleSubmit}>
+      <form
+        method="post"
+        onSubmit={handleSubmit}
+        onKeyDown={preventImplicitFormSubmitOnEnter}
+      >
         <fieldset css={FIELDSET_CSS} className="fs m-v700">
           <legend className="fs-l">Contact Information</legend>
 
@@ -501,34 +513,63 @@ export default class ShippingContent extends React.Component<Props> {
           )}
         </div>
 
-        <div className="g g--r g--vc">
-          <div className="g--5 ta-r m-b500">
-            <button className="btn" type="submit" disabled={!isValid}>
-              Next: Payment
-            </button>
-          </div>
-
-          {/* We always want this cell, even if it’s empty,
-              so that the above cell’s margins aren’t weird
-              from being the first and last child at the same time.*/}
-          <div className="g--7 m-b500">
+        <div css={CHECKOUT_NAV_STYLING}>
+          <div css={CHECKOUT_NAV_BACK_STYLING}>
             {this.props.certificateType === 'death' ? (
-              <Link href="/death/cart">
-                <a style={{ fontStyle: 'italic' }}>← Back to cart</a>
-              </Link>
+              <button
+                type="button"
+                css={CHECKOUT_BACK_BUTTON_STYLING}
+                onClick={() => Router.push('/death/cart')}
+              >
+                Back to Order
+              </button>
             ) : (
               <Link href={`/${this.props.certificateType}/review`}>
-                <a style={{ fontStyle: 'italic' }}>
+                <a href={`/${this.props.certificateType}/review`}>
                   <BackButtonContent />
                 </a>
               </Link>
             )}
+          </div>
+
+          <div css={CHECKOUT_NAV_NEXT_STYLING}>
+            <button
+              className="btn"
+              type="button"
+              css={SHIPPING_NEXT_BUTTON_STYLING}
+              aria-disabled={!isValid}
+              onClick={ev => {
+                if (!isValid) {
+                  ev.preventDefault();
+                  return;
+                }
+                handleSubmit();
+              }}
+            >
+              Next: Payment
+            </button>
           </div>
         </div>
       </form>
     );
   };
 }
+
+const SHIPPING_NEXT_BUTTON_STYLING = css({
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: '3px solid #1871bd',
+    outlineOffset: '2px',
+  },
+
+  '&[aria-disabled="true"]': {
+    opacity: 0.5,
+    cursor: 'not-allowed',
+  },
+});
 
 const FIELDSET_CSS = css`
   margin-bottom: 3.5rem;
@@ -537,6 +578,7 @@ const FIELDSET_CSS = css`
     font-size: 24px;
     font-family: ${SANS};
     font-weight: 700;
+    line-height: 29px;
     margin-bottom: 1.75rem;
   }
 

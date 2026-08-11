@@ -86,9 +86,25 @@ export default class ConfirmationContent extends React.Component<Props> {
             </p>
 
             <p css={ORDER_LINKS_STYLING}>
-              Order a new <Link href="/birth">birth</Link>,{' '}
-              <Link href="/marriage">marriage</Link>, or{' '}
-              <Link href="/death">death</Link> certificate.
+              Order a new{' '}
+              <Link href="/birth">
+                <a href="/birth" target="_blank" rel="noopener noreferrer">
+                  birth
+                </a>
+              </Link>
+              ,{' '}
+              <Link href="/marriage">
+                <a href="/marriage" target="_blank" rel="noopener noreferrer">
+                  marriage
+                </a>
+              </Link>
+              , or{' '}
+              <Link href="/death">
+                <a href="/death" target="_blank" rel="noopener noreferrer">
+                  death
+                </a>
+              </Link>{' '}
+              certificate.
             </p>
           </div>
         </div>

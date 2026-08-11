@@ -12,8 +12,9 @@ storiesOf('Form Elements | Checkout / SelectDropdown', module)
   .add('default', () => (
     <RegistryCCSelectDropDown
       label={'Service fee'}
+      value="-1"
+      placeholder="Select an Option"
       options={[
-        { value: '-1', label: 'Select card' },
         { value: '0', label: 'credit card' },
         { value: '1', label: 'debit card' },
       ]}

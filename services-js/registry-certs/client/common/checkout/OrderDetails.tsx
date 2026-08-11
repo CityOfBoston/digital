@@ -34,6 +34,9 @@ import {
 import { CertificateType, DeathCertificate } from '../../types';
 
 import DeathCertificateCart, {
+  DeathCertificateAlternateIdentitySelection,
+  DeathCertificateIdentityDocumentType,
+  deathIdentitySupportingDocumentsComplete,
   DEATH_RELATIONSHIP_OPTIONS,
 } from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
@@ -113,6 +116,10 @@ export const OrderDetails = observer(function OrderDetails(
     relationship: string;
     relationshipDocuments: { status: string }[];
     identityDocuments: { status: string }[];
+    identityDocumentsSecondary: { status: string }[];
+    identityDocumentType: DeathCertificateIdentityDocumentType;
+    identityAlternateDocumentType1: DeathCertificateAlternateIdentitySelection;
+    identityAlternateDocumentType2: DeathCertificateAlternateIdentitySelection;
   }) => {
     const {
       cert,
@@ -122,6 +129,10 @@ export const OrderDetails = observer(function OrderDetails(
       relationship,
       relationshipDocuments,
       identityDocuments,
+      identityDocumentsSecondary,
+      identityDocumentType,
+      identityAlternateDocumentType1,
+      identityAlternateDocumentType2,
     } = data;
     const {
       keyIndex = ReactKeyIndexStr({
@@ -138,7 +149,13 @@ export const OrderDetails = observer(function OrderDetails(
     const supportingDocumentsUploaded =
       includeSsn === true &&
       relationshipDocuments.some(file => file.status === 'success') &&
-      identityDocuments.some(file => file.status === 'success');
+      deathIdentitySupportingDocumentsComplete({
+        identityDocumentType,
+        identityAlternateDocumentType1,
+        identityAlternateDocumentType2,
+        identityDocuments,
+        identityDocumentsSecondary,
+      });
 
     return (
       <div key={`${keyIndex}-${index}`}>
@@ -167,6 +184,10 @@ export const OrderDetails = observer(function OrderDetails(
                 relationship,
                 relationshipDocuments,
                 identityDocuments,
+                identityDocumentsSecondary,
+                identityDocumentType,
+                identityAlternateDocumentType1,
+                identityAlternateDocumentType2,
               },
               i
             ) =>
@@ -180,6 +201,10 @@ export const OrderDetails = observer(function OrderDetails(
                 relationship,
                 relationshipDocuments,
                 identityDocuments,
+                identityDocumentsSecondary,
+                identityDocumentType,
+                identityAlternateDocumentType1,
+                identityAlternateDocumentType2,
               })
           )}
         </div>

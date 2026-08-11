@@ -38,13 +38,20 @@ export default function SearchResult({ backUrl, certificate }: Props) {
   )}`;
   const as = `/death/certificate/${id}`;
   const deathDateDisplay = deathDate || deathYear;
+  const displayName = `${firstName.toUpperCase()} ${lastName.toUpperCase()}`;
 
   return (
-    <Link href={href} prefetch={process.env.NODE_ENV !== 'test'} as={as}>
-      <a css={CARD_STYLING}>
+    <Link href={href} as={as} prefetch={process.env.NODE_ENV !== 'test'}>
+      <a
+        href={href}
+        css={CARD_STYLING}
+        aria-label={`Select death certificate for ${displayName}${
+          deathDateDisplay ? `, date of death ${deathDateDisplay}` : ''
+        }${age ? `, age ${age}` : ''}${pending ? ', pending' : ''}`}
+      >
         <div css={CONTENT_STYLING}>
           <div className="search-result-name" css={NAME_STYLING}>
-            {`${firstName.toUpperCase()} ${lastName.toUpperCase()}`}
+            {displayName}
             {pending && (
               <span className="search-result-pending" css={PENDING_STYLING}>
                 {' — '}
@@ -88,6 +95,15 @@ const CARD_STYLING = css({
     '.search-result-name, .search-result-pending, .search-result-detail, .search-result-detail *': {
       color: '#fff',
     },
+  },
+
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
   },
 });
 

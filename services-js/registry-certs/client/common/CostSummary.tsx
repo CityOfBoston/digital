@@ -9,6 +9,7 @@ import {
   SERIF,
   CHARLES_BLUE,
   DEFAULT_TEXT,
+  ERROR_BORDER_COLOR,
   RegistryCCSelectDropDown,
   MEDIA_SMALL_MAX,
 } from '@cityofboston/react-fleet';
@@ -33,6 +34,8 @@ interface Props {
   newServiceFeeType?: NewServiceFeeType;
   setCardType?: any;
   useInDrawer?: boolean;
+  /** Shown under the service fee dropdown when validation fails. */
+  serviceFeeError?: string | null;
 }
 
 interface State {
@@ -53,20 +56,20 @@ export default class CostSummary extends Component<Props, State> {
     super(props);
 
     this.state = {
-      newServiceFeeType: props.newServiceFeeType || '0',
+      newServiceFeeType: props.newServiceFeeType ?? '-1',
     };
   }
 
   componentDidMount() {
     this.setState({
-      newServiceFeeType: this.props.newServiceFeeType || '0',
+      newServiceFeeType: this.props.newServiceFeeType ?? '-1',
     });
   }
 
   componentDidUpdate(prevProps: Props) {
     if (prevProps.newServiceFeeType !== this.props.newServiceFeeType) {
       this.setState({
-        newServiceFeeType: this.props.newServiceFeeType || '0',
+        newServiceFeeType: this.props.newServiceFeeType ?? '-1',
       });
     }
   }
@@ -74,7 +77,9 @@ export default class CostSummary extends Component<Props, State> {
   handleCardOptChanged = (ev: ChangeEvent<HTMLSelectElement>) => {
     const { setCardType } = this.props;
     const value = ev.currentTarget.value as NewServiceFeeType;
-    setCardType(value);
+    if (setCardType) {
+      setCardType(value);
+    }
 
     this.setState({
       newServiceFeeType: value,
@@ -87,19 +92,40 @@ export default class CostSummary extends Component<Props, State> {
     const certificateTypeCost =
       CERTIFICATE_COST[this.props.certificateType.toUpperCase()];
 
+    if (newServiceFeeType === '-1') {
+      const subtotalOnly = calculateDebitCardCost(
+        certificateTypeCost,
+        certificateQuantity,
+        hasResearchFee,
+        tracking
+      );
+      return {
+        ...subtotalOnly,
+        serviceFee: 0,
+        total: 0,
+        serviceFeeUnset: true as const,
+      };
+    }
+
     return newServiceFeeType === '0'
-      ? calculateCreditCardCost(
-          certificateTypeCost,
-          certificateQuantity,
-          hasResearchFee,
-          tracking
-        )
-      : calculateDebitCardCost(
-          certificateTypeCost,
-          certificateQuantity,
-          hasResearchFee,
-          tracking
-        );
+      ? {
+          ...calculateCreditCardCost(
+            certificateTypeCost,
+            certificateQuantity,
+            hasResearchFee,
+            tracking
+          ),
+          serviceFeeUnset: false as const,
+        }
+      : {
+          ...calculateDebitCardCost(
+            certificateTypeCost,
+            certificateQuantity,
+            hasResearchFee,
+            tracking
+          ),
+          serviceFeeUnset: false as const,
+        };
   }
 
   render() {
@@ -108,8 +134,17 @@ export default class CostSummary extends Component<Props, State> {
       certificateQuantity,
       tracking,
       useInDrawer = false,
+      serviceFeeError,
     } = this.props;
-    const { total, subtotal, serviceFee, researchFee } = this.calculateCost();
+    const { total, subtotal, serviceFee, researchFee, serviceFeeUnset } =
+      this.calculateCost();
+
+    const serviceFeeDisplay = serviceFeeUnset
+      ? 'N/A'
+      : `$${(serviceFee / 100).toFixed(2)}`;
+    const totalDisplay = serviceFeeUnset
+      ? 'N/A'
+      : `$${(total / 100).toFixed(2)}`;
 
     return (
       <>
@@ -122,11 +157,12 @@ export default class CostSummary extends Component<Props, State> {
             researchFee > 0 ? (researchFee / 100).toFixed(2) : ''
           }`,
           tracking: tracking,
-          finalCost: `${(total / 100).toFixed(2)}`,
+          finalCost: totalDisplay,
           onChangeHandler: this.handleCardOptChanged,
           serviceFeeType: this.state.newServiceFeeType,
-          serviceFee: `${(serviceFee / 100).toFixed(2)}`,
+          serviceFee: serviceFeeDisplay,
           useInDrawer: useInDrawer,
+          serviceFeeError: serviceFeeError,
         })}
       </>
     );
@@ -138,11 +174,14 @@ export const $OrderSummary = (params: {
   totalCost: string;
   researchFee: string;
   tracking?: boolean;
+  /** Preformatted total, including leading $ or “N/A”. */
   finalCost?: string;
   onChangeHandler?: (ev: ChangeEvent<HTMLSelectElement>) => void;
   serviceFeeType?: string;
+  /** Preformatted service fee, including leading $ or “N/A”. */
   serviceFee?: string;
   useInDrawer?: boolean;
+  serviceFeeError?: string | null;
 }) => {
   const {
     certQuantityLabel,
@@ -150,10 +189,11 @@ export const $OrderSummary = (params: {
     researchFee,
     tracking = false,
     finalCost,
-    serviceFeeType = '0',
+    serviceFeeType = '-1',
     serviceFee,
     onChangeHandler,
     useInDrawer = false,
+    serviceFeeError,
   } = params;
 
   return (
@@ -163,62 +203,84 @@ export const $OrderSummary = (params: {
       {certQuantityLabel && totalCost && (
         <div className={'row'}>
           <div className={'col'}>{certQuantityLabel}</div>
-          <div className={'col'}>${totalCost}</div>
+          <div className={'col amount'}>${totalCost}</div>
         </div>
       )}
 
       {researchFee && (
         <div className={'row'}>
           <div className="col">Research fee</div>
-          <div className="col">{researchFee}</div>
+          <div className="col amount">{researchFee}</div>
         </div>
       )}
 
       <div className={'row'}>
         <div className={'col'}>US Shipping</div>
-        <div className={'col'}>FREE</div>
+        <div className={'col amount'}>FREE</div>
       </div>
 
       {tracking === true && (
         <div className={'row'}>
           <div className={'col'}>USPS Tracking®</div>
-          <div className={'col'}>$ 5.00</div>
+          <div className={'col amount'}>$5.00</div>
         </div>
       )}
 
       {onChangeHandler && useInDrawer === false && (
-        <div className={'row'}>
+        <div
+          className={'row'}
+          css={serviceFeeError ? SERVICE_FEE_ERROR_ROW_STYLING : undefined}
+        >
           <div className={'col'}>
             <RegistryCCSelectDropDown
               id="ServiceFeeTypeSelect"
               value={serviceFeeType}
               label={'Service fee'}
+              placeholder="Select an Option"
+              placeholderValue="-1"
               options={[
-                { value: '-1', label: 'Select card' },
                 { value: '0', label: 'credit card' },
                 { value: '1', label: 'debit card' },
               ]}
               onChange={onChangeHandler}
             />
+            {serviceFeeError && (
+              <div
+                className="t--info t--err m-t200"
+                id="ServiceFeeTypeSelect-error"
+                role="alert"
+              >
+                {serviceFeeError}
+              </div>
+            )}
           </div>
-          <div className={'col'}>$ {serviceFee}</div>
+          <div className={'col amount'}>{serviceFee}</div>
         </div>
       )}
 
       {useInDrawer === true && (
         <div className={'row'}>
           <div className={'col'}>Service fee</div>
-          <div className={'col'}>$ {serviceFee}</div>
+          <div className={'col amount'}>{serviceFee}</div>
         </div>
       )}
 
       <div className={'row'}>
         <div className={'col'}>Total</div>
-        <div className={'col total-cost'}>$ {finalCost}</div>
+        <div className={'col amount total-cost'}>{finalCost}</div>
       </div>
     </div>
   );
 };
+
+const SERVICE_FEE_ERROR_ROW_STYLING = css({
+  alignItems: 'flex-start',
+
+  '.labeled-select select': {
+    outline: `2px solid ${ERROR_BORDER_COLOR}`,
+    outlineOffset: '2px',
+  },
+});
 
 const ORDERSUMMARY = css`
   color: ${CHARLES_BLUE};
@@ -247,32 +309,47 @@ const ORDERSUMMARY = css`
     display: flex;
     align-items: center;
     margin-bottom: 12px;
-    line-height: 1.25rem;
-    min-height: 1.25rem;
+    line-height: 1.5;
+    min-height: 1.5rem;
+    overflow: visible;
 
     .col {
-      white-space: 'rap';
-      flex: min-content;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow: visible;
     }
 
-    .col:nth-of-type(2) {
+    .col.amount {
+      flex: 0 0 auto;
       text-align: right;
-      max-width: 30%;
+      white-space: nowrap;
     }
 
-    /* Keep Service fee select row the same height as plain formula rows */
+    /* Service fee select — shrink to selected label; don’t clip caret/text */
     .labeled-select {
-      line-height: 1.25rem;
+      overflow: visible;
+      line-height: 1.5;
+      width: auto;
+      max-width: 100%;
 
       label {
-        line-height: 1.25rem;
+        line-height: 1.5;
+        flex-shrink: 0;
+      }
+
+      .select--wrapper {
+        overflow: visible;
+        flex: 0 1 auto;
+        min-width: 0;
       }
 
       select {
-        padding-top: 0;
-        padding-bottom: 0;
-        line-height: 1.25rem;
-        height: 1.25rem;
+        height: auto;
+        min-height: 1.5rem;
+        line-height: 1.5;
+        padding-top: 0.125rem;
+        padding-bottom: 0.125rem;
+        box-sizing: content-box;
       }
     }
 
@@ -290,7 +367,7 @@ const ORDERSUMMARY = css`
 
   ${MEDIA_SMALL_MAX} {
     .total-cost {
-      font-size: 15px;
+      font-size: 24px;
     }
   }
 `;

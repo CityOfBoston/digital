@@ -32,6 +32,8 @@ function seedFullCart(cart: DeathCertificateCart) {
     includeSsn: true,
     relationship: 'spouse',
     identityDocumentType: 'drivers-license',
+    identityAlternateDocumentType1: '',
+    identityAlternateDocumentType2: '',
     uploadSessionId: 'storybook-session-1',
     relationshipDocuments: [
       makeUploadedFile('relationship.pdf', 'storybook-session-1'),
@@ -39,15 +41,19 @@ function seedFullCart(cart: DeathCertificateCart) {
     identityDocuments: [
       makeUploadedFile('license.pdf', 'storybook-session-1'),
     ],
+    identityDocumentsSecondary: [],
   });
 
   cart.setCertificateOptions(PENDING_CERTIFICATE, 1, {
     includeSsn: false,
     relationship: '',
     identityDocumentType: '',
+    identityAlternateDocumentType1: '',
+    identityAlternateDocumentType2: '',
     uploadSessionId: 'storybook-session-2',
     relationshipDocuments: [],
     identityDocuments: [],
+    identityDocumentsSecondary: [],
   });
 
   cart.setQuantity(NO_DATE_CERTIFICATE, 3);
@@ -98,7 +104,7 @@ function resolvingProviders(opts?: {
     certMailForDeath: !!(opts && opts.certifiedMail),
   });
   const cardType = new CardType({
-    cardType: (opts && opts.cardType) || '1',
+    cardType: (opts && opts.cardType) || '-1',
   });
 
   return {
@@ -184,18 +190,13 @@ class CartPageStoryShell extends Component<ShellProps> {
 
 storiesOf('Death/CartPage', module)
   .add('full page', () => (
-    <InteractiveDeathFlow
-      initialStep="cart"
-      seedCart={seedFullCart}
-      cardType="1"
-    />
+    <InteractiveDeathFlow initialStep="cart" seedCart={seedFullCart} />
   ))
   .add('full page — with certified mail', () => (
     <InteractiveDeathFlow
       initialStep="cart"
       seedCart={seedFullCart}
       certifiedMail
-      cardType="1"
     />
   ))
   .add('empty cart', () => <InteractiveDeathFlow initialStep="cart" />)

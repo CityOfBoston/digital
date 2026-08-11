@@ -197,8 +197,8 @@ export default class ReceiptPage extends Component<Props> {
 
             <div className="p-a300">
               <div className="t--cb m-v300">
-                Your order will be shipped within 1–2 business days via the U.S.
-                Postal Service.
+                We’ll either ship your order or follow up with you by email
+                within 1–3 business days.
               </div>
 
               <div className="t--subinfo m-t300">

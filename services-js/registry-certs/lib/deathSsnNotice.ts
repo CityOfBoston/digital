@@ -1,10 +1,14 @@
 export const DEATH_SSN_DOCUMENTATION_URL =
   'https://www.boston.gov/departments/registry/how-get-death-certificate#social-security-numbers';
 
+export const DEATH_SSN_NOTICE_HEADING =
+  'About Social Security numbers on death certificates:';
+
 export const DEATH_SSN_NOTICE_PARAGRAPH_1 =
-  'As of July 1st, 2026, a new Massachusetts state law went into effect regarding public records. To protect estates and families against identity theft, all standard certified death certificates are now issued with masked (redacted) Social Security numbers.';
+  'Under Massachusetts law, standard death certificates are issued with the decedent’s Social Security number masked. If you requested a certificate with the SSN shown, the Registry will review the identity and relationship documents you submitted with your order.';
 
-export const DEATH_SSN_NOTICE_PARAGRAPH_2_BEFORE_LINK =
-  "If you do require the SSN to be shown, please reply to your order's confirmation email with the required documentation that can be found ";
+export const DEATH_SSN_NOTICE_PARAGRAPH_2 =
+  'If you need to update your request or provide additional information, reply to this email.';
 
-export const DEATH_SSN_NOTICE_PARAGRAPH_2_EMAIL_HTML = `${DEATH_SSN_NOTICE_PARAGRAPH_2_BEFORE_LINK}<a href="${DEATH_SSN_DOCUMENTATION_URL}">here</a>.`;
+/** Bold heading + body on one line for receipt email HTML (and plainText helper). */
+export const DEATH_SSN_NOTICE_INTRO_EMAIL_HTML = `<strong>${DEATH_SSN_NOTICE_HEADING}</strong> ${DEATH_SSN_NOTICE_PARAGRAPH_1}`;

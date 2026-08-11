@@ -27,6 +27,7 @@ import { DEATH_SSN_DOCUMENTATION_URL } from '../../../lib/deathSsnNotice';
 import Pagination from '../../common/Pagination';
 
 import SearchResult from './SearchResult';
+import { DEATH_APP_TITLE_STYLING } from '../deathFlowTitles';
 
 interface InitialProps {
   query: string;
@@ -153,7 +154,7 @@ class SearchPage extends Component<Props, State> {
               )}
             </Head>
 
-            <h1 css={PAGE_TITLE_STYLING}>Request a death certificate</h1>
+            <h1 css={DEATH_APP_TITLE_STYLING}>Request a death certificate</h1>
 
             {results && (
               <div css={PROGRESS_WRAP_STYLING}>
@@ -181,19 +182,6 @@ class SearchPage extends Component<Props, State> {
               </label>
 
               <div css={SEARCH_FIELD_STYLING}>
-                <button
-                  type="submit"
-                  css={ICON_BUTTON_STYLING}
-                  aria-label="Search"
-                >
-                  <img
-                    src="/assets/images/death-search-icon.svg"
-                    alt=""
-                    width={24}
-                    height={24}
-                  />
-                </button>
-
                 <input
                   id="death-search-q"
                   aria-label="Search by full name or partial name"
@@ -211,7 +199,7 @@ class SearchPage extends Component<Props, State> {
                 {query.length > 0 && (
                   <button
                     type="button"
-                    css={ICON_BUTTON_STYLING}
+                    css={CLEAR_BUTTON_STYLING}
                     aria-label="Clear search"
                     onClick={this.handleClearQuery}
                   >
@@ -223,6 +211,19 @@ class SearchPage extends Component<Props, State> {
                     />
                   </button>
                 )}
+
+                <button
+                  type="submit"
+                  css={SEARCH_BUTTON_STYLING}
+                  aria-label="Search"
+                >
+                  <img
+                    src="/assets/images/death-search-icon.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                  />
+                </button>
               </div>
 
               {!results && (
@@ -303,9 +304,10 @@ class SearchPage extends Component<Props, State> {
     return (
       <div css={RESULTS_STYLING}>
         <p css={RESULTS_INSTRUCTION_STYLING}>
-          Select the correct person from the results below. If multiple people
-          have similar names, check the date of birth and date of death carefully
-          before continuing, this can’t be changed once your order is submitted.
+          Select the correct person from the results below. If multiple people 
+          have similar names, check the date of birth and date of death 
+          carefully. Your selection can't be changed once your order to 
+          submitted.
         </p>
 
         <div css={RESULTS_SUMMARY_STYLING}>
@@ -313,13 +315,14 @@ class SearchPage extends Component<Props, State> {
           results for “{query}”
         </div>
 
-        <div css={RESULTS_LIST_STYLING}>
+        <div css={RESULTS_LIST_STYLING} role="list">
           {results.results.map(certificate => (
-            <SearchResult
-              certificate={certificate}
-              key={certificate.id}
-              backUrl={`/death?q=${encodeURIComponent(query)}&page=${page}`}
-            />
+            <div role="listitem" key={certificate.id}>
+              <SearchResult
+                certificate={certificate}
+                backUrl={`/death?q=${encodeURIComponent(query)}&page=${page}`}
+              />
+            </div>
           ))}
         </div>
 
@@ -413,16 +416,6 @@ const PAGE_STYLING = css({
   maxWidth: '45rem',
 });
 
-const PAGE_TITLE_STYLING = css({
-  fontFamily: SANS,
-  fontWeight: 700,
-  fontSize: '2rem',
-  lineHeight: 1.2,
-  textTransform: 'uppercase',
-  color: CHARLES_BLUE,
-  margin: '0 0 1.5rem',
-});
-
 const PROGRESS_WRAP_STYLING = css({
   marginBottom: '2rem',
 });
@@ -464,8 +457,8 @@ const SEARCH_FIELD_STYLING = css({
   border: `1px solid ${CHARLES_BLUE}`,
 });
 
-const ICON_BUTTON_STYLING = css({
-  appearance: 'none',
+const ICON_BUTTON_STYLING = {
+  appearance: 'none' as const,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -482,6 +475,45 @@ const ICON_BUTTON_STYLING = css({
     display: 'block',
     width: 24,
     height: 24,
+  },
+};
+
+const CLEAR_BUTTON_STYLING = css({
+  ...ICON_BUTTON_STYLING,
+
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `2px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
+  },
+});
+
+const SEARCH_BUTTON_STYLING = css({
+  ...ICON_BUTTON_STYLING,
+
+  '&:hover': {
+    backgroundColor: '#f3f3f3',
+
+    img: {
+      filter: 'brightness(0.55)',
+    },
+  },
+
+  '&:focus': {
+    outline: 'none',
+    backgroundColor: '#f3f3f3',
+
+    img: {
+      filter: 'brightness(0.55)',
+    },
+  },
+
+  '&:focus-visible': {
+    outline: `2px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
   },
 });
 
@@ -503,6 +535,11 @@ const SEARCH_INPUT_STYLING = css({
 
   '&:focus': {
     outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `2px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
   },
 });
 

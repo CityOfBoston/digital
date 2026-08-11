@@ -13,6 +13,7 @@ import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 
 import DeathCertificateCart, {
   DeathCertificateCartEntry,
+  deathIdentitySupportingDocumentsComplete,
   DEATH_RELATIONSHIP_OPTIONS,
 } from '../../store/DeathCertificateCart';
 
@@ -59,16 +60,8 @@ export default class CartItem extends Component<Props, State> {
   });
 
   render() {
-    const {
-      entry: {
-        id,
-        cert,
-        relationship,
-        includeSsn,
-        relationshipDocuments,
-        identityDocuments,
-      },
-    } = this.props;
+    const { entry } = this.props;
+    const { id, cert, relationship, includeSsn, relationshipDocuments } = entry;
 
     if (!cert) {
       return null;
@@ -85,7 +78,7 @@ export default class CartItem extends Component<Props, State> {
     const supportingDocumentsUploaded =
       includeSsn === true &&
       relationshipDocuments.some(file => file.status === 'success') &&
-      identityDocuments.some(file => file.status === 'success');
+      deathIdentitySupportingDocumentsComplete(entry);
 
     const editHref = `/death/certificate-options?id=${encodeURIComponent(
       id

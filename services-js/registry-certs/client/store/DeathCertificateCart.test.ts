@@ -178,9 +178,12 @@ describe('attach', () => {
         includeSsn: null,
         relationship: '',
         identityDocumentType: '',
+        identityAlternateDocumentType1: '',
+        identityAlternateDocumentType2: '',
         uploadSessionId: expect.any(String),
         relationshipDocuments: [],
         identityDocuments: [],
+        identityDocumentsSecondary: [],
       },
     ]);
   });
@@ -191,7 +194,7 @@ describe('attach', () => {
     const relationshipDoc = UploadableFile.fromRecord(
       { attachmentKey: '11', name: 'marriage.pdf' },
       'session-1',
-      'relationship:Spouse / Domestic Partner'
+      'relationship:Spouse/Domestic Partner'
     );
     const identityDoc = UploadableFile.fromRecord(
       { attachmentKey: '22', name: 'passport.jpg' },
@@ -203,9 +206,12 @@ describe('attach', () => {
       includeSsn: true,
       relationship: 'spouse',
       identityDocumentType: 'passport',
+      identityAlternateDocumentType1: '',
+      identityAlternateDocumentType2: '',
       uploadSessionId: 'session-1',
       relationshipDocuments: [relationshipDoc],
       identityDocuments: [identityDoc],
+      identityDocumentsSecondary: [],
     });
 
     const saved = JSON.parse(lastSavedCart());
@@ -217,11 +223,14 @@ describe('attach', () => {
         includeSsn: true,
         relationship: 'spouse',
         identityDocumentType: 'passport',
+        identityAlternateDocumentType1: '',
+        identityAlternateDocumentType2: '',
         uploadSessionId: 'session-1',
         relationshipDocuments: [
           { attachmentKey: '11', name: 'marriage.pdf' },
         ],
         identityDocuments: [{ attachmentKey: '22', name: 'passport.jpg' }],
+        identityDocumentsSecondary: [],
       },
     ]);
 
@@ -250,6 +259,109 @@ describe('attach', () => {
     );
 
     rehydrated.detach();
+  });
+
+  it('round-trips Other identity selections and secondary uploads', async () => {
+    cart.attach(localStorage, deathCertificatesDao, siteAnalytics);
+
+    const relationshipDoc = UploadableFile.fromRecord(
+      { attachmentKey: '11', name: 'marriage.pdf' },
+      'session-other',
+      'relationship:Spouse/Domestic Partner'
+    );
+    const firstIdentity = UploadableFile.fromRecord(
+      { attachmentKey: '22', name: 'utility.pdf' },
+      'session-other',
+      'identity:2 Consecutive Utility Bills'
+    );
+    const secondIdentity = UploadableFile.fromRecord(
+      { attachmentKey: '33', name: 'ssn.pdf' },
+      'session-other',
+      'identity:Social Security Card'
+    );
+
+    cart.setCertificateOptions(CERT_1, 1, {
+      includeSsn: true,
+      relationship: 'spouse',
+      identityDocumentType: 'other',
+      identityAlternateDocumentType1: 'utility-bills',
+      identityAlternateDocumentType2: 'social-security-card',
+      uploadSessionId: 'session-other',
+      relationshipDocuments: [relationshipDoc],
+      identityDocuments: [firstIdentity],
+      identityDocumentsSecondary: [secondIdentity],
+    });
+
+    const saved = JSON.parse(lastSavedCart())[0];
+
+    expect(saved.identityDocumentType).toBe('other');
+    expect(saved.identityAlternateDocumentType1).toBe('utility-bills');
+    expect(saved.identityAlternateDocumentType2).toBe('social-security-card');
+    expect(saved.identityDocuments).toEqual([
+      { attachmentKey: '22', name: 'utility.pdf' },
+    ]);
+    expect(saved.identityDocumentsSecondary).toEqual([
+      { attachmentKey: '33', name: 'ssn.pdf' },
+    ]);
+
+    const rehydrated = new DeathCertificateCart();
+    localStorage.getItem.mockReturnValue(JSON.stringify([saved]));
+    rehydrated.attach(localStorage, deathCertificatesDao, siteAnalytics);
+
+    expect(rehydrated.entries[0]).toMatchObject({
+      identityDocumentType: 'other',
+      identityAlternateDocumentType1: 'utility-bills',
+      identityAlternateDocumentType2: 'social-security-card',
+    });
+    expect(rehydrated.entries[0].identityDocuments[0].name).toBe(
+      'utility.pdf'
+    );
+    expect(rehydrated.entries[0].identityDocumentsSecondary[0].name).toBe(
+      'ssn.pdf'
+    );
+
+    rehydrated.detach();
+  });
+
+  it('encodes preferred and alternate identity attachment labels', () => {
+    const {
+      deathIdentityAttachmentLabel,
+      deathRelationshipAttachmentLabel,
+      deathIdentitySupportingDocumentsComplete,
+    } = require('./DeathCertificateCart');
+
+    expect(deathIdentityAttachmentLabel('drivers-license')).toBe(
+      "identity:Driver's License"
+    );
+    expect(deathIdentityAttachmentLabel('utility-bills')).toBe(
+      'identity:2 Consecutive Utility Bills'
+    );
+    expect(deathIdentityAttachmentLabel('pay-stub')).toBe(
+      'identity:1 Pay Stub'
+    );
+    expect(deathRelationshipAttachmentLabel('spouse')).toBe(
+      'relationship:Spouse/Domestic Partner'
+    );
+
+    expect(
+      deathIdentitySupportingDocumentsComplete({
+        identityDocumentType: 'other',
+        identityAlternateDocumentType1: 'utility-bills',
+        identityAlternateDocumentType2: 'utility-bills',
+        identityDocuments: [{ status: 'success' }],
+        identityDocumentsSecondary: [{ status: 'success' }],
+      })
+    ).toBe(false);
+
+    expect(
+      deathIdentitySupportingDocumentsComplete({
+        identityDocumentType: 'other',
+        identityAlternateDocumentType1: 'utility-bills',
+        identityAlternateDocumentType2: 'pay-stub',
+        identityDocuments: [{ status: 'success' }],
+        identityDocumentsSecondary: [{ status: 'success' }],
+      })
+    ).toBe(true);
   });
 
   function lastSavedCart(): string {

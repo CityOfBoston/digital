@@ -28,6 +28,7 @@ import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 
 import DeathCertificateDetailsTable from './DeathCertificateDetailsTable';
 import DeathQuantitySelect from './DeathQuantitySelect';
+import { DEATH_APP_TITLE_STYLING } from '../deathFlowTitles';
 
 interface InitialProps {
   id: string;
@@ -141,9 +142,7 @@ class CertificatePage extends React.Component<Props, State> {
     });
   };
 
-  handleContinue = (ev: React.FormEvent<HTMLFormElement>) => {
-    ev.preventDefault();
-
+  handleContinue = () => {
     const { quantity } = this.state;
 
     if (typeof quantity !== 'number' || quantity < 1) {
@@ -183,7 +182,7 @@ class CertificatePage extends React.Component<Props, State> {
             </title>
           </Head>
 
-          <h1 css={PAGE_TITLE_STYLING}>Request a death certificate</h1>
+          <h1 css={DEATH_APP_TITLE_STYLING}>Request a death certificate</h1>
 
           <div css={PROGRESS_WRAP_STYLING}>
             <ProgressBar totalSteps={7} currentStep={2} currentStepCompleted />
@@ -213,11 +212,12 @@ class CertificatePage extends React.Component<Props, State> {
     const { quantity } = this.state;
 
     return (
-      <form onSubmit={this.handleContinue} css={FORM_STYLING}>
+      <div css={FORM_STYLING}>
         <DeathCertificateDetailsTable certificate={certificate} />
 
         <p css={NOTE_STYLING}>
-          Note: If this is not the right person go back to search
+          Note: If this is not the right person, select Back below to return to 
+          the search results and refine your search.
         </p>
 
         <div css={QUANTITY_SECTION_STYLING}>
@@ -241,15 +241,22 @@ class CertificatePage extends React.Component<Props, State> {
             Back
           </button>
           <button
-            type="submit"
+            type="button"
             className="btn"
             css={PRIMARY_BUTTON_STYLING}
-            disabled={typeof quantity !== 'number' || quantity < 1}
+            aria-disabled={typeof quantity !== 'number' || quantity < 1}
+            onClick={ev => {
+              if (typeof quantity !== 'number' || quantity < 1) {
+                ev.preventDefault();
+                return;
+              }
+              this.handleContinue();
+            }}
           >
             Continue
           </button>
         </div>
-      </form>
+      </div>
     );
   }
 }
@@ -260,16 +267,6 @@ export default (CertificatePage as any) as React.ComponentClass<Props> & {
 
 const PAGE_STYLING = css({
   maxWidth: '45rem',
-});
-
-const PAGE_TITLE_STYLING = css({
-  fontFamily: SANS,
-  fontWeight: 700,
-  fontSize: '2rem',
-  lineHeight: 1.2,
-  textTransform: 'uppercase',
-  color: CHARLES_BLUE,
-  margin: '0 0 1.5rem',
 });
 
 const PROGRESS_WRAP_STYLING = css({
@@ -362,6 +359,15 @@ const SECONDARY_BUTTON_STYLING = css({
   '&:hover, &:focus': {
     background: '#f3f3f3',
   },
+
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
+  },
 });
 
 const PRIMARY_BUTTON_STYLING = css({
@@ -370,7 +376,16 @@ const PRIMARY_BUTTON_STYLING = css({
   textTransform: 'uppercase',
   fontWeight: 700,
 
-  '&:disabled': {
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
+  },
+
+  '&[aria-disabled="true"]': {
     opacity: 0.5,
     cursor: 'not-allowed',
   },

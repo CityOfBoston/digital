@@ -3,6 +3,7 @@ import { jsx, css } from '@emotion/core';
 
 import React from 'react';
 import Link from 'next/link';
+import Router from 'next/router';
 import { Formik, FormikProps } from 'formik';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
@@ -35,6 +36,13 @@ import { BackButtonContent } from '../question-components/BackButton';
 import MarriageCertificateRequest from '../../store/MarriageCertificateRequest';
 import RenderOrderDetails from './OrderDetails';
 import { CARDTYPE } from '../../models/CardType';
+import {
+  CHECKOUT_BACK_BUTTON_STYLING,
+  CHECKOUT_NAV_BACK_STYLING,
+  CHECKOUT_NAV_NEXT_STYLING,
+  CHECKOUT_NAV_STYLING,
+} from './checkoutNavStyling';
+import { preventImplicitFormSubmitOnEnter } from './preventImplicitFormSubmitOnEnter';
 
 type Props = {
   submit: (
@@ -348,11 +356,18 @@ export default class PaymentContent extends React.Component<Props, State> {
 
     const shippingUrl = `/${this.props.certificateType}/checkout?page=shipping`;
 
+    const canContinueToReview =
+      isValid &&
+      cardElementComplete &&
+      !tokenizationError &&
+      !order.processing;
+
     return (
       <form
         acceptCharset="UTF-8"
         method="post"
         onSubmit={handleSubmit}
+        onKeyDown={preventImplicitFormSubmitOnEnter}
         css={FIELDSET_CSS}
       >
         <div className={'row info-row'}>
@@ -368,7 +383,11 @@ export default class PaymentContent extends React.Component<Props, State> {
 
           <div className={'col'}>
             <Link href={shippingUrl}>
-              <a className={'btn'} aria-label="Edit contact information">
+              <a
+                href={shippingUrl}
+                className={'btn'}
+                aria-label="Edit shipping address"
+              >
                 edit
               </a>
             </Link>
@@ -429,6 +448,7 @@ export default class PaymentContent extends React.Component<Props, State> {
                 </span>
 
                 <button
+                  type="button"
                   className="lnk"
                   style={{ fontStyle: 'italic' }}
                   onClick={action(() => {
@@ -637,40 +657,63 @@ export default class PaymentContent extends React.Component<Props, State> {
           </StatusModal>
         )}
 
-        <div className="g g--r g--vc">
-          <div className="g--5 ta-r m-b500">
+          <div css={CHECKOUT_NAV_STYLING}>
+          <div css={CHECKOUT_NAV_BACK_STYLING}>
+            {this.props.certificateType === 'death' ? (
+              <button
+                type="button"
+                css={CHECKOUT_BACK_BUTTON_STYLING}
+                onClick={() => Router.push(shippingUrl)}
+              >
+                Back to shipping information
+              </button>
+            ) : (
+              <Link href={shippingUrl}>
+                <a href={shippingUrl}>
+                  <BackButtonContent />
+                </a>
+              </Link>
+            )}
+          </div>
+
+          <div css={CHECKOUT_NAV_NEXT_STYLING}>
             <button
               className="btn"
-              type="submit"
-              disabled={
-                !isValid ||
-                !cardElementComplete ||
-                !!tokenizationError ||
-                order.processing
-              }
+              type="button"
+              css={NEXT_BUTTON_STYLING}
+              aria-disabled={!canContinueToReview}
+              onClick={ev => {
+                if (!canContinueToReview) {
+                  ev.preventDefault();
+                  return;
+                }
+                handleSubmit();
+              }}
             >
               Next: Review Order
             </button>
-          </div>
-
-          <div className="g--7 m-b500">
-            <Link href={shippingUrl}>
-              {this.props.certificateType === 'death' ? (
-                <a style={{ fontStyle: 'italic' }}>
-                  ← Back to shipping information
-                </a>
-              ) : (
-                <a style={{ fontStyle: 'italic' }}>
-                  <BackButtonContent />
-                </a>
-              )}
-            </Link>
           </div>
         </div>
       </form>
     );
   };
 }
+
+const NEXT_BUTTON_STYLING = css({
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible': {
+    outline: `3px solid ${OPTIMISTIC_BLUE_DARK}`,
+    outlineOffset: '2px',
+  },
+
+  '&[aria-disabled="true"]': {
+    opacity: 0.5,
+    cursor: 'not-allowed',
+  },
+});
 
 const FIELDSET_CSS = css`
   margin-bottom: 3.5rem;
@@ -679,6 +722,7 @@ const FIELDSET_CSS = css`
     font-size: 24px;
     font-family: ${SANS};
     font-weight: 700;
+    line-height: 29px;
     margin-bottom: 1.75rem;
   }
 
@@ -703,7 +747,7 @@ const FIELDSET_CSS = css`
       font-size: 24px;
       font-style: normal;
       font-weight: 700;
-      line-height: normal;
+      line-height: 29px;
       text-transform: uppercase;
       margin-bottom: 0.25rem;
     }

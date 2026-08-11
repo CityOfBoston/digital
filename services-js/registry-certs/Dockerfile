@@ -23,12 +23,20 @@ ADD . /app/
 #ADD package-json.tar /app/
 #ADD yarn.lock lerna.json .yarnrc /app/
 
-RUN yarn install
+# Optional @next/swc-* platform binaries (including unused arm packages on
+# linux/amd64) are large and sometimes truncate mid-download, which leaves a
+# corrupt yarn cache entry and fails the whole install. Retry with a clean
+# cache and lower concurrency if the first attempt fails.
+RUN yarn config set network-timeout 600000 \
+  && (yarn install \
+    || (yarn cache clean && yarn install) \
+    || (yarn cache clean && yarn install --network-concurrency 1))
 
 # This is the time consuming step +/-300secs
 WORKDIR /app/services-js/$WORKSPACE
-RUN yarn install --ignore-scripts
-
+RUN yarn install --ignore-scripts \
+  || (yarn cache clean && yarn install --ignore-scripts) \
+  || (yarn cache clean && yarn install --ignore-scripts --network-concurrency 1)
 # syntax=docker/dockerfile:1
 FROM node:14.19.1-alpine AS deploy_phase
 

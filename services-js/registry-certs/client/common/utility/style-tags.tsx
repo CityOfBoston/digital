@@ -28,6 +28,14 @@ export default function styleTags(opts: CssOpts = {}) {
         color: #58585B;
       }
 
+      /* Fleet .b-c uses 10% horizontal padding below 1280px — too wide on phones. */
+      @media screen and (max-width: 768px) {
+        .b-c {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      }
+
       #nprogress{pointer-events:none;}
       #nprogress .bar{background:rgba(40,139,228,.7);position:fixed;z-index:1031;top:0;left:0;width:100%;height:65px;}
     `}</style>,

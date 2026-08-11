@@ -69,15 +69,21 @@ export default function OrderConfirmationContent({
           <p className="t--info" style={{ fontStyle: 'normal' }}>
             Order a new{' '}
             <Link href="/birth">
-              <a>birth</a>
+              <a target="_blank" rel="noopener noreferrer">
+                birth
+              </a>
             </Link>
             ,{' '}
             <Link href="/marriage">
-              <a>marriage</a>
+              <a target="_blank" rel="noopener noreferrer">
+                marriage
+              </a>
             </Link>
             , or{' '}
             <Link href="/death">
-              <a>death</a>
+              <a target="_blank" rel="noopener noreferrer">
+                death
+              </a>
             </Link>{' '}
             certificate.
           </p>
