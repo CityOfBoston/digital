@@ -3,10 +3,8 @@
 import { css, jsx } from '@emotion/core';
 
 import React from 'react';
-import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
-import Router from 'next/router';
 
 import { getParam } from '@cityofboston/next-client-common';
 import {
@@ -42,6 +40,20 @@ interface Props
 
 interface State {
   quantity: number | null;
+}
+
+export function deathCertificateOptionsHref(
+  id: string,
+  quantity: number,
+  backUrl: string | null
+): string {
+  const params = new URLSearchParams();
+  params.set('id', id);
+  params.set('quantity', String(quantity));
+  if (backUrl) {
+    params.set('backUrl', backUrl);
+  }
+  return `/death/certificate-options?${params.toString()}`;
 }
 
 /**
@@ -96,70 +108,24 @@ class CertificatePage extends React.Component<Props, State> {
     siteAnalytics.setProductAction('detail');
   }
 
-  setCartQuantity = action(
-    'CertificatePageController setCartQuantity',
-    async (quantity: number) => {
-      const { certificate, deathCertificateCart, siteAnalytics } = this.props;
-
-      if (certificate) {
-        if (quantity === 0) {
-          deathCertificateCart.remove(certificate.id);
-
-          siteAnalytics.sendEvent('click', {
-            category: 'UX',
-            label: 'add to cart',
-          });
-        } else {
-          // Quantity is chosen here (STEP 2); certificate options (STEP 3)
-          // collect SSN / relationship / uploads before the item is added.
-          const { backUrl } = this.props;
-          const query: { [key: string]: string } = {
-            id: certificate.id,
-            quantity: String(quantity),
-          };
-          if (backUrl) {
-            query.backUrl = backUrl;
-          }
-
-          siteAnalytics.sendEvent('click', {
-            category: 'UX',
-            label: 'continue to certificate options',
-          });
-
-          await Router.push({
-            pathname: '/death/certificate-options',
-            query,
-          });
-          window.scroll(0, 0);
-        }
-      }
-    }
-  );
-
   handleQuantity = (value: number | null): void => {
     this.setState({
       quantity: value,
     });
   };
 
-  handleContinue = () => {
+  handleContinueClick = (ev: React.MouseEvent<HTMLAnchorElement>) => {
     const { quantity } = this.state;
 
     if (typeof quantity !== 'number' || quantity < 1) {
+      ev.preventDefault();
       return;
     }
 
-    this.setCartQuantity(quantity);
-  };
-
-  handleBack = () => {
-    const { backUrl } = this.props;
-
-    if (backUrl) {
-      Router.push(backUrl);
-    } else {
-      Router.push('/death');
-    }
+    this.props.siteAnalytics.sendEvent('click', {
+      category: 'UX',
+      label: 'continue to certificate options',
+    });
   };
 
   render() {
@@ -209,7 +175,13 @@ class CertificatePage extends React.Component<Props, State> {
   }
 
   renderContent(certificate: DeathCertificate) {
+    const { backUrl } = this.props;
     const { quantity } = this.state;
+    const canContinue = typeof quantity === 'number' && quantity >= 1;
+    const continueHref = canContinue
+      ? deathCertificateOptionsHref(certificate.id, quantity, backUrl)
+      : '#';
+    const backHref = backUrl || '/death';
 
     return (
       <div css={FORM_STYLING}>
@@ -233,28 +205,18 @@ class CertificatePage extends React.Component<Props, State> {
         </div>
 
         <div css={BUTTON_ROW_STYLING}>
-          <button
-            type="button"
-            css={SECONDARY_BUTTON_STYLING}
-            onClick={this.handleBack}
-          >
+          <a href={backHref} css={SECONDARY_BUTTON_STYLING}>
             Back
-          </button>
-          <button
-            type="button"
+          </a>
+          <a
+            href={continueHref}
             className="btn"
             css={PRIMARY_BUTTON_STYLING}
-            aria-disabled={typeof quantity !== 'number' || quantity < 1}
-            onClick={ev => {
-              if (typeof quantity !== 'number' || quantity < 1) {
-                ev.preventDefault();
-                return;
-              }
-              this.handleContinue();
-            }}
+            aria-disabled={!canContinue}
+            onClick={this.handleContinueClick}
           >
             Continue
-          </button>
+          </a>
         </div>
       </div>
     );
@@ -344,12 +306,18 @@ const BUTTON_ROW_STYLING = css({
 
 const SECONDARY_BUTTON_STYLING = css({
   appearance: 'none',
+  boxSizing: 'border-box',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   background: WHITE,
   border: '1px solid #d2d2d2',
   color: OPTIMISTIC_BLUE_DARK,
   fontFamily: SANS,
   fontWeight: 700,
   fontSize: '1rem',
+  textAlign: 'center',
+  textDecoration: 'none',
   textTransform: 'uppercase',
   minHeight: '55px',
   minWidth: '10rem',
@@ -371,8 +339,14 @@ const SECONDARY_BUTTON_STYLING = css({
 });
 
 const PRIMARY_BUTTON_STYLING = css({
+  boxSizing: 'border-box',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   minHeight: '55px',
   minWidth: '10rem',
+  textAlign: 'center',
+  textDecoration: 'none',
   textTransform: 'uppercase',
   fontWeight: 700,
 

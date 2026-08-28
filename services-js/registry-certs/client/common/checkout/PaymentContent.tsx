@@ -43,6 +43,7 @@ import {
   CHECKOUT_NAV_STYLING,
 } from './checkoutNavStyling';
 import { preventImplicitFormSubmitOnEnter } from './preventImplicitFormSubmitOnEnter';
+import { SERVICE_FEE_URL } from '../../../lib/costs';
 
 type Props = {
   submit: (
@@ -397,6 +398,10 @@ export default class PaymentContent extends React.Component<Props, State> {
         <fieldset className="fs m-v700">
           <legend className="fs-l">Payment method</legend>
 
+          <p css={CARD_ACCEPT_COPY_STYLING}>
+            We accept all major credit and debit cards.
+          </p>
+
           <div className="txt">
             <label htmlFor="cardholderName" className="txt-l txt-l--sm">
               Cardholder Name{' '}
@@ -427,11 +432,23 @@ export default class PaymentContent extends React.Component<Props, State> {
               <>
                 <div ref={this.setCardField} />
 
-                <div className="t--info m-t200">
+                <div css={CARD_ACCEPT_COPY_STYLING}>
                   {cardElementError ? (
                     <span className="t--err">{cardElementError}</span>
                   ) : (
-                    'We accept Visa, MasterCard, and Discover.'
+                    <>
+                      We accept Visa, Mastercard, and Discover. Card service
+                      fees may vary depending on the type of card you use. Learn
+                      more about{' '}
+                      <a
+                        href={SERVICE_FEE_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        card service fees
+                      </a>{' '}
+                      at the City of Boston.
+                    </>
                   )}
                 </div>
               </>
@@ -698,6 +715,22 @@ export default class PaymentContent extends React.Component<Props, State> {
     );
   };
 }
+
+const CARD_ACCEPT_COPY_STYLING = css({
+  margin: 0,
+  padding: '16px',
+  color: '#58585B',
+  fontFamily: SERIF,
+  fontSize: '16px',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  lineHeight: 1.5,
+
+  a: {
+    color: OPTIMISTIC_BLUE_DARK,
+    textDecoration: 'underline',
+  },
+});
 
 const NEXT_BUTTON_STYLING = css({
   '&:focus': {

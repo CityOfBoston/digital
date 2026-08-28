@@ -26,8 +26,11 @@ export function serviceFeeDisclosureText() {
       <span css={BOLDED}>Note:</span> You will be charged an extra service fee
       of no more than {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee
       goes directly to a third party to pay for the cost of card processing.
-      Learn more about <a href={SERVICE_FEE_URL}>card service fees</a> at the
-      City of Boston.
+      Learn more about{' '}
+      <a href={SERVICE_FEE_URL} target="_blank" rel="noopener noreferrer">
+        card service fees
+      </a>{' '}
+      at the City of Boston.
     </>
   );
 }

@@ -43,11 +43,13 @@ export const DEATH_RELATIONSHIP_OPTIONS = {
     label: 'Grandchild',
     requiredDocument:
       "A copy of your birth certificate and your parent's birth certificate that lists the decedent as their parent",
+    multipleFiles: true,
   },
   grandparent: {
     label: 'Grandparent',
     requiredDocument:
       "A copy of your child's birth certificate that lists them as the parent and the deceased grandchild's birth certificate listing their child as the parent of the decedent",
+    multipleFiles: true,
   },
   sibling: {
     label: 'Sibling',
@@ -72,6 +74,7 @@ export const DEATH_RELATIONSHIP_OPTIONS = {
     label: 'Legal Representative',
     requiredDocument:
       "An original or notarized copy of your employment representing the decedent's estate by the client and your bar card",
+    multipleFiles: true,
   },
   governmentOfficial: {
     label: 'Government Official',
@@ -98,11 +101,13 @@ export const DEATH_IDENTITY_PREFERRED_OPTIONS = {
   'drivers-license': {
     label: "Driver's License",
     requiredDocument: "Front and back of your Driver's License",
+    multipleFiles: true,
   },
   'government-photo-id': {
     label: 'Government Issued Photo Identification Card',
     requiredDocument:
       'Front and back of your Government Issued Photo Identification Card',
+    multipleFiles: true,
   },
   passport: {
     label: 'Passport',
@@ -111,6 +116,7 @@ export const DEATH_IDENTITY_PREFERRED_OPTIONS = {
   'military-id': {
     label: 'Military Identification Card',
     requiredDocument: 'Front and back of your Military Identification Card',
+    multipleFiles: true,
   },
 } as const;
 
@@ -120,12 +126,19 @@ export const DEATH_IDENTITY_PREFERRED_OPTIONS = {
  */
 /**
  * `label` = simplified dropdown value.
- * `requiredDocument` = fuller copy shown after selection (and in the Other list).
+ * `requiredDocument` = fuller copy shown after selection.
+ * `listLabel` (optional) = short name for the Other bullet list and
+ * upload attachment labels when `requiredDocument` is longer clarifying copy.
+ * `multipleFiles` (optional) = use “Required documents” heading when true.
  */
 export const DEATH_IDENTITY_ALTERNATE_OPTIONS = {
   'utility-bills': {
     label: 'Utility Bills',
-    requiredDocument: '2 Consecutive Utility Bills',
+    // Short name for the Other bullet list and upload attachment labels.
+    listLabel: '2 Consecutive Utility Bills',
+    requiredDocument:
+      'Upload two consecutive utility bills as separate files. Together, they count as one document type.',
+    multipleFiles: true,
   },
   'social-security-card': {
     label: 'Social Security Card',
@@ -172,9 +185,23 @@ export const DEATH_IDENTITY_OTHER_REQUIRED_INTRO =
 /** Full required-document names for the Other intro bullet list. */
 export const DEATH_IDENTITY_ALTERNATE_LABELS: string[] = (Object.keys(
   DEATH_IDENTITY_ALTERNATE_OPTIONS
-) as Array<keyof typeof DEATH_IDENTITY_ALTERNATE_OPTIONS>).map(
-  key => DEATH_IDENTITY_ALTERNATE_OPTIONS[key].requiredDocument
-);
+) as Array<keyof typeof DEATH_IDENTITY_ALTERNATE_OPTIONS>).map(key => {
+  const option = DEATH_IDENTITY_ALTERNATE_OPTIONS[key];
+  return 'listLabel' in option ? option.listLabel : option.requiredDocument;
+});
+
+/** Banner heading: singular vs plural based on the selected option. */
+export function requiredDocumentHeading(multipleFiles: boolean): string {
+  return multipleFiles ? 'Required documents:' : 'Required document:';
+}
+
+export function optionRequiresMultipleFiles(option: {
+  // Index signature so options without `multipleFiles` (label-only, etc.) type-check.
+  [key: string]: unknown;
+  multipleFiles?: boolean;
+}): boolean {
+  return option.multipleFiles === true;
+}
 
 /** Main Proof of Identity dropdown values (preferred + Other). */
 export const DEATH_IDENTITY_DOCUMENT_OPTIONS = {
@@ -368,11 +395,13 @@ export function deathIdentityAttachmentLabel(
       identityDocumentType
     )
   ) {
-    return `identity:${
+    const option =
       DEATH_IDENTITY_ALTERNATE_OPTIONS[
         identityDocumentType as DeathCertificateAlternateIdentityDocumentType
-      ].requiredDocument
-    }`;
+      ];
+    const attachmentName =
+      'listLabel' in option ? option.listLabel : option.requiredDocument;
+    return `identity:${attachmentName}`;
   }
 
   if (identityDocumentType === 'other') {

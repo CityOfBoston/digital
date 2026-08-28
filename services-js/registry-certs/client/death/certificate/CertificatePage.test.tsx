@@ -1,17 +1,17 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Router from 'next/router';
 
 import { GaSiteAnalytics } from '@cityofboston/next-client-common';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import DeathCertificatesDao from '../../dao/DeathCertificatesDao';
 
-import CertificatePage from './CertificatePage';
+import CertificatePage, {
+  deathCertificateOptionsHref,
+} from './CertificatePage';
 
 import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
 
-jest.mock('next/router');
 jest.mock('../../dao/DeathCertificatesDao');
 
 describe('getInitialProps', () => {
@@ -45,58 +45,39 @@ describe('getInitialProps', () => {
     expect(initialProps).toMatchSnapshot();
   });
 
-  describe('operations', () => {
-    let scrollSpy;
-
-    beforeEach(() => {
-      scrollSpy = jest.spyOn(window, 'scroll').mockImplementation(() => {});
+  describe('continue link', () => {
+    it('builds a full-page href to certificate options', () => {
+      expect(
+        deathCertificateOptionsHref(TYPICAL_CERTIFICATE.id, 5, '/search?q=jayne')
+      ).toEqual(
+        `/death/certificate-options?id=${TYPICAL_CERTIFICATE.id}&quantity=5&backUrl=${encodeURIComponent(
+          '/search?q=jayne'
+        )}`
+      );
     });
 
-    afterEach(() => {
-      scrollSpy.mockRestore();
-    });
+    it('renders Continue as a real link so it works without client JS', () => {
+      const wrapper = mount(
+        <CertificatePage
+          deathCertificateCart={new DeathCertificateCart()}
+          siteAnalytics={new GaSiteAnalytics()}
+          id="0002"
+          certificate={TYPICAL_CERTIFICATE}
+          backUrl="/search?q=jayne"
+        />
+      );
 
-    describe('setCartQuantity', () => {
-      let cart;
-      let siteAnalytics;
-      let component;
-
-      beforeEach(() => {
-        cart = new DeathCertificateCart();
-        siteAnalytics = new GaSiteAnalytics();
-        (Router.push as jest.Mock).mockClear();
-
-        component = mount(
-          <CertificatePage
-            deathCertificateCart={cart}
-            siteAnalytics={siteAnalytics}
-            id="0002"
-            certificate={TYPICAL_CERTIFICATE}
-            backUrl="/search?q=jayne"
-          />
-        ).instance();
-      });
-
-      it('navigates to certificate options with quantity', async () => {
-        await component.setCartQuantity(5);
-        expect(cart.size).toEqual(0);
-        expect(Router.push).toHaveBeenCalledWith({
-          pathname: '/death/certificate-options',
-          query: {
-            id: TYPICAL_CERTIFICATE.id,
-            quantity: '5',
-            backUrl: '/search?q=jayne',
-          },
-        });
-      });
-
-      it('removes certificates when set to 0', () => {
-        cart.setQuantity(TYPICAL_CERTIFICATE, 5);
-        expect(cart.entries.length).toBe(1);
-
-        component.setCartQuantity(0);
-        expect(cart.entries.length).toBe(0);
-      });
+      const continueLink = wrapper
+        .find('a')
+        .filterWhere(n => n.text() === 'Continue');
+      expect(continueLink).toHaveLength(1);
+      expect(continueLink.prop('href')).toEqual(
+        deathCertificateOptionsHref(
+          TYPICAL_CERTIFICATE.id,
+          1,
+          '/search?q=jayne'
+        )
+      );
     });
   });
 });

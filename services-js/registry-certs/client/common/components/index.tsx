@@ -1,6 +1,13 @@
 /** @jsx jsx */
 
-import { CHARLES_BLUE, GRAY_400, SANS, WHITE } from '@cityofboston/react-fleet';
+import {
+  CHARLES_BLUE,
+  GRAY_400,
+  OPTIMISTIC_BLUE_DARK,
+  SANS,
+  SERIF,
+  WHITE,
+} from '@cityofboston/react-fleet';
 import { css, jsx } from '@emotion/core';
 
 import { ReactNode, ReactNodeArray } from 'react';
@@ -24,6 +31,27 @@ const CONFIRM_SVG__CSS = css`
     height: 40px;
     margin-right: 20px;
   }
+`;
+
+/** Info “i” icon — Figma snack bar / USWDS info glyph (24px). */
+export const INFO_SVG = (): JSX.Element => {
+  return (
+    <img
+      css={INFO_SVG__CSS}
+      src="/assets/images/death-info-notice.svg"
+      alt=""
+      width={24}
+      height={24}
+      aria-hidden="true"
+    />
+  );
+};
+
+const INFO_SVG__CSS = css`
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
 `;
 
 interface BANNER_PROPS {
@@ -67,6 +95,58 @@ const BANNER_CSS = css`
       font-weight: 700;
       text-transform: uppercase;
     }
+  }
+`;
+
+/**
+ * Figma “Snack bar” info notice (node 3693:1701).
+ * Surface/action-light + Border/action, 24px info icon.
+ */
+export const INFO_NOTICE_BANNER = (props: BANNER_PROPS): JSX.Element => {
+  const { children } = props;
+
+  return (
+    <div css={INFO_BANNER_CSS} role="status">
+      <INFO_SVG />
+      <div className="copy">{children}</div>
+    </div>
+  );
+};
+
+// Figma tokens: Surface/action-light, Border/action, Border Width/md,
+// Border Radius/lg, gap 12, padding 20, icon 24.
+const INFO_BANNER_CSS = css`
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  background: #d7e5f1;
+  border: 2px solid ${OPTIMISTIC_BLUE_DARK};
+  border-radius: 8px;
+  color: ${CHARLES_BLUE};
+  font-family: ${SERIF};
+  font-size: 1rem;
+  line-height: 1.5;
+
+  .copy {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .copy p {
+    margin: 0;
+  }
+
+  .copy strong {
+    font-weight: 700;
+  }
+
+  .copy a {
+    color: ${OPTIMISTIC_BLUE_DARK};
+    text-decoration: underline;
   }
 `;
 

@@ -7,10 +7,7 @@ import mjml2html from 'mjml';
 import moment from 'moment-timezone';
 
 import { capitalize } from '../../lib/helpers';
-import {
-  DEATH_SSN_NOTICE_INTRO_EMAIL_HTML,
-  DEATH_SSN_NOTICE_PARAGRAPH_2,
-} from '../../lib/deathSsnNotice';
+import { deathReceiptBelowOrderHtml } from '../../lib/deathSsnNotice';
 
 import { PACKAGE_SRC_ROOT } from '../util';
 
@@ -85,6 +82,8 @@ type ReceiptTemplateData = {
   aboveOrderText?: string[];
   belowOrderText?: string[];
   certifiedMail?: boolean;
+  /** When true, hide the legacy “* You are charged an extra service fee…” footer. */
+  omitLegacyServiceFeeNote?: boolean;
 };
 
 type ExpiredTemplateData = {
@@ -140,11 +139,8 @@ export class EmailTemplates {
         certifiedMail: false,
         total: receipt.total,
 
-        belowOrderText: [
-          DEATH_SSN_NOTICE_INTRO_EMAIL_HTML,
-          DEATH_SSN_NOTICE_PARAGRAPH_2,
-          'We’ll either ship your order or follow up with you by email within 1–3 business days.',
-        ],
+        belowOrderText: deathReceiptBelowOrderHtml(receipt.serviceFeeUri),
+        omitLegacyServiceFeeNote: true,
       },
       `City of Boston Death Certificates Order #${receipt.orderId}`
     );

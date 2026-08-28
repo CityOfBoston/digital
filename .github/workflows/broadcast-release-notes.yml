@@ -1,0 +1,25 @@
+# Attached resources:
+# - GitHub SECRETS:
+#     -> global: GOOGLE_CHAT_WEBHOOK -> Webhook URL for posting messages to gchat
+
+name: Broadcast Release Notes
+on:
+  release:
+    types: [released]
+  workflow_dispatch:
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Broadcast Release Notes to Google Chat
+        uses: actions/github-script@v7
+        with:
+          script: |
+            console.log("Context:\n" + JSON.stringify(context));
+            const helper = require('./.github/scripts/broadcast_release_notes.js');
+            const payload = await helper.startRelease(context, github);
+            console.log("Payload:\n" + JSON.stringify(payload));
+            helper.post('${{ secrets.GOOGLE_CHAT_WEBHOOK }}', payload, core);

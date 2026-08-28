@@ -41,7 +41,10 @@ import {
   DEATH_IDENTITY_OTHER_REQUIRED_INTRO,
   DEATH_RELATIONSHIP_OPTIONS,
   isDeathIdentityOther,
+  optionRequiresMultipleFiles,
+  requiredDocumentHeading,
 } from '../../store/DeathCertificateCart';
+import { INFO_NOTICE_BANNER } from '../../common/components';
 import DeathSelectField from './DeathSelectField';
 import DeathDocumentsUpload from './DeathDocumentsUpload';
 import DeathDuplicateIdentityOverlay, {
@@ -375,7 +378,9 @@ export default class CertificateOptionsPage extends Component<Props> {
     'CertificateOptionsPage handleRelationshipDocumentsChange',
     (files: UploadableFile[]) => {
       this.relationshipDocuments = files;
-      if (this.hasSuccessfulUpload(files)) {
+      // Clear like dropdowns: once the user selects a file, dismiss the
+      // empty-upload error (don’t wait for upload success).
+      if (files.length > 0) {
         this.clearFieldErrorIf('relationshipDocuments');
       }
     }
@@ -385,7 +390,7 @@ export default class CertificateOptionsPage extends Component<Props> {
     'CertificateOptionsPage handleIdentityDocumentsChange',
     (files: UploadableFile[]) => {
       this.identityDocuments = files;
-      if (this.hasSuccessfulUpload(files)) {
+      if (files.length > 0) {
         this.clearFieldErrorIf('identityDocuments');
       }
     }
@@ -395,7 +400,7 @@ export default class CertificateOptionsPage extends Component<Props> {
     'CertificateOptionsPage handleIdentityDocumentsSecondaryChange',
     (files: UploadableFile[]) => {
       this.identityDocumentsSecondary = files;
-      if (this.hasSuccessfulUpload(files)) {
+      if (files.length > 0) {
         this.clearFieldErrorIf('identityDocumentsSecondary');
       }
     }
@@ -716,6 +721,10 @@ export default class CertificateOptionsPage extends Component<Props> {
           <legend css={QUESTION_LEGEND_STYLING}>
             Would you like the decedent’s Social Security Number (SSN) printed
             on the death certificate?{' '}
+            <span css={SELECTION_NOTE_STYLING}>
+              Your selection will apply to all copies of this certificate in
+              this order.
+            </span>{' '}
             <span className="t--req">Required</span>
           </legend>
 
@@ -756,19 +765,6 @@ export default class CertificateOptionsPage extends Component<Props> {
           )}
         </fieldset>
 
-        <div css={NOTE_STYLING}>
-          <img
-            src="/assets/images/death-ssn-alert.svg"
-            alt=""
-            width={30}
-            height={30}
-          />
-          <p>
-            Your SSN selection will apply to all copies of this death
-            certificate in this order
-          </p>
-        </div>
-
         {this.includeSsn === true && this.renderVerificationSection()}
 
         <div css={BUTTON_ROW_STYLING}>
@@ -793,18 +789,21 @@ export default class CertificateOptionsPage extends Component<Props> {
   }
 
   private renderVerificationSection() {
-    const relationshipDoc =
+    const relationshipOption =
       this.relationship && DEATH_RELATIONSHIP_OPTIONS[this.relationship]
-        ? DEATH_RELATIONSHIP_OPTIONS[this.relationship].requiredDocument
+        ? DEATH_RELATIONSHIP_OPTIONS[this.relationship]
         : null;
+    const relationshipDoc = relationshipOption
+      ? relationshipOption.requiredDocument
+      : null;
     const identityIsOther = isDeathIdentityOther(this.identityDocumentType);
-    const identityDoc =
+    const identityOption =
       this.identityDocumentType &&
       DEATH_IDENTITY_DOCUMENT_OPTIONS[this.identityDocumentType] &&
       !identityIsOther
         ? DEATH_IDENTITY_DOCUMENT_OPTIONS[this.identityDocumentType]
-            .requiredDocument
         : null;
+    const identityDoc = identityOption ? identityOption.requiredDocument : null;
 
     return (
       <div>
@@ -827,10 +826,15 @@ export default class CertificateOptionsPage extends Component<Props> {
               }
               onChange={this.handleRelationshipChange}
             />
-            {relationshipDoc && (
-              <p css={REQUIRED_DOC_STYLING}>
-                <strong>Required document:</strong> {relationshipDoc}
-              </p>
+            {relationshipDoc && relationshipOption && (
+              <INFO_NOTICE_BANNER>
+                <strong>
+                  {requiredDocumentHeading(
+                    optionRequiresMultipleFiles(relationshipOption)
+                  )}
+                </strong>{' '}
+                {relationshipDoc}
+              </INFO_NOTICE_BANNER>
             )}
           </div>
 
@@ -874,15 +878,20 @@ export default class CertificateOptionsPage extends Component<Props> {
               }
               onChange={this.handleIdentityDocumentTypeChange}
             />
-            {identityDoc && (
-              <p css={REQUIRED_DOC_STYLING}>
-                <strong>Required document:</strong> {identityDoc}
-              </p>
+            {identityDoc && identityOption && (
+              <INFO_NOTICE_BANNER>
+                <strong>
+                  {requiredDocumentHeading(
+                    optionRequiresMultipleFiles(identityOption)
+                  )}
+                </strong>{' '}
+                {identityDoc}
+              </INFO_NOTICE_BANNER>
             )}
             {identityIsOther && (
-              <div css={REQUIRED_DOC_STYLING}>
+              <INFO_NOTICE_BANNER>
                 <p css={REQUIRED_DOC_INTRO_STYLING}>
-                  <strong>Required document:</strong>{' '}
+                  <strong>{requiredDocumentHeading(true)}</strong>{' '}
                   {DEATH_IDENTITY_OTHER_REQUIRED_INTRO}
                 </p>
                 <ul css={ALTERNATE_LIST_STYLING}>
@@ -892,7 +901,7 @@ export default class CertificateOptionsPage extends Component<Props> {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </INFO_NOTICE_BANNER>
             )}
           </div>
 
@@ -930,18 +939,18 @@ export default class CertificateOptionsPage extends Component<Props> {
   }
 
   private renderOtherIdentityUploads() {
-    const firstRequired =
+    const firstOption =
       this.identityAlternateDocumentType1 &&
       DEATH_IDENTITY_ALTERNATE_OPTIONS[this.identityAlternateDocumentType1]
         ? DEATH_IDENTITY_ALTERNATE_OPTIONS[this.identityAlternateDocumentType1]
-            .requiredDocument
         : null;
-    const secondRequired =
+    const firstRequired = firstOption ? firstOption.requiredDocument : null;
+    const secondOption =
       this.identityAlternateDocumentType2 &&
       DEATH_IDENTITY_ALTERNATE_OPTIONS[this.identityAlternateDocumentType2]
         ? DEATH_IDENTITY_ALTERNATE_OPTIONS[this.identityAlternateDocumentType2]
-            .requiredDocument
         : null;
+    const secondRequired = secondOption ? secondOption.requiredDocument : null;
 
     return (
       <div css={OTHER_IDENTITY_STYLING}>
@@ -960,11 +969,16 @@ export default class CertificateOptionsPage extends Component<Props> {
             }
             onChange={this.handleIdentityAlternateType1Change}
           />
-          {firstRequired && (
+          {firstRequired && firstOption && (
             <div css={FIELD_BLOCK_STYLING}>
-              <p css={REQUIRED_DOC_STYLING}>
-                <strong>Required Documents:</strong> {firstRequired}
-              </p>
+              <INFO_NOTICE_BANNER>
+                <strong>
+                  {requiredDocumentHeading(
+                    optionRequiresMultipleFiles(firstOption)
+                  )}
+                </strong>{' '}
+                {firstRequired}
+              </INFO_NOTICE_BANNER>
               <div css={UPLOAD_LABEL_STYLING}>
                 Upload your first proof of identity{' '}
                 <span className="t--req">Required</span>
@@ -1005,11 +1019,16 @@ export default class CertificateOptionsPage extends Component<Props> {
             }
             onChange={this.handleIdentityAlternateType2Change}
           />
-          {secondRequired && (
+          {secondRequired && secondOption && (
             <div css={FIELD_BLOCK_STYLING}>
-              <p css={REQUIRED_DOC_STYLING}>
-                <strong>Required Documents:</strong> {secondRequired}
-              </p>
+              <INFO_NOTICE_BANNER>
+                <strong>
+                  {requiredDocumentHeading(
+                    optionRequiresMultipleFiles(secondOption)
+                  )}
+                </strong>{' '}
+                {secondRequired}
+              </INFO_NOTICE_BANNER>
               <div css={UPLOAD_LABEL_STYLING}>
                 Upload your second proof of identity{' '}
                 <span className="t--req">Required</span>
@@ -1090,6 +1109,16 @@ const QUESTION_LEGEND_STYLING = css({
   padding: 0,
 });
 
+const SELECTION_NOTE_STYLING = css({
+  color: '#091F2F',
+  fontFamily: SANS,
+  fontSize: '24px',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  lineHeight: '0.8',
+  fontVariant: 'all-small-caps',
+});
+
 const RADIO_WRAP_STYLING = css({
   '.ra': {
     display: 'flex',
@@ -1103,25 +1132,6 @@ const RADIO_WRAP_STYLING = css({
     fontFamily: SERIF,
     fontSize: '1.125rem',
     color: CHARLES_BLUE,
-  },
-});
-
-const NOTE_STYLING = css({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '1rem',
-  marginTop: '0.4rem',
-  img: {
-    flexShrink: 0,
-    width: 30,
-    height: 30,
-  },
-  p: {
-    margin: 0,
-    fontFamily: SERIF,
-    fontSize: '1rem',
-    lineHeight: '1.5',
-    color: '#58585b',
   },
 });
 
@@ -1147,21 +1157,6 @@ const FIELD_BLOCK_STYLING = css({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.75rem',
-});
-
-const REQUIRED_DOC_STYLING = css({
-  margin: 0,
-  fontFamily: SERIF,
-  fontSize: '1rem',
-  lineHeight: 1.5,
-  color: CHARLES_BLUE,
-  strong: {
-    fontWeight: 700,
-  },
-  a: {
-    color: OPTIMISTIC_BLUE_DARK,
-    textDecoration: 'underline',
-  },
 });
 
 const REQUIRED_DOC_INTRO_STYLING = css({

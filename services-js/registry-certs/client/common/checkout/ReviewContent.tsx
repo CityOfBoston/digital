@@ -296,8 +296,14 @@ export default class ReviewContent extends React.Component<Props, State> {
               {FIXED_CC_STRING} plus {PERCENTAGE_CC_STRING}. This fee goes
               directly to a third party to pay for the cost of credit card
               processing. Learn more about{' '}
-              <a href={SERVICE_FEE_URL}>credit card service fees</a> at the City
-              of Boston.
+              <a
+                href={SERVICE_FEE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                credit card service fees
+              </a>{' '}
+              at the City of Boston.
             </div>
           </div>
         }

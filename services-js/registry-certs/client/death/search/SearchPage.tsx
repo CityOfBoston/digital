@@ -185,7 +185,7 @@ class SearchPage extends Component<Props, State> {
                 <input
                   id="death-search-q"
                   aria-label="Search by full name or partial name"
-                  aria-describedby={!results ? 'searchExamples' : undefined}
+                  aria-describedby="searchExamples"
                   type="text"
                   name="q"
                   ref={this.setQueryField}
@@ -226,11 +226,9 @@ class SearchPage extends Component<Props, State> {
                 </button>
               </div>
 
-              {!results && (
-                <div css={SEARCH_EXAMPLES_STYLING} id="searchExamples">
-                  Examples: “j doe” “robert frost 1963” “johnson 1956-1957”
-                </div>
-              )}
+              <div css={SEARCH_EXAMPLES_STYLING} id="searchExamples">
+                Examples: “j doe”, “robert frost 1963”, “johnson 1956–1957”
+              </div>
             </form>
 
             {!results && this.renderLandingNotes()}
@@ -364,10 +362,14 @@ class SearchPage extends Component<Props, State> {
         </li>
 
         <li>
-          This site has all deaths from 1956 on, but only a few records before
-          then. You can{' '}
-          <a href="https://www.boston.gov/departments/registry/how-get-death-certificate">
-            request a death certificate from before 1956
+          Records before 1956 are not available through this online search. You
+          can request them{' '}
+          <a href="https://www.boston.gov/departments/registry/how-get-death-certificate#tab-p-2">
+            by mail
+          </a>{' '}
+          or{' '}
+          <a href="https://www.boston.gov/departments/registry/how-get-death-certificate#tab-p-2">
+            in person
           </a>
           .
         </li>

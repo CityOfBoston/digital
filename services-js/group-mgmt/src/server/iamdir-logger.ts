@@ -29,8 +29,62 @@ function iamdirEndpoint(baseDn: string): string {
   return dn ? `${base}/${dn}` : base;
 }
 
-function logLine(userId: string, payload: Record<string, unknown>) {
-  console.log(`[${userId}]`, JSON.stringify(payload));
+type LogIntegration = 'iamdir' | 'graphql';
+type LogOutcome = 'REQUEST' | 'SUCCESS' | 'ERROR';
+
+/**
+ * Human-readable multi-line logs so request / success / error and
+ * iamdir vs graphql are easy to scan. Body stays JSON for structure.
+ *
+ * Example:
+ *   [12345] iamdir REQUEST  search
+ *     endpoint: ldap://iamdir/ou=groups,...
+ *     body: {"filter":"(cn=*)"}
+ *
+ *   [12345] iamdir SUCCESS  search
+ *     endpoint: ldap://iamdir/ou=groups,...
+ *     status: 0
+ *     body: {"entryCount":2,"entries":[...]}
+ *
+ *   [12345] graphql ERROR   getMinimumUserGroups
+ *     body: ["Internal Server Error"]
+ */
+function logLine(
+  integration: LogIntegration,
+  userId: string,
+  outcome: LogOutcome,
+  operation: string,
+  fields: {
+    endpoint?: string;
+    status?: number | string | null;
+    body?: unknown;
+    variables?: unknown;
+  }
+) {
+  const paddedOutcome = outcome.padEnd(7);
+  const op = operation || '(unknown)';
+  console.log(`[${userId}] ${integration} ${paddedOutcome} ${op}`);
+
+  if (fields.endpoint) {
+    console.log(`  endpoint: ${fields.endpoint}`);
+  }
+  if (fields.status !== undefined && fields.status !== null) {
+    console.log(`  status: ${fields.status}`);
+  }
+  if (fields.variables !== undefined) {
+    console.log(`  variables: ${safeJson(fields.variables)}`);
+  }
+  if (fields.body !== undefined) {
+    console.log(`  body: ${safeJson(fields.body)}`);
+  }
+}
+
+function safeJson(value: unknown): string {
+  try {
+    return JSON.stringify(value);
+  } catch {
+    return String(value);
+  }
 }
 
 export function logIamdirRequest(
@@ -42,10 +96,7 @@ export function logIamdirRequest(
   if (ctx.silent) {
     return;
   }
-  logLine(ctx.userId, {
-    integration: 'iamdir',
-    phase: 'request',
-    operation,
+  logLine('iamdir', ctx.userId, 'REQUEST', operation, {
     endpoint: iamdirEndpoint(baseDn),
     body,
   });
@@ -61,10 +112,7 @@ export function logIamdirResponse(
   if (ctx.silent) {
     return;
   }
-  logLine(ctx.userId, {
-    integration: 'iamdir',
-    phase: 'response',
-    operation,
+  logLine('iamdir', ctx.userId, 'SUCCESS', operation, {
     endpoint: iamdirEndpoint(baseDn),
     status,
     body,
@@ -78,10 +126,7 @@ export function logIamdirError(
   status: number | string | null,
   body: unknown
 ) {
-  logLine(ctx.userId, {
-    integration: 'iamdir',
-    phase: 'error',
-    operation,
+  logLine('iamdir', ctx.userId, 'ERROR', operation, {
     endpoint: iamdirEndpoint(baseDn),
     status,
     body,
@@ -157,7 +202,17 @@ export function attachIamdirSearchStreamLogging(
       responseBody.truncated = true;
       responseBody.truncatedAfter = MAX_RESPONSE_ENTRIES;
     }
-    logIamdirResponse(ctx, 'search', baseDn, status, responseBody);
+    // LDAP result status 0 = success. Non-zero is an IAMDIR/LDAP result
+    // code (not GraphQL). Stream/transport failures use the 'error' event.
+    if (status === 0) {
+      logIamdirResponse(ctx, 'search', baseDn, status, responseBody);
+    } else {
+      logIamdirError(ctx, 'search', baseDn, status, {
+        ...responseBody,
+        message: `LDAP result status ${status}`,
+        request: requestBody,
+      });
+    }
   });
 }
 
@@ -169,10 +224,7 @@ export function logGraphqlError(
     errors: Array<{ message?: string }>;
   }
 ) {
-  logLine(userId, {
-    integration: 'graphql',
-    phase: 'error',
-    operation: details.operation,
+  logLine('graphql', userId, 'ERROR', details.operation || '(unknown)', {
     variables: details.variables,
     body: details.errors.map(e => e.message || String(e)),
   });

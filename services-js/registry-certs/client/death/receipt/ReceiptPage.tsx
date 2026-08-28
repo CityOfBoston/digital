@@ -8,8 +8,14 @@ import Head from 'next/head';
 import { DeathCertificateOrder } from '../../types';
 import { GetInitialProps } from '../../../pages/_app';
 
-import { BLACK, GRAY_200, MEDIA_PRINT, WHITE } from '@cityofboston/react-fleet';
+import { BLACK, GRAY_200, MEDIA_PRINT, OPTIMISTIC_BLUE_DARK, SERIF, WHITE } from '@cityofboston/react-fleet';
 import { getParam } from '@cityofboston/next-client-common';
+
+import {
+  DEATH_RECEIPT_FOOTER_SECTIONS,
+  DEATH_RECEIPT_LABEL_STYLE,
+} from '../../../lib/deathSsnNotice';
+import { SERVICE_FEE_URL } from '../../../lib/costs';
 
 interface Props {
   order: DeathCertificateOrder | null;
@@ -195,17 +201,34 @@ export default class ReceiptPage extends Component<Props> {
               </table>
             </div>
 
-            <div className="p-a300">
-              <div className="t--cb m-v300">
-                We’ll either ship your order or follow up with you by email
-                within 1–3 business days.
-              </div>
-
-              <div className="t--subinfo m-t300">
-                * You are charged an extra service fee to pay for the cost of
-                card processing. This fee goes directly to a third party, not
-                the City of Boston.
-              </div>
+            <div className="p-a300" css={RECEIPT_FOOTER_STYLING}>
+              {DEATH_RECEIPT_FOOTER_SECTIONS.map(({ label, body }, index) => (
+                <p key={label || `section-${index}`} css={RECEIPT_FOOTER_PARAGRAPH_STYLING}>
+                  {label && (
+                    <>
+                      <strong css={RECEIPT_FOOTER_LABEL_STYLING}>{label}</strong>{' '}
+                    </>
+                  )}
+                  {body}
+                </p>
+              ))}
+              <p css={RECEIPT_FOOTER_PARAGRAPH_STYLING}>
+                <strong css={RECEIPT_FOOTER_LABEL_STYLING}>
+                  Card service fee:
+                </strong>{' '}
+                A card service fee is added to your order and paid directly to
+                the third-party payment processor. The amount may vary by card
+                type. Learn more about{' '}
+                <a
+                  href={SERVICE_FEE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  css={RECEIPT_FOOTER_LINK_STYLING}
+                >
+                  card service fees
+                </a>{' '}
+                at the City of Boston.
+              </p>
             </div>
           </div>
 
@@ -280,4 +303,34 @@ const ITEMS_TABLE_STYLE = css({
 const SEAL_HOLDER_STYLE = css({
   display: 'flex',
   alignItems: 'center',
+});
+
+const RECEIPT_FOOTER_STYLING = css({
+  fontFamily: SERIF,
+  fontSize: '16px',
+  lineHeight: 1.2,
+  color: '#000',
+});
+
+const RECEIPT_FOOTER_PARAGRAPH_STYLING = css({
+  margin: '0 0 0.5rem',
+  fontFamily: SERIF,
+  fontSize: '16px',
+  fontWeight: 400,
+  lineHeight: 1.2,
+  color: '#000',
+
+  '&:last-child': {
+    marginBottom: 0,
+  },
+});
+
+const RECEIPT_FOOTER_LABEL_STYLING = css({
+  ...DEATH_RECEIPT_LABEL_STYLE,
+  fontFamily: SERIF,
+});
+
+const RECEIPT_FOOTER_LINK_STYLING = css({
+  color: OPTIMISTIC_BLUE_DARK,
+  textDecoration: 'underline',
 });

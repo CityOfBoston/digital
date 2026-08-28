@@ -10,6 +10,7 @@ import {
   CHARLES_BLUE,
   DEFAULT_TEXT,
   ERROR_BORDER_COLOR,
+  OPTIMISTIC_BLUE_DARK,
   RegistryCCSelectDropDown,
   MEDIA_SMALL_MAX,
 } from '@cityofboston/react-fleet';
@@ -19,6 +20,7 @@ import {
   calculateDebitCardCost,
   CERTIFICATE_COST,
   CERTIFICATE_COST_STRING,
+  SERVICE_FEE_URL,
 } from '../../lib/costs';
 
 import { CertificateType } from '../types';
@@ -258,6 +260,23 @@ export const $OrderSummary = (params: {
         </div>
       )}
 
+      {onChangeHandler && useInDrawer === false && (
+        <div className={'row'} css={CARD_FEE_NOTE_ROW_STYLING}>
+          <div className={'col'}>
+            <span className="bold">Note:</span> We accept Visa, Mastercard, and
+            Discover. Service fees vary by card type. Learn about{' '}
+            <a
+              href={SERVICE_FEE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              card service fees
+            </a>{' '}
+            at the City of Boston.
+          </div>
+        </div>
+      )}
+
       {useInDrawer === true && (
         <div className={'row'}>
           <div className={'col'}>Service fee</div>
@@ -279,6 +298,17 @@ const SERVICE_FEE_ERROR_ROW_STYLING = css({
   '.labeled-select select': {
     outline: `2px solid ${ERROR_BORDER_COLOR}`,
     outlineOffset: '2px',
+  },
+});
+
+const CARD_FEE_NOTE_ROW_STYLING = css({
+  alignItems: 'flex-start',
+  fontSize: '16px',
+  lineHeight: 1.5,
+
+  a: {
+    color: OPTIMISTIC_BLUE_DARK,
+    textDecoration: 'underline',
   },
 });
 

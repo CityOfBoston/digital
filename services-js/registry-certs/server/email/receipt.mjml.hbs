@@ -87,7 +87,7 @@
           </mj-table>
 
           {{#each belowOrderText}}
-            <mj-text padding="25px 25px 0" line-height="1.5">{{{.}}}</mj-text>
+            <mj-text padding="12px 25px 0" line-height="1.2" font-family="Lora, Georgia, serif" font-size="16px">{{{.}}}</mj-text>
           {{/each}}
 
           {{#if certifiedMail}}
@@ -96,14 +96,16 @@
           </mj-text>
           {{/if}}
 
+          {{#unless omitLegacyServiceFeeNote}}
           <mj-text padding="25px 25px 0" font-size="13px" line-height="1.5">
             <i>* You are charged an extra service fee of not more than
             {{formatCents fixedFee}} plus {{formatPercentage
             percentageFee}}. This fee goes directly to a third party to
             pay for the cost of card processing. Learn more about <a
-            href="{{serviceFeeUri}}">card service fees</a> at the City
+            href="{{serviceFeeUri}}" target="_blank" rel="noopener noreferrer">card service fees</a> at the City
             of Boston.</i>
           </mj-text>
+          {{/unless}}
         </mj-column>
       </mj-section>
     </mj-wrapper>
