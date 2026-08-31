@@ -6,7 +6,7 @@
 //          production broadcasts. Pattern mirrors boston.gov-d8 chat_test.js.
 //
 // Local usage (optional webhook):
-//   GOOGLE_CHAT_WEBHOOK=https://... node .github/scripts/broadcast_release_notes_test.js
+//   GOOGLE_CHAT_RELEASE_NOTES_WEBHOOK=https://... node .github/scripts/broadcast_release_notes_test.js
 // ==============================================================================
 
 const helper = require('./broadcast_release_notes.js');
@@ -112,6 +112,9 @@ if (require.main === module) {
   run(
     buildTestContext(),
     core,
-    process.env.GOOGLE_CHAT_WEBHOOK || process.env.GCHAT_WEBHOOK_URL || ''
+    process.env.GOOGLE_CHAT_RELEASE_NOTES_WEBHOOK ||
+      process.env.GOOGLE_CHAT_WEBHOOK ||
+      process.env.GCHAT_WEBHOOK_URL ||
+      ''
   );
 }

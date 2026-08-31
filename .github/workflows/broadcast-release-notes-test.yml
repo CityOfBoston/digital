@@ -1,6 +1,6 @@
 # Attached resources:
 # - GitHub SECRETS:
-#     -> global: GOOGLE_CHAT_WEBHOOK -> Webhook URL for posting messages to gchat
+#     -> org: GOOGLE_CHAT_RELEASE_NOTES_WEBHOOK -> Webhook URL for posting messages to gchat
 
 name: Broadcast Release Notes (Test)
 on:
@@ -18,4 +18,4 @@ jobs:
           script: |
             console.log("Context:\n" + JSON.stringify(context));
             const test = require('./.github/scripts/broadcast_release_notes_test.js');
-            await test.run(context, core, '${{ secrets.GOOGLE_CHAT_WEBHOOK }}');
+            await test.run(context, core, '${{ secrets.GOOGLE_CHAT_RELEASE_NOTES_WEBHOOK }}');
