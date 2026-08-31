@@ -10,7 +10,7 @@ import {
   parseBranch,
   uploadSourceMapsToRollbar,
   reportRollbarDeploy,
-} from '@cityofboston/deploy-tools';
+} from 'deploy-tools';
 
 // Important for getting ASSET_HOST and ROLLBAR_ACCESS_TOKEN configuration. This
 // script is run in the container from the default entrypoint, which would have

@@ -24,7 +24,7 @@
     "core-js": "^2.6.4"
   },
   "devDependencies": {
-    "@cityofboston/config-babel": "^0.0.0",
+    "babel-config": "CityOfBoston/config-babel#main",
     "@cityofboston/config-typescript": "^0.0.0",
     "@types/node": "^8.0.0",
     "@types/jest": "24.x.x",
