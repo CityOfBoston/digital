@@ -532,25 +532,32 @@ const formatVpnStatus = (vpnStatus: string | undefined): string => {
   return vpnStatus;
 };
 
-// Helper function to format application names
+// Helper function to format application names.
+// COBRA returns mixed case (e.g. "COB-Application-Bpd"), so match on a
+// normalized key rather than the raw string.
 const formatApplicationName = (appName: string): string => {
   const appMappings: { [key: string]: string } = {
-    'COB-Application-CityHall': 'City Hall AD',
-    'COB-Application-Gapps': 'Google/boston.gov',
-    'COB-Application-Gapps-BPD': 'Google/pd.boston.gov',
-    'COB-Application-Slack': 'Slack',
-    'COB-Application-BPS': 'BPS AD',
-    'COB-Application-Assessing': 'Assessing AD',
-    'COB-Application-BPD': 'BPD AD',
-    'COB-Application-BFD': 'BFD AD',
+    'cob-application-cityhall': 'City Hall AD',
+    'cob-application-gapps': 'Google/boston.gov',
+    'cob-application-gapps-bpd': 'Google/pd.boston.gov',
+    'cob-application-slack': 'Slack',
+    'cob-application-bps': 'BPS AD',
+    'cob-application-assessing': 'Assessing AD',
+    'cob-application-bpd': 'BPD AD',
+    'cob-application-bfd': 'BFD AD',
+    'cob-application-psfinance': 'BAIS FN',
+    'cob-application-edfi': 'EDFI',
+    'servicenow-prod': 'Beacon',
+    servicenow: 'Beacon',
   };
 
-  if (appMappings[appName]) return appMappings[appName];
+  const normalized = appName
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/\s*-\s*/g, '-');
 
-  const lower = appName.toLowerCase();
-  if (lower === 'servicenow - prod' || lower === 'servicenow') return 'Beacon';
-
-  return appName;
+  return appMappings[normalized] || appName;
 };
 
 // Helper function to get display name (preferred if available, otherwise legal)
