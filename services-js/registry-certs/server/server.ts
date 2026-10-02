@@ -285,6 +285,10 @@ export async function makeServer({ rollbar }: ServerArgs) {
           headers: {
             Authorization: process.env.CONTACTFORM_TOKEN,
             'Content-Type': process.env.CONTACTFORM_CONTENT_TYPE,
+            // Imperva rejects Node's default User-Agent ("node"). boston.gov
+            // email endpoints expect cob-<app>/<version> (contact; purpose).
+            'User-Agent':
+              'cob-registry-certs/1.0 (registry@boston.gov; marriage confirmation)',
           },
           data: data,
         };
