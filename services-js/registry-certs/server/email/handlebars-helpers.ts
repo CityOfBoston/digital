@@ -41,6 +41,8 @@ Handlebars.registerHelper('wrap', function(options) {
 
 Handlebars.registerHelper('plainText', (html: string) =>
   html
-    .replace(/<a href="([^"]+)">([^<]+)<\/a>/g, '$2 [$1]')
-    .replace(/<[^>]+>/g, '')
+    .replace(/<a\s+[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi, '$2 [$1]')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
 );

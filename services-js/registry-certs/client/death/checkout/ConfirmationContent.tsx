@@ -18,6 +18,12 @@ import {
 
 import PageLayout from '../../PageLayout';
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
+import {
+  DEATH_FEEDBACK_BODY,
+  DEATH_FEEDBACK_FORM_URL,
+  DEATH_FEEDBACK_LINK_TEXT,
+  DEATH_FEEDBACK_TITLE,
+} from '../../../lib/deathSsnNotice';
 
 import Cart from '../../store/DeathCertificateCart';
 
@@ -64,48 +70,76 @@ export default class ConfirmationContent extends React.Component<Props> {
           </div>
 
           <div css={BODY_STYLING}>
-            <h2 css={NEXT_TITLE_STYLING}>What happens next?</h2>
+            <div css={BODY_CONTENT_STYLING}>
+              <h2 css={NEXT_TITLE_STYLING}>What happens next?</h2>
 
-            <ul css={NEXT_LIST_STYLING}>
-              <li>The Registry will review your order.</li>
-              <li>
-                If you requested the decedent’s SSN, we’ll review your supporting
-                documentation and contact you if additional information is
-                needed.
-              </li>
-              <li>Your card won’t be charged until your order is approved.</li>
-              <li>
-                Once approved, your order will be processed within 2–3 business
-                days and mailed to your shipping address.
-              </li>
-            </ul>
+              <ul css={NEXT_LIST_STYLING}>
+                <li>The Registry will review your order.</li>
+                <li>
+                  If you requested the decedent’s SSN, we’ll review your
+                  supporting documentation and contact you if additional
+                  information is needed.
+                </li>
+                <li>
+                  Your card won’t be charged until your order is approved.
+                </li>
+                <li>
+                  Once approved, your order will be processed within 2–3
+                  business days and mailed to your shipping address.
+                </li>
+              </ul>
 
-            <p css={QUESTIONS_STYLING}>
-              <strong>Questions?</strong> Email the Registry Department at{' '}
-              <a href="mailto:death@boston.gov">death@boston.gov</a>.
-            </p>
+              <p css={QUESTIONS_STYLING}>
+                <strong>Questions?</strong> Email the Registry Department at{' '}
+                <a href="mailto:death@boston.gov">death@boston.gov</a>.
+              </p>
 
-            <p css={ORDER_LINKS_STYLING}>
-              Order a new{' '}
-              <Link href="/birth">
-                <a href="/birth" target="_blank" rel="noopener noreferrer">
-                  birth
+              <p css={ORDER_LINKS_STYLING}>
+                Order a new{' '}
+                <Link href="/birth">
+                  <a href="/birth" target="_blank" rel="noopener noreferrer">
+                    birth
+                  </a>
+                </Link>
+                ,{' '}
+                <Link href="/marriage">
+                  <a href="/marriage" target="_blank" rel="noopener noreferrer">
+                    marriage
+                  </a>
+                </Link>
+                , or{' '}
+                <Link href="/death">
+                  <a href="/death" target="_blank" rel="noopener noreferrer">
+                    death
+                  </a>
+                </Link>{' '}
+                certificate.
+              </p>
+            </div>
+
+            <hr css={FEEDBACK_DIVIDER_STYLING} />
+
+            <div css={FEEDBACK_STYLING}>
+              <img
+                src="/assets/images/death-sms.svg"
+                alt=""
+                width={24}
+                height={24}
+                css={FEEDBACK_ICON_STYLING}
+              />
+              <div css={FEEDBACK_COPY_STYLING}>
+                <p css={FEEDBACK_TITLE_STYLING}>{DEATH_FEEDBACK_TITLE}</p>
+                <p css={FEEDBACK_BODY_STYLING}>{DEATH_FEEDBACK_BODY}</p>
+                <a
+                  href={DEATH_FEEDBACK_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  css={FEEDBACK_LINK_STYLING}
+                >
+                  {DEATH_FEEDBACK_LINK_TEXT}
                 </a>
-              </Link>
-              ,{' '}
-              <Link href="/marriage">
-                <a href="/marriage" target="_blank" rel="noopener noreferrer">
-                  marriage
-                </a>
-              </Link>
-              , or{' '}
-              <Link href="/death">
-                <a href="/death" target="_blank" rel="noopener noreferrer">
-                  death
-                </a>
-              </Link>{' '}
-              certificate.
-            </p>
+              </div>
+            </div>
           </div>
         </div>
       </PageLayout>
@@ -184,14 +218,20 @@ const BANNER_EMAIL_STYLING = css({
   color: CHARLES_BLUE,
 });
 
-// Figma body: padding 24 all sides
+// Figma: bordered card; top copy and feedback are separate padded regions so
+// the feedback icon lines up with “What happens next?” (not double-indented).
 const BODY_STYLING = css({
   boxSizing: 'border-box',
   width: '100%',
-  padding: '24px',
+  padding: 0,
   border: `1px solid ${GRAY_400}`,
   backgroundColor: WHITE,
   color: CHARLES_BLUE,
+});
+
+const BODY_CONTENT_STYLING = css({
+  boxSizing: 'border-box',
+  padding: '24px',
 });
 
 const NEXT_TITLE_STYLING = css({
@@ -256,5 +296,76 @@ const ORDER_LINKS_STYLING = css({
     '&:hover, &:focus': {
       textDecoration: 'none',
     },
+  },
+});
+
+const FEEDBACK_DIVIDER_STYLING = css({
+  display: 'block',
+  // Match Figma line inset (~24px) rather than full-bleed under the card edge.
+  width: 'calc(100% - 48px)',
+  height: 0,
+  margin: '0 24px',
+  border: 'none',
+  borderTop: '1px solid #d2d2d2',
+});
+
+const FEEDBACK_STYLING = css({
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: '12px',
+  boxSizing: 'border-box',
+  width: '100%',
+  margin: 0,
+  // 24px left matches BODY_CONTENT so the icon aligns with copy above.
+  padding: '20px 24px',
+});
+
+const FEEDBACK_ICON_STYLING = css({
+  display: 'block',
+  flexShrink: 0,
+  width: 24,
+  height: 24,
+  marginTop: '2px',
+});
+
+const FEEDBACK_COPY_STYLING = css({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4px',
+  flex: 1,
+  minWidth: 0,
+});
+
+// Figma specifies Montserrat Semibold (600). patterns.boston.gov only ships
+// Montserrat 400 + 700, so 600 resolves to Bold — use 700 explicitly.
+const FEEDBACK_TITLE_STYLING = css({
+  margin: 0,
+  fontFamily: SANS,
+  fontWeight: 700,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  color: '#1b1b1b',
+});
+
+const FEEDBACK_BODY_STYLING = css({
+  margin: 0,
+  fontFamily: SANS,
+  fontWeight: 400,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  color: '#1b1b1b',
+});
+
+const FEEDBACK_LINK_STYLING = css({
+  marginTop: '8px',
+  fontFamily: SANS,
+  fontWeight: 700,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  color: '#145b99',
+  textDecoration: 'underline',
+
+  '&:hover, &:focus': {
+    textDecoration: 'none',
   },
 });

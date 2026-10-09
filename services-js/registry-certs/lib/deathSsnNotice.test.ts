@@ -1,6 +1,11 @@
 import {
   isDeathBeforeSsnCutoff,
   DEATH_SSN_CUTOFF,
+  deathFeedbackEmailHtml,
+  deathFeedbackIconUrl,
+  deathReceiptBelowOrderHtml,
+  DEATH_FEEDBACK_FORM_URL,
+  DEATH_FEEDBACK_EMAIL_BACKGROUND,
 } from './deathSsnNotice';
 
 describe('isDeathBeforeSsnCutoff', () => {
@@ -38,5 +43,29 @@ describe('isDeathBeforeSsnCutoff', () => {
     expect(isDeathBeforeSsnCutoff(null, null)).toBe(false);
     expect(isDeathBeforeSsnCutoff('', '')).toBe(false);
     expect(isDeathBeforeSsnCutoff('not-a-date', 'abcd')).toBe(false);
+  });
+});
+
+describe('death feedback helpers', () => {
+  it('builds an absolute icon URL from PUBLIC_HOST', () => {
+    expect(deathFeedbackIconUrl('registry.boston.gov')).toBe(
+      'https://registry.boston.gov/assets/images/death-sms.svg'
+    );
+    expect(deathFeedbackIconUrl('https://registry-certs.digital-staging.boston.gov')).toBe(
+      'https://registry-certs.digital-staging.boston.gov/assets/images/death-sms.svg'
+    );
+  });
+
+  it('includes the feedback callout in receipt email HTML', () => {
+    const html = deathFeedbackEmailHtml(
+      'https://example.com/assets/images/death-sms.svg'
+    );
+    expect(html).toContain(DEATH_FEEDBACK_EMAIL_BACKGROUND);
+    expect(html).toContain(DEATH_FEEDBACK_FORM_URL);
+    expect(html).toContain('Help us improve this service');
+    expect(html).toContain('Share your feedback');
+
+    const sections = deathReceiptBelowOrderHtml();
+    expect(sections[sections.length - 1]).toContain(DEATH_FEEDBACK_FORM_URL);
   });
 });

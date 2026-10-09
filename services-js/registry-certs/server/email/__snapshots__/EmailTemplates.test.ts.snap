@@ -2682,7 +2682,21 @@ exports[`receipt Death certificates 2`] = `
       <div
          style=\\"font-family:Lora, Georgia, serif;font-size:16px;line-height:1.2;text-align:left;color:#000000;\\"
       >
-        <strong style=\\"color:#000;font-family:Lora,Georgia,serif;font-size:16px;font-style:normal;font-weight:700;line-height:1.2;\\">Social Security numbers:</strong> Under Massachusetts law, standard death certificates are issued with the decedent’s Social Security number masked. If you requested a certificate with the SSN shown, the Registry will review the identity and relationship documents you submitted with your order.
+        <strong style=\\"color:#000;font-family:Lora,Georgia,serif;font-size:16px;font-style:normal;font-weight:700;line-height:1.2;\\">Social Security numbers:</strong> Under Massachusetts law, standard death certificates are issued with the decedent’s Social Security number masked.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:12px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, Georgia, serif;font-size:16px;line-height:1.2;text-align:left;color:#000000;\\"
+      >
+        If you requested a certificate with the SSN shown, the Registry will review the identity and relationship documents you submitted with your order.
       </div>
     
               </td>
@@ -2697,6 +2711,20 @@ exports[`receipt Death certificates 2`] = `
          style=\\"font-family:Lora, Georgia, serif;font-size:16px;line-height:1.2;text-align:left;color:#000000;\\"
       >
         <strong style=\\"color:#000;font-family:Lora,Georgia,serif;font-size:16px;font-style:normal;font-weight:700;line-height:1.2;\\">Card service fee:</strong> A card service fee is added to your order and paid directly to the third-party payment processor. The amount may vary by card type. Learn more about <a href=\\"https://www.boston.gov/common-questions-about-online-payments\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" style=\\"color:#1871bd;text-decoration:underline;\\">card service fees</a> at the City of Boston.
+      </div>
+    
+              </td>
+            </tr>
+          
+            <tr>
+              <td
+                 align=\\"left\\" style=\\"font-size:0px;padding:12px 25px 0;word-break:break-word;\\"
+              >
+                
+      <div
+         style=\\"font-family:Lora, Georgia, serif;font-size:16px;line-height:1.2;text-align:left;color:#000000;\\"
+      >
+        <table role=\\"presentation\\" width=\\"100%\\" cellpadding=\\"0\\" cellspacing=\\"0\\" border=\\"0\\" style=\\"background-color:#E3F0FB;border-radius:4px;\\"><tr><td style=\\"padding:20px 12px 20px 20px;vertical-align:top;width:24px;\\"><img src=\\"https://registry.boston.gov/assets/images/death-sms.svg\\" width=\\"24\\" height=\\"24\\" alt=\\"\\" style=\\"display:block;border:0;outline:none;\\" /></td><td style=\\"padding:20px 20px 20px 0;vertical-align:top;font-family:Montserrat,Arial,sans-serif;font-size:16px;line-height:24px;color:#1b1b1b;\\"><div style=\\"font-weight:700;margin:0 0 4px;\\">Help us improve this service</div><div style=\\"font-weight:400;margin:0 0 12px;\\">Your feedback helps us improve the process of requesting a birth, death, or marriage certificate.</div><a href=\\"https://docs.google.com/forms/d/e/1FAIpQLSceRzN_jwKcIkZGbZZK9AzFX904-NYwqllwqUTBehApLhp7rA/viewform\\" target=\\"_blank\\" rel=\\"noopener noreferrer\\" style=\\"color:#145b99;font-weight:700;text-decoration:underline;\\">Share your feedback</a></td></tr></table>
       </div>
     
               </td>
@@ -2920,14 +2948,23 @@ provide additional information, reply to this email.
 
 Social Security numbers: Under Massachusetts law, standard 
 death certificates are issued with the decedent’s Social 
-Security number masked. If you requested a certificate with 
-the SSN shown, the Registry will review the identity and 
-relationship documents you submitted with your order.
+Security number masked.
+
+If you requested a certificate with the SSN shown, the 
+Registry will review the identity and relationship documents 
+you submitted with your order.
 
 Card service fee: A card service fee is added to your order 
 and paid directly to the third-party payment processor. The 
 amount may vary by card type. Learn more about card service 
-fees at the City of Boston.
+fees 
+[https://www.boston.gov/common-questions-about-online-payments] 
+at the City of Boston.
+
+Help us improve this service Your feedback helps us improve 
+the process of requesting a birth, death, or marriage 
+certificate. Share your feedback 
+[https://docs.google.com/forms/d/e/1FAIpQLSceRzN_jwKcIkZGbZZK9AzFX904-NYwqllwqUTBehApLhp7rA/viewform]
 
 Have any questions? Contact the Registry on weekdays from 9 
 a.m. - 4 p.m. at 617-635-4175, or email registry@boston.gov."
@@ -4251,11 +4288,11 @@ exports[`shipped Birth certificate shipped 2`] = `
           
             <tr>
               <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+                 align=\\"left\\" style=\\"font-size:0px;padding:12px 25px 0;word-break:break-word;\\"
               >
                 
       <div
-         style=\\"font-family:Lora, Georgia, serif;font-size:20px;line-height:1.5;text-align:left;color:#000000;\\"
+         style=\\"font-family:Lora, Georgia, serif;font-size:16px;line-height:1.2;text-align:left;color:#000000;\\"
       >
         We have received your order. You will be charged when the certificate ships.
       </div>
@@ -4265,11 +4302,11 @@ exports[`shipped Birth certificate shipped 2`] = `
           
             <tr>
               <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+                 align=\\"left\\" style=\\"font-size:0px;padding:12px 25px 0;word-break:break-word;\\"
               >
                 
       <div
-         style=\\"font-family:Lora, Georgia, serif;font-size:20px;line-height:1.5;text-align:left;color:#000000;\\"
+         style=\\"font-family:Lora, Georgia, serif;font-size:16px;line-height:1.2;text-align:left;color:#000000;\\"
       >
         We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
       </div>
@@ -5052,11 +5089,11 @@ exports[`shipped Marriage certificate shipped 2`] = `
           
             <tr>
               <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+                 align=\\"left\\" style=\\"font-size:0px;padding:12px 25px 0;word-break:break-word;\\"
               >
                 
       <div
-         style=\\"font-family:Lora, Georgia, serif;font-size:20px;line-height:1.5;text-align:left;color:#000000;\\"
+         style=\\"font-family:Lora, Georgia, serif;font-size:16px;line-height:1.2;text-align:left;color:#000000;\\"
       >
         We have received your order. You will be charged when the certificate ships.
       </div>
@@ -5066,11 +5103,11 @@ exports[`shipped Marriage certificate shipped 2`] = `
           
             <tr>
               <td
-                 align=\\"left\\" style=\\"font-size:0px;padding:25px 25px 0;word-break:break-word;\\"
+                 align=\\"left\\" style=\\"font-size:0px;padding:12px 25px 0;word-break:break-word;\\"
               >
                 
       <div
-         style=\\"font-family:Lora, Georgia, serif;font-size:20px;line-height:1.5;text-align:left;color:#000000;\\"
+         style=\\"font-family:Lora, Georgia, serif;font-size:16px;line-height:1.2;text-align:left;color:#000000;\\"
       >
         We will contact you if we need more information to fulfill the order. If we contact you but do not hear back within 3 business days, we will cancel the order without charge.
       </div>

@@ -117,6 +117,54 @@ const CARD_SERVICE_FEE_BODY_BEFORE_LINK =
   'A card service fee is added to your order and paid directly to the third-party payment processor. The amount may vary by card type. Learn more about ';
 const CARD_SERVICE_FEE_BODY_AFTER_LINK = ' at the City of Boston.';
 
+/** Google Form linked from death confirmation UI and receipt email. */
+export const DEATH_FEEDBACK_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSceRzN_jwKcIkZGbZZK9AzFX904-NYwqllwqUTBehApLhp7rA/viewform';
+
+export const DEATH_FEEDBACK_TITLE = 'Help us improve this service';
+
+export const DEATH_FEEDBACK_BODY =
+  'Your feedback helps us improve the process of requesting a birth, death, or marriage certificate.';
+
+export const DEATH_FEEDBACK_LINK_TEXT = 'Share your feedback';
+
+/** Email feedback callout background (Figma). */
+export const DEATH_FEEDBACK_EMAIL_BACKGROUND = '#E3F0FB';
+
+const DEATH_FEEDBACK_ICON_PATH = '/assets/images/death-sms.svg';
+
+/** Absolute icon URL for HTML email (falls back to production host). */
+export function deathFeedbackIconUrl(
+  publicHost: string | undefined = process.env.PUBLIC_HOST
+): string {
+  const host = (publicHost || 'registry.boston.gov').replace(
+    /^https?:\/\//,
+    ''
+  );
+  return `https://${host}${DEATH_FEEDBACK_ICON_PATH}`;
+}
+
+/** HTML block for the death receipt email feedback callout. */
+export function deathFeedbackEmailHtml(
+  iconUrl: string = deathFeedbackIconUrl()
+): string {
+  return (
+    `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${DEATH_FEEDBACK_EMAIL_BACKGROUND};border-radius:4px;">` +
+    `<tr>` +
+    `<td style="padding:20px 12px 20px 20px;vertical-align:top;width:24px;">` +
+    `<img src="${iconUrl}" width="24" height="24" alt="" style="display:block;border:0;outline:none;" />` +
+    `</td>` +
+    `<td style="padding:20px 20px 20px 0;vertical-align:top;font-family:Montserrat,Arial,sans-serif;font-size:16px;line-height:24px;color:#1b1b1b;">` +
+    // Montserrat in email/layout only loads 400 + 700 (no semibold/600).
+    `<div style="font-weight:700;margin:0 0 4px;">${DEATH_FEEDBACK_TITLE}</div>` +
+    `<div style="font-weight:400;margin:0 0 12px;">${DEATH_FEEDBACK_BODY}</div>` +
+    `<a href="${DEATH_FEEDBACK_FORM_URL}" target="_blank" rel="noopener noreferrer" style="color:#145b99;font-weight:700;text-decoration:underline;">${DEATH_FEEDBACK_LINK_TEXT}</a>` +
+    `</td>` +
+    `</tr>` +
+    `</table>`
+  );
+}
+
 /** HTML paragraphs for death receipt email (below total). */
 export function deathReceiptBelowOrderHtml(
   serviceFeeUri: string = SERVICE_FEE_URL
@@ -130,6 +178,8 @@ export function deathReceiptBelowOrderHtml(
   sections.push(
     `<strong style="${EMAIL_LABEL_STYLE}">Card service fee:</strong> ${CARD_SERVICE_FEE_BODY_BEFORE_LINK}<a href="${serviceFeeUri}" target="_blank" rel="noopener noreferrer" style="color:#1871bd;text-decoration:underline;">card service fees</a>${CARD_SERVICE_FEE_BODY_AFTER_LINK}`
   );
+
+  sections.push(deathFeedbackEmailHtml());
 
   return sections;
 }
