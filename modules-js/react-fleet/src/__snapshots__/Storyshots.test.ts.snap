@@ -10140,7 +10140,7 @@ exports[`Storyshots UI|Navigation/Pagination 2 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link pg-li-i--a"
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10152,7 +10152,7 @@ exports[`Storyshots UI|Navigation/Pagination 2 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link "
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10164,7 +10164,7 @@ exports[`Storyshots UI|Navigation/Pagination 2 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link"
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10183,7 +10183,7 @@ exports[`Storyshots UI|Navigation/Pagination 7 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link"
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10195,7 +10195,7 @@ exports[`Storyshots UI|Navigation/Pagination 7 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link "
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10207,7 +10207,7 @@ exports[`Storyshots UI|Navigation/Pagination 7 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link pg-li-i--a"
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10219,7 +10219,7 @@ exports[`Storyshots UI|Navigation/Pagination 7 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link "
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10231,7 +10231,7 @@ exports[`Storyshots UI|Navigation/Pagination 7 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link "
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10243,7 +10243,7 @@ exports[`Storyshots UI|Navigation/Pagination 7 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link"
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10262,7 +10262,7 @@ exports[`Storyshots UI|Navigation/Pagination 20 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link"
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10274,7 +10274,7 @@ exports[`Storyshots UI|Navigation/Pagination 20 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link "
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10286,7 +10286,7 @@ exports[`Storyshots UI|Navigation/Pagination 20 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link pg-li-i--a"
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10298,7 +10298,7 @@ exports[`Storyshots UI|Navigation/Pagination 20 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link "
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10310,7 +10310,7 @@ exports[`Storyshots UI|Navigation/Pagination 20 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link "
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
@@ -10322,7 +10322,7 @@ exports[`Storyshots UI|Navigation/Pagination 20 pages 1`] = `
   >
     <a
       className="pg-li-i pg-li-i--link"
-      href=""
+      href="/"
       onClick={[Function]}
       onMouseEnter={[Function]}
     >
