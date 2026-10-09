@@ -13,6 +13,10 @@ import {
 } from '@cityofboston/react-fleet';
 
 import { CERTIFICATE_COST } from '../../../lib/costs';
+import {
+  DEATH_SSN_PRE_1978_RECORD_NOTE,
+  isDeathBeforeSsnCutoff,
+} from '../../../lib/deathSsnNotice';
 
 export interface Props {
   type: 'death' | 'birth' | 'marriage';
@@ -44,7 +48,7 @@ export const $CartItem = (props: Props) => {
     supportingDocumentsUploaded,
     editHref,
   } = props;
-  const { firstName, lastName, age, deathDate } = props.cert;
+  const { firstName, lastName, age, deathDate, deathYear } = props.cert;
 
   const unitCostCents =
     props.unitCostCents != null
@@ -56,7 +60,15 @@ export const $CartItem = (props: Props) => {
     : `$${unitDollars.toFixed(2)}`;
 
   const fullName = `${firstName || ''} ${lastName || ''}`.trim();
-  const showSsn = typeof includeSsn === 'boolean';
+  const ssnUnavailable =
+    certificateTypeStr === 'death' &&
+    isDeathBeforeSsnCutoff(deathDate, deathYear);
+  const showSsn = ssnUnavailable || typeof includeSsn === 'boolean';
+  const ssnIncludedLabel = ssnUnavailable
+    ? 'Not available'
+    : includeSsn
+      ? 'Yes'
+      : 'No';
 
   return (
     <div css={CART_ITEM_STYLING}>
@@ -84,12 +96,16 @@ export const $CartItem = (props: Props) => {
 
           {certificateTypeStr === 'death' && showSsn && (
             <p css={DETAIL_ROW_STYLING}>
-              <span css={LABEL_STYLING}>SSN included:</span>{' '}
-              {includeSsn ? 'Yes' : 'No'}
+              <span css={LABEL_STYLING}>SSN included:</span> {ssnIncludedLabel}
             </p>
           )}
 
+          {certificateTypeStr === 'death' && ssnUnavailable && (
+            <p css={DETAIL_ROW_STYLING}>{DEATH_SSN_PRE_1978_RECORD_NOTE}</p>
+          )}
+
           {certificateTypeStr === 'death' &&
+            !ssnUnavailable &&
             includeSsn === true &&
             relationshipLabel && (
               <p css={DETAIL_ROW_STYLING}>
@@ -98,20 +114,22 @@ export const $CartItem = (props: Props) => {
               </p>
             )}
 
-          {certificateTypeStr === 'death' && supportingDocumentsUploaded && (
-            <p css={DETAIL_ROW_STYLING}>
-              <span css={LABEL_STYLING}>Supporting documents:</span>{' '}
-              <span css={UPLOADED_STYLING}>
-                Uploaded
-                <img
-                  src="/assets/images/death-check-circle.svg"
-                  alt=""
-                  width={24}
-                  height={24}
-                />
-              </span>
-            </p>
-          )}
+          {certificateTypeStr === 'death' &&
+            !ssnUnavailable &&
+            supportingDocumentsUploaded && (
+              <p css={DETAIL_ROW_STYLING}>
+                <span css={LABEL_STYLING}>Supporting documents:</span>{' '}
+                <span css={UPLOADED_STYLING}>
+                  Uploaded
+                  <img
+                    src="/assets/images/death-check-circle.svg"
+                    alt=""
+                    width={24}
+                    height={24}
+                  />
+                </span>
+              </p>
+            )}
         </div>
       </div>
 

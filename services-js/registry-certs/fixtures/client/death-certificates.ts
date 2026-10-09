@@ -32,3 +32,15 @@ export const NO_DATE_CERTIFICATE: DeathCertificate = {
   age: '6',
   birthDate: null,
 };
+
+/** Death before Jan 1, 1978 — SSN cannot be included. */
+export const PRE_1978_CERTIFICATE: DeathCertificate = {
+  id: '000004',
+  firstName: 'THOMAS',
+  lastName: 'J MURPHY',
+  deathYear: '1949',
+  deathDate: '05/03/1949',
+  pending: false,
+  age: '75',
+  birthDate: null,
+};

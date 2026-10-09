@@ -52,7 +52,11 @@ import DeathDuplicateIdentityOverlay, {
 } from './DeathDuplicateIdentityOverlay';
 
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
-import { DEATH_SSN_DOCUMENTATION_URL } from '../../../lib/deathSsnNotice';
+import {
+  DEATH_SSN_DOCUMENTATION_URL,
+  DEATH_SSN_UNAVAILABLE_COPY,
+  isDeathBeforeSsnCutoff,
+} from '../../../lib/deathSsnNotice';
 import {
   DEATH_APP_TITLE_STYLING,
   DEATH_PAGE_TITLE_STYLING,
@@ -77,6 +81,7 @@ const ACCEPT_TYPES =
 
 type OptionsFieldKey =
   | 'includeSsn'
+  | 'ssnUnavailableAcknowledged'
   | 'relationship'
   | 'relationshipDocuments'
   | 'identityDocumentType'
@@ -88,6 +93,8 @@ type OptionsFieldKey =
 const FIELD_ERROR_MESSAGES: Record<OptionsFieldKey, string> = {
   includeSsn:
     'Please select whether to include the Social Security Number on the death certificate.',
+  ssnUnavailableAcknowledged:
+    'Please confirm that you understand the Social Security number will not be included.',
   relationship: 'Please select your relationship to the decedent.',
   relationshipDocuments: 'Please upload proof of relationship or authority.',
   identityDocumentType: 'Please select a proof of identity document type.',
@@ -99,6 +106,7 @@ const FIELD_ERROR_MESSAGES: Record<OptionsFieldKey, string> = {
 
 const FIELD_FOCUS_IDS: Record<OptionsFieldKey, string> = {
   includeSsn: 'includeSsn-field',
+  ssnUnavailableAcknowledged: 'ssnUnavailableAcknowledged',
   relationship: 'relationship',
   relationshipDocuments: 'death-relationship-upload',
   identityDocumentType: 'identityDocumentType',
@@ -118,6 +126,8 @@ const FIELD_FOCUS_IDS: Record<OptionsFieldKey, string> = {
 @observer
 export default class CertificateOptionsPage extends Component<Props> {
   @observable includeSsn: boolean | null = null;
+  /** Required acknowledgment when SSN is unavailable (death before 1/1/1978). */
+  @observable ssnUnavailableAcknowledged: boolean = false;
   @observable relationship: DeathCertificateRelationship | '' = '';
   @observable identityDocumentType: DeathCertificateIdentityDocumentType = '';
   @observable
@@ -180,13 +190,47 @@ export default class CertificateOptionsPage extends Component<Props> {
     }
   }
 
+  private isSsnUnavailableForCertificate(
+    certificate: DeathCertificate | null = this.props.certificate
+  ): boolean {
+    if (!certificate) {
+      return false;
+    }
+
+    return isDeathBeforeSsnCutoff(
+      certificate.deathDate,
+      certificate.deathYear
+    );
+  }
+
   private loadForCertificate = action(
     'CertificateOptionsPage loadForCertificate',
     (certificateId: string) => {
       const existing = this.props.deathCertificateCart.getEntry(certificateId);
+      const ssnUnavailable = this.isSsnUnavailableForCertificate(
+        this.props.certificate
+      );
 
       if (existing) {
+        if (ssnUnavailable) {
+          this.includeSsn = false;
+          this.ssnUnavailableAcknowledged = existing.includeSsn === false;
+          this.relationship = '';
+          this.identityDocumentType = '';
+          this.identityAlternateDocumentType1 = '';
+          this.identityAlternateDocumentType2 = '';
+          this.uploadSessionId =
+            existing.uploadSessionId || createDeathCertificateUploadSessionId();
+          this.relationshipDocuments = [];
+          this.identityDocuments = [];
+          this.identityDocumentsSecondary = [];
+          this.duplicateIdentitySlot = null;
+          this.fieldError = null;
+          return;
+        }
+
         this.includeSsn = existing.includeSsn;
+        this.ssnUnavailableAcknowledged = false;
         this.relationship =
           existing.relationship &&
           DEATH_RELATIONSHIP_OPTIONS[existing.relationship]
@@ -216,7 +260,8 @@ export default class CertificateOptionsPage extends Component<Props> {
         return;
       }
 
-      this.includeSsn = null;
+      this.includeSsn = ssnUnavailable ? false : null;
+      this.ssnUnavailableAcknowledged = false;
       this.relationship = '';
       this.identityDocumentType = '';
       this.identityAlternateDocumentType1 = '';
@@ -266,6 +311,14 @@ export default class CertificateOptionsPage extends Component<Props> {
         this.duplicateIdentitySlot = null;
         this.uploadSessionId = createDeathCertificateUploadSessionId();
       }
+    }
+  );
+
+  private handleSsnUnavailableAcknowledgeChange = action(
+    'CertificateOptionsPage handleSsnUnavailableAcknowledgeChange',
+    (ev: ChangeEvent<HTMLInputElement>) => {
+      this.ssnUnavailableAcknowledged = ev.currentTarget.checked;
+      this.clearFieldErrorIf('ssnUnavailableAcknowledged');
     }
   );
 
@@ -454,6 +507,12 @@ export default class CertificateOptionsPage extends Component<Props> {
    * First incomplete required control in document order, or null when ready.
    */
   private findFirstIncompleteField(): OptionsFieldKey | null {
+    if (this.isSsnUnavailableForCertificate()) {
+      return this.ssnUnavailableAcknowledged
+        ? null
+        : 'ssnUnavailableAcknowledged';
+    }
+
     if (this.includeSsn === null) {
       return 'includeSsn';
     }
@@ -572,6 +631,11 @@ export default class CertificateOptionsPage extends Component<Props> {
           return;
         }
 
+        if (key === 'ssnUnavailableAcknowledged') {
+          (el as HTMLInputElement).focus();
+          return;
+        }
+
         (el as HTMLElement).focus();
       });
     });
@@ -614,20 +678,23 @@ export default class CertificateOptionsPage extends Component<Props> {
 
     this.fieldError = null;
 
+    const ssnUnavailable = this.isSsnUnavailableForCertificate(certificate);
+    const includeSsn = ssnUnavailable ? false : this.includeSsn;
+
     deathCertificateCart.setCertificateOptions(certificate, quantity, {
-      includeSsn: this.includeSsn,
-      relationship: this.includeSsn ? this.relationship : '',
-      identityDocumentType: this.includeSsn ? this.identityDocumentType : '',
-      identityAlternateDocumentType1: this.includeSsn
+      includeSsn,
+      relationship: includeSsn ? this.relationship : '',
+      identityDocumentType: includeSsn ? this.identityDocumentType : '',
+      identityAlternateDocumentType1: includeSsn
         ? this.identityAlternateDocumentType1
         : '',
-      identityAlternateDocumentType2: this.includeSsn
+      identityAlternateDocumentType2: includeSsn
         ? this.identityAlternateDocumentType2
         : '',
       uploadSessionId: this.uploadSessionId,
-      relationshipDocuments: this.includeSsn ? this.relationshipDocuments : [],
-      identityDocuments: this.includeSsn ? this.identityDocuments : [],
-      identityDocumentsSecondary: this.includeSsn
+      relationshipDocuments: includeSsn ? this.relationshipDocuments : [],
+      identityDocuments: includeSsn ? this.identityDocuments : [],
+      identityDocumentsSecondary: includeSsn
         ? this.identityDocumentsSecondary
         : [],
     });
@@ -689,6 +756,10 @@ export default class CertificateOptionsPage extends Component<Props> {
   }
 
   private renderForm() {
+    if (this.isSsnUnavailableForCertificate()) {
+      return this.renderSsnUnavailableForm();
+    }
+
     return (
       <div css={FORM_STYLING}>
         <div css={INTRO_STYLING}>
@@ -767,23 +838,87 @@ export default class CertificateOptionsPage extends Component<Props> {
 
         {this.includeSsn === true && this.renderVerificationSection()}
 
-        <div css={BUTTON_ROW_STYLING}>
-          <button
-            type="button"
-            css={SECONDARY_BUTTON_STYLING}
-            onClick={this.handleStepBack}
-          >
-            Back
-          </button>
-          <button
-            type="button"
-            className="btn"
-            css={PRIMARY_BUTTON_STYLING}
-            onClick={() => this.handleAddToOrder()}
-          >
-            Add to order
-          </button>
+        {this.renderActionButtons()}
+      </div>
+    );
+  }
+
+  private renderSsnUnavailableForm() {
+    return (
+      <div css={FORM_STYLING}>
+        <div css={SSN_UNAVAILABLE_INTRO_STYLING}>
+          <p css={SSN_UNAVAILABLE_TITLE_STYLING}>
+            Social Security number is not available for this record
+          </p>
+          <p>{DEATH_SSN_UNAVAILABLE_COPY}</p>
         </div>
+
+        <div
+          css={[
+            SSN_UNAVAILABLE_CHECKBOX_WRAP_STYLING,
+            this.fieldError === 'ssnUnavailableAcknowledged' &&
+              FIELDSET_ERROR_STYLING,
+          ]}
+        >
+          <label className="cb" css={SSN_UNAVAILABLE_LABEL_STYLING}>
+            <input
+              id="ssnUnavailableAcknowledged"
+              name="ssnUnavailableAcknowledged"
+              type="checkbox"
+              className="cb-f"
+              checked={this.ssnUnavailableAcknowledged}
+              aria-required="true"
+              aria-invalid={
+                this.fieldError === 'ssnUnavailableAcknowledged'
+                  ? true
+                  : undefined
+              }
+              aria-describedby={
+                this.fieldError === 'ssnUnavailableAcknowledged'
+                  ? 'ssnUnavailableAcknowledged-error'
+                  : undefined
+              }
+              onChange={this.handleSsnUnavailableAcknowledgeChange}
+            />
+            <span className="cb-l" css={SSN_UNAVAILABLE_CHECKBOX_TEXT_STYLING}>
+              I understand that the Social Security number will not be included
+              on this certificate.
+            </span>
+          </label>
+          {this.fieldError === 'ssnUnavailableAcknowledged' && (
+            <div
+              className="t--info t--err m-t200"
+              id="ssnUnavailableAcknowledged-error"
+              role="alert"
+            >
+              {this.errorMessageFor('ssnUnavailableAcknowledged')}
+            </div>
+          )}
+        </div>
+
+        {this.renderActionButtons()}
+      </div>
+    );
+  }
+
+  private renderActionButtons() {
+    return (
+      <div css={BUTTON_ROW_STYLING}>
+        <button
+          type="button"
+          css={SECONDARY_BUTTON_STYLING}
+          onClick={this.handleStepBack}
+        >
+          Back
+        </button>
+        <button
+          type="button"
+          className="btn"
+          css={PRIMARY_BUTTON_STYLING}
+          onClick={() => this.handleAddToOrder()}
+        >
+          Add to order
+        </button>
       </div>
     );
   }
@@ -1087,6 +1222,51 @@ const INTRO_LINK_STYLING = css({
   color: OPTIMISTIC_BLUE_DARK,
   fontSize: '1.125rem',
   textDecoration: 'underline',
+});
+
+const SSN_UNAVAILABLE_INTRO_STYLING = css({
+  fontFamily: SERIF,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  color: '#000000',
+
+  p: {
+    margin: '0 0 1rem',
+    color: '#000000',
+  },
+
+  'p:last-child': {
+    marginBottom: 0,
+  },
+});
+
+const SSN_UNAVAILABLE_TITLE_STYLING = css({
+  fontFamily: SERIF,
+  fontWeight: 700,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  color: '#000000',
+});
+
+const SSN_UNAVAILABLE_CHECKBOX_WRAP_STYLING = css({
+  width: '100%',
+});
+
+const SSN_UNAVAILABLE_LABEL_STYLING = css({
+  display: 'flex',
+  alignItems: 'center',
+  gap: 0,
+  margin: 0,
+  cursor: 'pointer',
+});
+
+const SSN_UNAVAILABLE_CHECKBOX_TEXT_STYLING = css({
+  fontFamily: SERIF,
+  fontSize: '1.125rem',
+  fontWeight: 400,
+  lineHeight: 1.4,
+  color: CHARLES_BLUE,
+  whiteSpace: 'normal',
 });
 
 const FIELDSET_STYLING = css({

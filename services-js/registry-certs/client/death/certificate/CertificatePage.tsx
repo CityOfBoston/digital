@@ -5,6 +5,7 @@ import { css, jsx } from '@emotion/core';
 import React from 'react';
 import { observer } from 'mobx-react';
 import Head from 'next/head';
+import Link from 'next/link';
 
 import { getParam } from '@cityofboston/next-client-common';
 import {
@@ -205,18 +206,22 @@ class CertificatePage extends React.Component<Props, State> {
         </div>
 
         <div css={BUTTON_ROW_STYLING}>
-          <a href={backHref} css={SECONDARY_BUTTON_STYLING}>
-            Back
-          </a>
-          <a
-            href={continueHref}
-            className="btn"
-            css={PRIMARY_BUTTON_STYLING}
-            aria-disabled={!canContinue}
-            onClick={this.handleContinueClick}
-          >
-            Continue
-          </a>
+          <Link href={backHref}>
+            <a href={backHref} css={SECONDARY_BUTTON_STYLING}>
+              Back
+            </a>
+          </Link>
+          <Link href={continueHref}>
+            <a
+              href={continueHref}
+              className="btn"
+              css={PRIMARY_BUTTON_STYLING}
+              aria-disabled={!canContinue}
+              onClick={this.handleContinueClick}
+            >
+              Continue
+            </a>
+          </Link>
         </div>
       </div>
     );

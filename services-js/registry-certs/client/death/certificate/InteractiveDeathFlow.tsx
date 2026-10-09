@@ -20,6 +20,7 @@ import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
+  PRE_1978_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
 export const PAGE_SIZE = 20;
@@ -29,6 +30,7 @@ const FIXTURES: DeathCertificate[] = [
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
+  PRE_1978_CERTIFICATE,
 ];
 
 type Step = 'search' | 'certificate' | 'options' | 'cart' | 'checkout';
@@ -39,25 +41,30 @@ type CheckoutInfo =
   | { page: 'review' }
   | { page: 'confirmation'; orderId: string; contactEmail: string };
 
+/** Storybook row for absolute result index `index` (0-based across pages). */
+export function certificateFromIndex(index: number): DeathCertificate {
+  const fixture = FIXTURES[index % FIXTURES.length];
+  return {
+    ...fixture,
+    id: String(100000 + index),
+    lastName: `${fixture.lastName} ${index + 1}`,
+  };
+}
+
 /** Build `count` result rows from fixtures with unique ids for Storybook. */
 export function makePageResults(
   count: number,
   idOffset = 0
 ): DeathCertificate[] {
-  return Array.from({ length: count }, (_, i) => {
-    const fixture = FIXTURES[i % FIXTURES.length];
-    return {
-      ...fixture,
-      id: String(100000 + idOffset + i),
-      lastName: `${fixture.lastName} ${idOffset + i + 1}`,
-    };
-  });
+  return Array.from({ length: count }, (_, i) =>
+    certificateFromIndex(idOffset + i)
+  );
 }
 
 export function certificateFromId(id: string): DeathCertificate {
   const numericId = parseInt(id, 10);
   if (Number.isFinite(numericId) && numericId >= 100000) {
-    return makePageResults(1, numericId - 100000)[0];
+    return certificateFromIndex(numericId - 100000);
   }
 
   return (

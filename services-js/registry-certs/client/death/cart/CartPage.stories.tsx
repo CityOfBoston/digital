@@ -18,6 +18,7 @@ import {
   TYPICAL_CERTIFICATE,
   PENDING_CERTIFICATE,
   NO_DATE_CERTIFICATE,
+  PRE_1978_CERTIFICATE,
 } from '../../../fixtures/client/death-certificates';
 
 function makeUploadedFile(name: string, sessionId: string) {
@@ -51,6 +52,18 @@ function seedFullCart(cart: DeathCertificateCart) {
     identityAlternateDocumentType1: '',
     identityAlternateDocumentType2: '',
     uploadSessionId: 'storybook-session-2',
+    relationshipDocuments: [],
+    identityDocuments: [],
+    identityDocumentsSecondary: [],
+  });
+
+  cart.setCertificateOptions(PRE_1978_CERTIFICATE, 2, {
+    includeSsn: false,
+    relationship: '',
+    identityDocumentType: '',
+    identityAlternateDocumentType1: '',
+    identityAlternateDocumentType2: '',
+    uploadSessionId: 'storybook-session-3',
     relationshipDocuments: [],
     identityDocuments: [],
     identityDocumentsSecondary: [],

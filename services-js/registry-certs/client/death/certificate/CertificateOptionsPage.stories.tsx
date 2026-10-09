@@ -7,7 +7,10 @@ import DeathCertificateCart from '../../store/DeathCertificateCart';
 import CertificateOptionsPage from './CertificateOptionsPage';
 import InteractiveDeathFlow from './InteractiveDeathFlow';
 
-import { TYPICAL_CERTIFICATE } from '../../../fixtures/client/death-certificates';
+import {
+  TYPICAL_CERTIFICATE,
+  PRE_1978_CERTIFICATE,
+} from '../../../fixtures/client/death-certificates';
 
 storiesOf('Death/CertificateOptionsPage', module)
   .add('default (SSN unanswered)', () => (
@@ -38,6 +41,15 @@ storiesOf('Death/CertificateOptionsPage', module)
       initialCertificate={TYPICAL_CERTIFICATE}
       initialQuantity={2}
       seedIncludeSsn={true}
+    />
+  ))
+  .add('SSN unavailable (death before 1978)', () => (
+    <InteractiveDeathFlow
+      initialStep="options"
+      initialQuery="murphy"
+      initialResultCount={1}
+      initialCertificate={PRE_1978_CERTIFICATE}
+      initialQuantity={2}
     />
   ))
   .add('certificate missing', () => (

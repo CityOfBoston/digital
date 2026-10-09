@@ -23,8 +23,8 @@ storiesOf('Death/SearchPage', module)
   .add('with results — fewer than one page', () => (
     <InteractiveDeathFlow
       initialQuery="Jayn Doe"
-      initialResultCount={3}
-      defaultSearchResultCount={3}
+      initialResultCount={4}
+      defaultSearchResultCount={4}
     />
   ))
   .add('with results — page 1 of many', () => (

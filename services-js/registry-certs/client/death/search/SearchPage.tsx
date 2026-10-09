@@ -273,15 +273,27 @@ class SearchPage extends Component<Props, State> {
         </p>
         <p>
           <strong>Need the Social Security number on the certificate?</strong>
-          <br />
+        </p>
+        <p>
           Starting July 1, 2026, Social Security numbers will not appear on
-          Massachusetts death certificates unless the requester has an eligible
-          need. You will need to upload documents proving your identity and your
-          relationship to the decedent.{' '}
+          Massachusetts death certificates unless you have an eligible need.
+        </p>
+        <p>If you need the Social Security number, you’ll need to:</p>
+        <ul css={LANDING_LIST_STYLING}>
+          <li>Provide documents that verify your identity</li>
+          <li>
+            Provide documents that show your relationship to the person who died
+          </li>
+        </ul>
+        <p>
+          <strong>Before you begin: </strong>
           <a href={DEATH_SSN_DOCUMENTATION_URL}>
             Review the required documents
-          </a>{' '}
-          before you begin.
+          </a>
+        </p>
+        <p>
+          <strong>Important:</strong> Social Security numbers cannot be printed
+          on death certificates for deaths that occurred before January 1, 1978.
         </p>
       </div>
     );
@@ -571,6 +583,16 @@ const LANDING_NOTES_STYLING = css({
   a: {
     color: OPTIMISTIC_BLUE_DARK,
     textDecoration: 'underline',
+  },
+});
+
+const LANDING_LIST_STYLING = css({
+  margin: 0,
+  paddingLeft: '1.25rem',
+  listStyle: 'disc',
+
+  li: {
+    margin: 0,
   },
 });
 

@@ -21,6 +21,7 @@ import {
   FIXED_CC_STRING,
   SERVICE_FEE_URL,
 } from '../../../lib/costs';
+import { isDeathBeforeSsnCutoff } from '../../../lib/deathSsnNotice';
 
 import DeathCertificateCart from '../../store/DeathCertificateCart';
 import BirthCertificateRequest from '../../store/BirthCertificateRequest';
@@ -244,7 +245,11 @@ export default class ReviewContent extends React.Component<Props, State> {
                 </p>
                 <p>
                   <span className="death-order-item-label">SS Included: </span>
-                  {includeSsn === true ? 'Yes' : 'No'}
+                  {isDeathBeforeSsnCutoff(cert.deathDate, cert.deathYear)
+                    ? 'Not available'
+                    : includeSsn === true
+                      ? 'Yes'
+                      : 'No'}
                 </p>
                 <p>
                   <span className="death-order-item-label">Quantity: </span>

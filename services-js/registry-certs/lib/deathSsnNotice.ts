@@ -16,6 +16,60 @@ const EMAIL_LABEL_STYLE =
 export const DEATH_SSN_DOCUMENTATION_URL =
   'https://www.boston.gov/departments/registry/how-get-death-certificate#social-security-numbers';
 
+/**
+ * SSNs cannot be printed on death certificates for deaths before this date
+ * (exclusive of January 1, 1978 itself).
+ */
+export const DEATH_SSN_CUTOFF = {
+  year: 1978,
+  month: 1,
+  day: 1,
+} as const;
+
+export const DEATH_SSN_UNAVAILABLE_COPY =
+  'Social Security numbers cannot be printed on death certificates for deaths that occurred before January 1, 1978.';
+
+export const DEATH_SSN_PRE_1978_RECORD_NOTE =
+  'This record is from before January 1, 1978.';
+
+const DEATH_DATE_REGEXP = /^\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*$/;
+const DEATH_YEAR_REGEXP = /^\s*(\d{4})\s*$/;
+
+/**
+ * True when the decedent’s date of death is before January 1, 1978.
+ * Prefers a full `deathDate` (M/D/YYYY); falls back to a 4-digit `deathYear`
+ * (year < 1978). Returns false when the date cannot be determined.
+ */
+export function isDeathBeforeSsnCutoff(
+  deathDate: string | null | undefined,
+  deathYear?: string | null
+): boolean {
+  if (deathDate) {
+    const match = deathDate.match(DEATH_DATE_REGEXP);
+    if (match) {
+      const month = parseInt(match[1], 10);
+      const day = parseInt(match[2], 10);
+      const year = parseInt(match[3], 10);
+      const deathUtc = Date.UTC(year, month - 1, day);
+      const cutoffUtc = Date.UTC(
+        DEATH_SSN_CUTOFF.year,
+        DEATH_SSN_CUTOFF.month - 1,
+        DEATH_SSN_CUTOFF.day
+      );
+      return deathUtc < cutoffUtc;
+    }
+  }
+
+  if (deathYear) {
+    const yearMatch = deathYear.match(DEATH_YEAR_REGEXP);
+    if (yearMatch) {
+      return parseInt(yearMatch[1], 10) < DEATH_SSN_CUTOFF.year;
+    }
+  }
+
+  return false;
+}
+
 /** @deprecated Prefer death receipt footer sections below. */
 export const DEATH_SSN_NOTICE_HEADING =
   'Social Security numbers:';
