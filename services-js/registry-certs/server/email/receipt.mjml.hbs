@@ -109,5 +109,13 @@
         </mj-column>
       </mj-section>
     </mj-wrapper>
+
+    {{#if afterWrapperHtml}}
+      <mj-section padding="16px 0 0">
+        <mj-column>
+          <mj-text padding="0" line-height="1.2" font-size="16px">{{{afterWrapperHtml}}}</mj-text>
+        </mj-column>
+      </mj-section>
+    {{/if}}
   {{/layout}}
 {{/with}}

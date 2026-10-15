@@ -29,6 +29,22 @@ export const DEATH_SSN_CUTOFF = {
 export const DEATH_SSN_UNAVAILABLE_COPY =
   'Social Security numbers cannot be printed on death certificates for deaths that occurred before January 1, 1978.';
 
+/** Certificate options (pre-1978) heading and body. */
+export const DEATH_SSN_UNAVAILABLE_TITLE =
+  'Social Security number not available';
+
+export const DEATH_SSN_UNAVAILABLE_OPTIONS_COPY =
+  'Death certificates for deaths that occurred before January 1, 1978, do not include a Social Security number (SSN).';
+
+export const DEATH_SSN_UNAVAILABLE_VALIDITY_COPY =
+  'All death certificates issued by the City of Boston Registry are valid legal documents, even if they do not include an SSN.';
+
+export const DEATH_SSN_UNAVAILABLE_LEARN_MORE_LINK_TEXT =
+  'Social Security numbers on death certificates';
+
+export const DEATH_SSN_UNAVAILABLE_ACK_LABEL =
+  'I understand that my certificate will not include a Social Security number.';
+
 export const DEATH_SSN_PRE_1978_RECORD_NOTE =
   'This record is from before January 1, 1978.';
 
@@ -128,10 +144,16 @@ export const DEATH_FEEDBACK_BODY =
 
 export const DEATH_FEEDBACK_LINK_TEXT = 'Share your feedback';
 
+/** Feedback link colors (Figma): default / hover / pressed. */
+export const DEATH_FEEDBACK_LINK_COLOR = '#145B99';
+export const DEATH_FEEDBACK_LINK_HOVER_COLOR = '#0F4575';
+export const DEATH_FEEDBACK_LINK_ACTIVE_COLOR = '#0B3051';
+
 /** Email feedback callout background (Figma). */
 export const DEATH_FEEDBACK_EMAIL_BACKGROUND = '#E3F0FB';
 
 const DEATH_FEEDBACK_ICON_PATH = '/assets/images/death-sms.svg';
+const DEATH_FEEDBACK_LINK_CLASS = 'death-feedback-link';
 
 /** Absolute icon URL for HTML email (falls back to production host). */
 export function deathFeedbackIconUrl(
@@ -148,7 +170,16 @@ export function deathFeedbackIconUrl(
 export function deathFeedbackEmailHtml(
   iconUrl: string = deathFeedbackIconUrl()
 ): string {
+  // Inline color for clients that strip <style>; hover/active for those that keep it.
+  const linkStyle =
+    `color:${DEATH_FEEDBACK_LINK_COLOR};font-weight:700;text-decoration:underline;`;
+  const linkCss =
+    `.${DEATH_FEEDBACK_LINK_CLASS}{color:${DEATH_FEEDBACK_LINK_COLOR} !important;}` +
+    `.${DEATH_FEEDBACK_LINK_CLASS}:hover{color:${DEATH_FEEDBACK_LINK_HOVER_COLOR} !important;}` +
+    `.${DEATH_FEEDBACK_LINK_CLASS}:active{color:${DEATH_FEEDBACK_LINK_ACTIVE_COLOR} !important;}`;
+
   return (
+    `<style type="text/css">${linkCss}</style>` +
     `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:${DEATH_FEEDBACK_EMAIL_BACKGROUND};border-radius:4px;">` +
     `<tr>` +
     `<td style="padding:20px 12px 20px 20px;vertical-align:top;width:24px;">` +
@@ -158,7 +189,7 @@ export function deathFeedbackEmailHtml(
     // Montserrat in email/layout only loads 400 + 700 (no semibold/600).
     `<div style="font-weight:700;margin:0 0 4px;">${DEATH_FEEDBACK_TITLE}</div>` +
     `<div style="font-weight:400;margin:0 0 12px;">${DEATH_FEEDBACK_BODY}</div>` +
-    `<a href="${DEATH_FEEDBACK_FORM_URL}" target="_blank" rel="noopener noreferrer" style="color:#145b99;font-weight:700;text-decoration:underline;">${DEATH_FEEDBACK_LINK_TEXT}</a>` +
+    `<a class="${DEATH_FEEDBACK_LINK_CLASS}" href="${DEATH_FEEDBACK_FORM_URL}" target="_blank" rel="noopener noreferrer" style="${linkStyle}">${DEATH_FEEDBACK_LINK_TEXT}</a>` +
     `</td>` +
     `</tr>` +
     `</table>`
@@ -178,8 +209,6 @@ export function deathReceiptBelowOrderHtml(
   sections.push(
     `<strong style="${EMAIL_LABEL_STYLE}">Card service fee:</strong> ${CARD_SERVICE_FEE_BODY_BEFORE_LINK}<a href="${serviceFeeUri}" target="_blank" rel="noopener noreferrer" style="color:#1871bd;text-decoration:underline;">card service fees</a>${CARD_SERVICE_FEE_BODY_AFTER_LINK}`
   );
-
-  sections.push(deathFeedbackEmailHtml());
 
   return sections;
 }

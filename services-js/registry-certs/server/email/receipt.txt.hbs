@@ -35,5 +35,9 @@ If you paid for USPS Tracking® services, a Registry Clerk will follow up via em
 
 {{/wrap}}
 {{/unless}}
+{{#if afterWrapperHtml}}
+{{#wrap}}{{plainText afterWrapperHtml}}{{/wrap}}
+
+{{/if}}
 {{#wrap}}Have any questions? Contact the Registry on weekdays from 9 a.m. - 4 p.m. at 617-635-4175, or email {{registryEmail}}.{{/wrap}}
 {{/with}}

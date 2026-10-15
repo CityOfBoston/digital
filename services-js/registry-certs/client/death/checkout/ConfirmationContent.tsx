@@ -21,6 +21,9 @@ import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 import {
   DEATH_FEEDBACK_BODY,
   DEATH_FEEDBACK_FORM_URL,
+  DEATH_FEEDBACK_LINK_ACTIVE_COLOR,
+  DEATH_FEEDBACK_LINK_COLOR,
+  DEATH_FEEDBACK_LINK_HOVER_COLOR,
   DEATH_FEEDBACK_LINK_TEXT,
   DEATH_FEEDBACK_TITLE,
 } from '../../../lib/deathSsnNotice';
@@ -362,10 +365,15 @@ const FEEDBACK_LINK_STYLING = css({
   fontWeight: 700,
   fontSize: '1rem',
   lineHeight: 1.5,
-  color: '#145b99',
+  color: DEATH_FEEDBACK_LINK_COLOR,
   textDecoration: 'underline',
 
   '&:hover, &:focus': {
+    color: DEATH_FEEDBACK_LINK_HOVER_COLOR,
     textDecoration: 'none',
+  },
+
+  '&:active': {
+    color: DEATH_FEEDBACK_LINK_ACTIVE_COLOR,
   },
 });

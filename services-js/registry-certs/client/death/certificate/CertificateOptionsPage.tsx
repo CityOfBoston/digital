@@ -44,7 +44,7 @@ import {
   optionRequiresMultipleFiles,
   requiredDocumentHeading,
 } from '../../store/DeathCertificateCart';
-import { INFO_NOTICE_BANNER } from '../../common/components';
+import { INFO_NOTICE_BANNER, INFO_SVG } from '../../common/components';
 import DeathSelectField from './DeathSelectField';
 import DeathDocumentsUpload from './DeathDocumentsUpload';
 import DeathDuplicateIdentityOverlay, {
@@ -54,7 +54,11 @@ import DeathDuplicateIdentityOverlay, {
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
 import {
   DEATH_SSN_DOCUMENTATION_URL,
-  DEATH_SSN_UNAVAILABLE_COPY,
+  DEATH_SSN_UNAVAILABLE_ACK_LABEL,
+  DEATH_SSN_UNAVAILABLE_LEARN_MORE_LINK_TEXT,
+  DEATH_SSN_UNAVAILABLE_OPTIONS_COPY,
+  DEATH_SSN_UNAVAILABLE_TITLE,
+  DEATH_SSN_UNAVAILABLE_VALIDITY_COPY,
   isDeathBeforeSsnCutoff,
 } from '../../../lib/deathSsnNotice';
 import {
@@ -848,9 +852,24 @@ export default class CertificateOptionsPage extends Component<Props> {
       <div css={FORM_STYLING}>
         <div css={SSN_UNAVAILABLE_INTRO_STYLING}>
           <p css={SSN_UNAVAILABLE_TITLE_STYLING}>
-            Social Security number is not available for this record
+            {DEATH_SSN_UNAVAILABLE_TITLE}
           </p>
-          <p>{DEATH_SSN_UNAVAILABLE_COPY}</p>
+          <p>{DEATH_SSN_UNAVAILABLE_OPTIONS_COPY}</p>
+        </div>
+
+        <div css={SSN_UNAVAILABLE_ALERT_STYLING} role="status">
+          <INFO_SVG />
+          <div css={SSN_UNAVAILABLE_ALERT_COPY_STYLING}>
+            <p>{DEATH_SSN_UNAVAILABLE_VALIDITY_COPY}</p>
+            <a
+              href={DEATH_SSN_DOCUMENTATION_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              css={SSN_UNAVAILABLE_ALERT_LINK_STYLING}
+            >
+              {DEATH_SSN_UNAVAILABLE_LEARN_MORE_LINK_TEXT}
+            </a>
+          </div>
         </div>
 
         <div
@@ -881,8 +900,7 @@ export default class CertificateOptionsPage extends Component<Props> {
               onChange={this.handleSsnUnavailableAcknowledgeChange}
             />
             <span className="cb-l" css={SSN_UNAVAILABLE_CHECKBOX_TEXT_STYLING}>
-              I understand that the Social Security number will not be included
-              on this certificate.
+              {DEATH_SSN_UNAVAILABLE_ACK_LABEL}
             </span>
           </label>
           {this.fieldError === 'ssnUnavailableAcknowledged' && (
@@ -1231,21 +1249,57 @@ const SSN_UNAVAILABLE_INTRO_STYLING = css({
   color: '#000000',
 
   p: {
-    margin: '0 0 1rem',
+    margin: 0,
     color: '#000000',
-  },
-
-  'p:last-child': {
-    marginBottom: 0,
   },
 });
 
 const SSN_UNAVAILABLE_TITLE_STYLING = css({
+  margin: '0 0 0.5rem',
   fontFamily: SERIF,
   fontWeight: 700,
   fontSize: '1rem',
   lineHeight: 1.5,
   color: '#000000',
+});
+
+/** Figma alert: Surface/info-weak (#E3F0FB), padding 20, gap 12, radius 4. */
+const SSN_UNAVAILABLE_ALERT_STYLING = css({
+  display: 'flex',
+  alignItems: 'flex-start',
+  gap: '12px',
+  boxSizing: 'border-box',
+  width: '100%',
+  margin: 0,
+  padding: '20px',
+  background: '#E3F0FB',
+  borderRadius: '4px',
+});
+
+const SSN_UNAVAILABLE_ALERT_COPY_STYLING = css({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4px',
+  flex: 1,
+  minWidth: 0,
+  fontFamily: SANS,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  color: '#000000',
+
+  p: {
+    margin: 0,
+  },
+});
+
+const SSN_UNAVAILABLE_ALERT_LINK_STYLING = css({
+  // Montserrat only ships 400 + 700 in this app (no 600).
+  fontFamily: SANS,
+  fontWeight: 700,
+  fontSize: '1rem',
+  lineHeight: 1.5,
+  color: OPTIMISTIC_BLUE_DARK,
+  textDecoration: 'underline',
 });
 
 const SSN_UNAVAILABLE_CHECKBOX_WRAP_STYLING = css({
@@ -1262,9 +1316,9 @@ const SSN_UNAVAILABLE_LABEL_STYLING = css({
 
 const SSN_UNAVAILABLE_CHECKBOX_TEXT_STYLING = css({
   fontFamily: SERIF,
-  fontSize: '1.125rem',
+  fontSize: '1rem',
   fontWeight: 400,
-  lineHeight: 1.4,
+  lineHeight: 1.5,
   color: CHARLES_BLUE,
   whiteSpace: 'normal',
 });

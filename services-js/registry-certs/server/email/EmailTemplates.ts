@@ -7,7 +7,10 @@ import mjml2html from 'mjml';
 import moment from 'moment-timezone';
 
 import { capitalize } from '../../lib/helpers';
-import { deathReceiptBelowOrderHtml } from '../../lib/deathSsnNotice';
+import {
+  deathFeedbackEmailHtml,
+  deathReceiptBelowOrderHtml,
+} from '../../lib/deathSsnNotice';
 
 import { PACKAGE_SRC_ROOT } from '../util';
 
@@ -81,6 +84,11 @@ type ReceiptTemplateData = {
 
   aboveOrderText?: string[];
   belowOrderText?: string[];
+  /**
+   * Raw HTML rendered after the bordered receipt card (before seal footer).
+   * Used for the death feedback callout.
+   */
+  afterWrapperHtml?: string;
   certifiedMail?: boolean;
   /** When true, hide the legacy “* You are charged an extra service fee…” footer. */
   omitLegacyServiceFeeNote?: boolean;
@@ -140,6 +148,8 @@ export class EmailTemplates {
         total: receipt.total,
 
         belowOrderText: deathReceiptBelowOrderHtml(receipt.serviceFeeUri),
+        // Outside the bordered receipt card, above the seal footer.
+        afterWrapperHtml: deathFeedbackEmailHtml(),
         omitLegacyServiceFeeNote: true,
       },
       `City of Boston Death Certificates Order #${receipt.orderId}`

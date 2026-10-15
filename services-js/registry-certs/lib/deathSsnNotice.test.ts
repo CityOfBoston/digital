@@ -6,6 +6,9 @@ import {
   deathReceiptBelowOrderHtml,
   DEATH_FEEDBACK_FORM_URL,
   DEATH_FEEDBACK_EMAIL_BACKGROUND,
+  DEATH_FEEDBACK_LINK_COLOR,
+  DEATH_FEEDBACK_LINK_HOVER_COLOR,
+  DEATH_FEEDBACK_LINK_ACTIVE_COLOR,
 } from './deathSsnNotice';
 
 describe('isDeathBeforeSsnCutoff', () => {
@@ -56,7 +59,7 @@ describe('death feedback helpers', () => {
     );
   });
 
-  it('includes the feedback callout in receipt email HTML', () => {
+  it('builds the feedback callout HTML separately from in-box footer copy', () => {
     const html = deathFeedbackEmailHtml(
       'https://example.com/assets/images/death-sms.svg'
     );
@@ -64,8 +67,12 @@ describe('death feedback helpers', () => {
     expect(html).toContain(DEATH_FEEDBACK_FORM_URL);
     expect(html).toContain('Help us improve this service');
     expect(html).toContain('Share your feedback');
+    expect(html).toContain(DEATH_FEEDBACK_LINK_COLOR);
+    expect(html).toContain(DEATH_FEEDBACK_LINK_HOVER_COLOR);
+    expect(html).toContain(DEATH_FEEDBACK_LINK_ACTIVE_COLOR);
 
+    // Feedback is rendered outside the receipt card, not in belowOrderText.
     const sections = deathReceiptBelowOrderHtml();
-    expect(sections[sections.length - 1]).toContain(DEATH_FEEDBACK_FORM_URL);
+    expect(sections.join('\n')).not.toContain(DEATH_FEEDBACK_FORM_URL);
   });
 });

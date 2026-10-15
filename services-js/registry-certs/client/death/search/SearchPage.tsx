@@ -22,7 +22,10 @@ import { PageDependencies, GetInitialProps } from '../../../pages/_app';
 import PageLayout from '../../PageLayout';
 
 import { BREADCRUMB_NAV_LINKS } from '../../../lib/breadcrumbs';
-import { DEATH_SSN_DOCUMENTATION_URL } from '../../../lib/deathSsnNotice';
+import {
+  DEATH_SSN_DOCUMENTATION_URL,
+  DEATH_SSN_UNAVAILABLE_COPY,
+} from '../../../lib/deathSsnNotice';
 
 import Pagination from '../../common/Pagination';
 
@@ -287,13 +290,34 @@ class SearchPage extends Component<Props, State> {
         </ul>
         <p>
           <strong>Before you begin: </strong>
-          <a href={DEATH_SSN_DOCUMENTATION_URL}>
+          <a
+            href={DEATH_SSN_DOCUMENTATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Review the required documents
           </a>
         </p>
         <p>
-          <strong>Important:</strong> Social Security numbers cannot be printed
-          on death certificates for deaths that occurred before January 1, 1978.
+          <strong>Deaths before January 1, 1978</strong>
+        </p>
+        <p>{DEATH_SSN_UNAVAILABLE_COPY}</p>
+        <p>
+          <strong>
+            All death certificates issued by the City of Boston Registry are
+            valid, even if the Social Security number is not included.
+          </strong>
+        </p>
+        <p>
+          Learn more about{' '}
+          <a
+            href={DEATH_SSN_DOCUMENTATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            death certificates and Social Security numbers
+          </a>
+          .
         </p>
       </div>
     );
@@ -587,12 +611,22 @@ const LANDING_NOTES_STYLING = css({
 });
 
 const LANDING_LIST_STYLING = css({
+  // Boston.gov base CSS resets list markers — draw bullets ourselves.
   margin: 0,
-  paddingLeft: '1.25rem',
-  listStyle: 'disc',
+  paddingLeft: 0,
+  listStyle: 'none',
 
   li: {
+    position: 'relative',
     margin: 0,
+    paddingLeft: '1rem',
+
+    '&::before': {
+      content: '"•"',
+      position: 'absolute',
+      left: 0,
+      color: CHARLES_BLUE,
+    },
   },
 });
 
